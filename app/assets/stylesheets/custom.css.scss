@@ -43,17 +43,22 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
   margin: 0px;
+  letter-spacing: 0.3px;
 }
 
 h1 {
   font-size: 1.7em;
-  letter-spacing: -0.5px;
   color: #223164;
 }
 
 h2 {
+  font-size: 1.5em;
+  color: black;
+}
+
+h3 {
   font-size: 1.2em;
-  font-weight: normal;
+  font-weight: lighter;
   color: gray;
 }
 
@@ -91,10 +96,36 @@ p {
 /* navigation */
 
 .navbar {
+  display: block;
+  float: right;
   background-color: #ffffff;
   border-bottom: 1px solid lightgray;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
   color: #223164;
+}
+
+.nav-add {
+  height: 30px;
+  width: 30px;
+  margin: 10px 10px;
+}
+
+/* Day */
+
+.day {
+}
+
+.day-label {
+  margin-bottom: 10px;
+}
+
+.day-descriptor {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.day-date {
+  display: inline-block;
 }

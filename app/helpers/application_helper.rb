@@ -2,11 +2,11 @@ module ApplicationHelper
 
   # Returns the full title on a per-page basis.
   def full_title(page_title = '')
-    base_title = "Seeder"
+    base_title = "Track Sense"
     if page_title.empty?
       base_title
     else
-      "#{page_title} | #{base_title}"
+      "#{page_title}"
     end
   end
 
