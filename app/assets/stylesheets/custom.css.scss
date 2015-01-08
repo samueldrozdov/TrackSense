@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 100px;
   background-color:#ffffff;
 }
 
@@ -42,21 +42,19 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+  margin: 0px;
 }
 
 h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
+  font-size: 1.7em;
+  letter-spacing: -0.5px;
+  color: #223164;
 }
 
 h2 {
   font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
   font-weight: normal;
+  color: gray;
 }
 
 p {
@@ -65,6 +63,32 @@ p {
 }
 
 /* header */
+
+.header {
+  padding: 10px 20px;
+  margin: 0px auto;
+}
+
+.brand {
+  display: inline-block;
+  float: left;
+  margin-top: 5px;
+}
+
+.brand-image {
+  height: 40px;
+  width: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.brand-title {
+  text-align: left;
+  text-decoration: none;
+  width: 300px;
+}
+
+/* navigation */
 
 .navbar {
   background-color: #ffffff;
