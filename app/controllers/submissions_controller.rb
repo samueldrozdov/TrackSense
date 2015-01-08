@@ -1,13 +1,12 @@
 class SubmissionsController < ApplicationController
-  def new
-  end
 
   def create
   end
 
-  def index
+  def destroy
   end
 
   def show
   end
+
 end
