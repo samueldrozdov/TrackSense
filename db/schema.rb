@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150108213703) do
+ActiveRecord::Schema.define(version: 20150108220147) do
+
+  create_table "submissions", force: :cascade do |t|
+    t.string   "external_link"
+    t.string   "artist"
+    t.float    "score"
+    t.integer  "track_length"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
