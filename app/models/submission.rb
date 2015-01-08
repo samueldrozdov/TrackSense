@@ -9,5 +9,5 @@ class Submission < ActiveRecord::Base
   validates :user_id, presence: true
   validates :artist, presence: true
   validates :track_length, presence: true
-  validates :external_link, presence: true, format: { with: VALID_URL_REGEX }
+  validates :external_link, presence: true, uniqueness: { case_sensitive:true }, format: { with: VALID_URL_REGEX }
 end
