@@ -1,32 +1,39 @@
-<%= form_for(:user) do |f| %>
+
 
 <div class="col-md-12 login-wrapper">
   <div class="col-md-6 login-column">
-    <div class="form-wrapper">
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+    <%= form_for(User.new) do |f| %>
+      <div class="form-wrapper">
+        <%= f.label :name %>
+        <%= f.text_field :username, class: 'form-control' %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email, class: 'form-control' %>
+        <%= f.label :email %>
+        <%= f.text_field :email, class: 'form-control' %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-    </div>
-    <%= f.submit "Create my account", class: "btn btn-primary" %>
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+      <%= f.submit "Create new account", class: "btn btn-primary" %>
+    <% end %>
   </div>
-  <div class="col-md-6 popup-column">
-    <div class="form-wrapper">
-      <%= f.label :email %>
-      <%= f.text_field :email, class: 'form-control' %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-    </div>
-    <%= f.submit "Sign in", class: "btn btn-primary" %>
+  <div class="col-md-6 popup-column">
+    <%= form_for(:session) do |f| %>
+
+      <div class="form-wrapper">
+        <%= f.label :email %>
+        <%= f.text_field :email, class: 'form-control' %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+
+      <%= f.submit "Sign in", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
 
-<% end %>
+
