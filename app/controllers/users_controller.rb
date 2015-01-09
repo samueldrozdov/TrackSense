@@ -19,9 +19,17 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render edit
+    end
   end
 
   def show
+    @user = User.find(params[:id])
+    # add query for user's posts and likes later
   end
 
   private
