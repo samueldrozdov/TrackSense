@@ -10,11 +10,15 @@ class UsersController < ApplicationController
       log_in @user
       redirect_to @user
     else
-
+      flash[:danger] = "Invalid signup"
+      render 'new'
     end
   end
 
-  def index
+  def edit
+  end
+
+  def update
   end
 
   def show
