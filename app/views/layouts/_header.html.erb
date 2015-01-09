@@ -14,14 +14,14 @@
         <li class=""><%= link_to "Profile", '#login-form', class: 'fancybox' %></li>
         <li class=""><%= image_tag("TSAdd.png", class: 'nav-add') %></li>
       </ul>
-
-      <!-- This probably does not belong here -->
-      <div style="display:none;">
-        <div id="login-form">
-          <%= render 'shared/popover_login_form' %>
-        </div>
-      </div>
-
     </nav>
+
+    <!-- Popup - This probably does not belong here -->
+    <div style="display:none;">
+      <div id="login-form">
+        <%= render 'shared/popover_login_form' %>
+      </div>
+    </div>
+
   </div>
 </header>
