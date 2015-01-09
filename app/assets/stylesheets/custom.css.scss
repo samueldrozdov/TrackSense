@@ -93,7 +93,7 @@ p {
   width: 300px;
 }
 
-/* navigation */
+/* Navigation */
 
 .navbar {
   display: block;
@@ -110,6 +110,33 @@ p {
   height: 30px;
   width: 30px;
   margin: 10px 10px;
+}
+
+/* Forms */
+
+.login-wrapper {
+  background-color: #fafafa;
+  padding: 10px;
+}
+
+.login-column {
+
+}
+
+.form-wrapper {
+  padding: 30px;
+  margin: 10px;
+  border: 2px solid gray;
+  border-radius: 6px;
+}
+
+.form-wrapper input{
+  background-color: white;
+  color: white;
+}
+
+.btn-primary {
+  width: 100%;
 }
 
 /* Day */
