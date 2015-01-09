@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require fancybox
 
 (function(){
   var widgetIframe = document.getElementById('sc-widget'),
@@ -36,3 +37,7 @@
   });
 
 }());
+
+$(document).ready(function() {
+  $("a.fancybox").fancybox();
+});
