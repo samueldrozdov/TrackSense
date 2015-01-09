@@ -129,6 +129,10 @@ p {
   -moz-transform:scale(0.9,0.9);
 }
 
+.fancybox {
+  padding: 0px;
+}
+
 /* Forms */
 
 .login-wrapper {
@@ -149,7 +153,7 @@ p {
 
 .form-wrapper input{
   background-color: white;
-  color: white;
+  color: black;
 }
 
 .btn-primary {

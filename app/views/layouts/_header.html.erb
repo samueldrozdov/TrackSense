@@ -24,9 +24,9 @@
         </li>
         <li class=""><%= link_to "Profile", '#login-form', class: 'fancybox' %></li>
         <li class="">
-          <button>
-            <%= image_tag("TSAdd.png", class: 'nav-add') %>
-          </button>
+          <a class="fancybox" href="#submission-form" style="padding:0px;">
+              <%= image_tag("TSAdd.png", class: 'nav-add') %>
+          </a>
         </li>
       </ul>
 
@@ -34,6 +34,11 @@
       <div style="display:none;">
         <div id="login-form">
           <%= render 'shared/popover_login_form' %>
+        </div>
+      </div>
+      <div style="display:none;">
+        <div id="submission-form">
+          <%= render 'shared/popover_submission_form' %>
         </div>
       </div>
     </nav>

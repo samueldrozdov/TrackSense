@@ -1,0 +1,9 @@
+<div class="col-md-12 submission-wrapper">
+  <%= form_for(:submission) do |f| %>
+  <div class="form-wrapper">
+    <%= f.label :link %>
+    <%= f.text_field :username, class: 'form-control' %>
+  </div>
+  <%= f.submit "Submit Song", class: "btn btn-primary" %>
+  <% end %>
+</div>

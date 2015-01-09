@@ -18,5 +18,7 @@
 //= require bootstrap
 
 $(document).ready(function() {
-  $("a.fancybox").fancybox();
+  $("a.fancybox").fancybox({
+    css: { 'padding' : '0px' }
+  });
 });
