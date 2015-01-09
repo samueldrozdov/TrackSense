@@ -1,27 +1,42 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container header">
-    <a class="brand">
-      <%= image_tag("TSLogo.png", class: 'brand-image') %>
-      <div class="brand-title">
-        <h1>Track Sense</h1>
-        <h3>Music to your brain, every day</h3>
+    <%= link_to root_path do %>
+      <div class="brand">
+        <%= image_tag("TSLogo.png", class: 'brand-image') %>
+        <div class="brand-title">
+          <h1>Track Sense</h1>
+          <h3>Music to your brain, every day</h3>
+        </div>
       </div>
-    </a>
+    <% end %>
 
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li class=""><%= image_tag("TSMore.png", class: 'nav-add') %></li>
+        <li class="">
+          <button data-toggle="dropdown" aria-expanded="false">
+            <%= image_tag("TSMore.png", class: 'nav-more') %>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">About</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Leave a Suggestion</a></li>
+          </ul>
+        </li>
         <li class=""><%= link_to "Profile", '#login-form', class: 'fancybox' %></li>
-        <li class=""><%= image_tag("TSAdd.png", class: 'nav-add') %></li>
+        <li class="">
+          <button>
+            <%= image_tag("TSAdd.png", class: 'nav-add') %>
+          </button>
+        </li>
       </ul>
-    </nav>
 
-    <!-- Popup - This probably does not belong here -->
-    <div style="display:none;">
-      <div id="login-form">
-        <%= render 'shared/popover_login_form' %>
+      <!-- Popup - This probably does not belong here -->
+      <div style="display:none;">
+        <div id="login-form">
+          <%= render 'shared/popover_login_form' %>
+        </div>
       </div>
-    </div>
+    </nav>
 
   </div>
 </header>

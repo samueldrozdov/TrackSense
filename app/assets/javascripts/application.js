@@ -15,10 +15,15 @@
 //= require turbolinks
 //= require_tree .
 //= require fancybox
+//= require bootstrap
+
+$(document).ready(function() {
+  $("a.fancybox").fancybox();
+});
 
 (function(){
   var widgetIframe = document.getElementById('sc-widget'),
-  widget       = SC.Widget(widgetIframe);
+  widget           = SC.Widget(widgetIframe);
 
   widget.bind(SC.Widget.Events.READY, function() {
     widget.bind(SC.Widget.Events.PLAY, function() {
@@ -35,9 +40,4 @@
     widget.setVolume(50);
     // get the value of the current position
   });
-
-}());
-
-$(document).ready(function() {
-  $("a.fancybox").fancybox();
-});
+})();
