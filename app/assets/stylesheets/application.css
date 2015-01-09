@@ -14,3 +14,9 @@
  *= require_self
  *= require fancybox
  */
+
+#sc-widget{
+  position:fixed;
+  left:70%;
+  bottom:0px;
+}
