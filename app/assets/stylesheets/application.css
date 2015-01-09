@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+#sc-widget{
+  position:fixed;
+  left:70%;
+  bottom:0px;
+}
