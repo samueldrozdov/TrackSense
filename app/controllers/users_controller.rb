@@ -6,12 +6,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.is_admin = false
     if @user.save
-      log_in @user
+      # uncomment this after implementing sessions\
+      # log_in @user
       redirect_to @user
     else
       flash[:danger] = "Invalid signup"
-      render 'new'
+      redirect_to root_url
     end
   end
 
@@ -35,7 +37,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password,
+      params.require(:user).permit(:username, :email, :password,
       :password_confirmation)
     end
 end
