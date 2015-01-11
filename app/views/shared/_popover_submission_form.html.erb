@@ -1,9 +1,9 @@
 <div class="col-md-12 submission-wrapper">
   <h2>Create a submission</h2>
-  <%= form_for(:submission) do |f| %>
+  <%= form_for(Submission.new) do |f| %>
   <div class="form-wrapper">
     <%= f.label :link, hidden: true %>
-    <%= f.text_field :username, class: 'form-control', :placeholder => "Soundcloud URL"  %>
+    <%= f.text_field :external_link, class: 'form-control', :placeholder => "Soundcloud URL"  %>
 
     <%= f.submit "Submit Song", class: "btn btn-primary" %>
   </div>
