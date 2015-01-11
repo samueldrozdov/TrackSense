@@ -8,8 +8,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.is_admin = false
     if @user.save
-      # uncomment this after implementing sessions\
-      # log_in @user
+      log_in @user
+      flash[:success] = "Welcome to Track Sense!"
       redirect_to @user
     else
       flash[:danger] = "Invalid signup"

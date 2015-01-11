@@ -106,13 +106,24 @@ p {
   float: right;
   background-color: #ffffff;
   border-bottom: 1px solid lightgray;
+  vertical-align:middle;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
   color: #223164;
 }
 
+.nav-item {
+
+}
+
 .nav-more {
+  height: 30px;
+  width: 30px;
+  margin: 10px 10px;
+}
+
+.nav-user {
   height: 30px;
   width: 30px;
   margin: 10px 10px;

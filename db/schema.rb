@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150109000129) do
+ActiveRecord::Schema.define(version: 20150111222840) do
 
   create_table "genres", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150109000129) do
     t.boolean  "is_admin"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "remember_digest"
   end
 
   create_table "votes", force: :cascade do |t|
