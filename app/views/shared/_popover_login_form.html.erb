@@ -1,35 +1,44 @@
 <div class="col-md-12 login-wrapper">
   <div class="col-md-6 login-column">
+    <h2>Join the community</h2>
     <%= form_for(User.new) do |f| %>
       <div class="form-wrapper">
-        <%= f.label :name %>
-        <%= f.text_field :username, class: 'form-control' %>
+        <%= f.label :name, hidden: true %>
+        <%= f.text_field :username, class: 'form-control', :placeholder => "Username" %>
 
-        <%= f.label :email %>
-        <%= f.text_field :email, class: 'form-control' %>
+        <%= f.label :email, hidden: true %>
+        <%= f.text_field :email, class: 'form-control', :placeholder => "Email" %>
 
-        <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control' %>
+        <%= f.label :password, hidden: true %>
+        <%= f.password_field :password, class: 'form-control', :placeholder => "Password" %>
 
-        <%= f.label :password_confirmation, "Confirmation" %>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
+        <%= f.label :password_confirmation, hidden: true %>
+        <%= f.password_field :password_confirmation, class: 'form-control', :placeholder => "Confirmation" %>
+
+        <%= f.submit "Create new account", class: "btn btn-primary" %>
+        
       </div>
-      <%= f.submit "Create new account", class: "btn btn-primary" %>
+
     <% end %>
   </div>
 
   <div class="col-md-6 popup-column">
+    <h2>Sign in</h2>
     <%= form_for(:session) do |f| %>
-
       <div class="form-wrapper">
-        <%= f.label :email %>
-        <%= f.text_field :email, class: 'form-control' %>
+        <%= f.label :email, hidden: true %>
+        <%= f.text_field :email, class: 'form-control', :placeholder => "Email" %>
 
-        <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control' %>
+        <%= f.label :password, hidden: true %>
+        <%= f.password_field :password, class: 'form-control', :placeholder => "Password"  %>
+
+        <%= f.submit "Sign in", class: "btn btn-primary" %>
       </div>
-
-      <%= f.submit "Sign in", class: "btn btn-primary" %>
     <% end %>
+
+    <div class="login-btns-wrapper">
+      <button class="twitter-login-btn" type="submit">Sign in with Twitter</button>
+    </div>
+
   </div>
 </div>
