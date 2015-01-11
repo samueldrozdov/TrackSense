@@ -233,3 +233,67 @@ p {
 .profile-name {
     padding-top: 20px;
 }
+
+/* Submission */
+
+.submission-wrapper {
+  padding: 10px 0px;
+  border-bottom: 1px solid black;
+  vertical-align: center;
+}
+
+.submission-wrapper:hover {
+  background-color: rgba(34, 49, 100, 0.1);;
+}
+
+.like-button {
+  background-color: lightgray;
+  color: black;
+  border-radius: 5px;
+  border-bottom: 1px solid black;
+  display: inline-block;
+  padding: 3px 9px;
+  margin: 0px 5px;
+}
+
+.like-button:hover {
+  color: green;
+}
+
+.submission-info {
+  display: inline-block;
+}
+
+.song-name {
+  display: inline-block;
+}
+
+.song-artist {
+  display: inline-block;
+  color: gray;
+}
+
+.submission-detail {
+  padding-top: 1px;
+}
+
+.right-margin-wrapper {
+  display: inline-block;
+  float: right;
+  height: 100%;
+}
+
+.song-time {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.song-play-btn {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0px 10px;
+}
+
+.song-play-btn:hover {
+  color: green;
+}
