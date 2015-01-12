@@ -1,5 +1,3 @@
 <div class="feed-wrapper">
-  <% Submission.all.each do |submission| %>
-    <%= render submission %>
-  <% end %>
+  <%= render Submission.all %>
 </div>

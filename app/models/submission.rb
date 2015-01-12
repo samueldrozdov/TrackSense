@@ -14,4 +14,17 @@ class Submission < ActiveRecord::Base
                                                  case_sensitive: true, 
                                                  message: "This song has already been posted." }
   # remember to handle song non-uniqueness later by upvoting the post that already exists.
+
+  # helper methods
+
+  def Submission.update_all_likes
+    # avoid calling this if possible, it's an N+1 query / slow
+    Submission.all.each do |submission|
+      submission.update_score
+    end
+  end
+
+  def update_likes
+    self.score = self.submissions.count
+  end
 end

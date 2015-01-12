@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111232359) do
+ActiveRecord::Schema.define(version: 20150112222742) do
 
   create_table "genres", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150111232359) do
     t.datetime "updated_at",    null: false
     t.string   "name"
     t.integer  "user_id"
+    t.integer  "likes"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,15 +36,18 @@ ActiveRecord::Schema.define(version: 20150111232359) do
     t.string   "username"
     t.string   "password_digest"
     t.float    "reputation"
-    t.boolean  "is_admin"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.boolean  "is_admin",        default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "remember_digest"
   end
 
   create_table "votes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "user_id"
   end
 
 end

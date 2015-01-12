@@ -1,9 +1,8 @@
 <div class="submission-wrapper">
   <div class="like-button">
-    <div class="glyphicon glyphicon-ok">
-    </div>
-    <div class="vote-count">
-      <%= submission.score %>
+    <%= render Vote.new(votable_id: submission.id, votable_type: :submission) %>
+    <div class="vote-count" id="submission-<%= submission.id %>-likes">
+      <%= submission.likes %>
     </div>
   </div>
   <div class="submission-info">
