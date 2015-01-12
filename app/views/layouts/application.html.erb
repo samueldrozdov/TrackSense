@@ -16,6 +16,29 @@
       <%= yield %>
       <%= debug(params) if Rails.env.development? %>
     </div>
+
     <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/users/1539950/favorites" width="25%" height="50" scrolling="no" frameborder="no"></iframe>
+
+    <div class="music-player">
+      <div class="current-song">
+        <div class="current-song-image"></div>
+        <div class="current-song-like">
+          <div class="like-button">
+            <div class="glyphicon glyphicon-ok">
+            </div>
+            <div class="vote-count">
+              19
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="player-button-wrapper">
+        <span class="player-button glyphicon glyphicon-step-backward"></span>
+        <span class="player-button glyphicon glyphicon-play"></span>
+        <span class="player-button glyphicon glyphicon-step-forward"></span>
+        <span class="player-button player-share glyphicon glyphicon-share-alt"></span>
+      </div>
+    </div>
+
   </body>
 </html>
