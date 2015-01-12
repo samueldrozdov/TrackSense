@@ -1,4 +1,26 @@
-<p><%= submission.external_link %></p>
-<% if submission.user_id == current_user.id %>
-  <%= link_to "delete", submission, method: :delete, data: { confirm: "Are you sure?" }
-<% end %>
+<div class="submission-wrapper">
+  <div class="like-button">
+    <div class="glyphicon glyphicon-ok">
+    </div>
+    <div class="vote-count">
+      <%= submission.score %>
+    </div>
+  </div>
+  <div class="submission-info">
+    <h2 class="song-name"> <%= submission.external_link %> </h2>
+    <h3 class="song-artist"> <%= submission.artist %> <h3>
+    <div class="submission-detail">
+      <h6> Posted by <%= submission.user_id %> in Happy Rap
+        <% if submission.user_id == current_user.id %>
+          <%= link_to "delete", submission, method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
+      </h6>
+    </div>
+  </div>
+  <div class="right-margin-wrapper">
+    <div class="song-time">
+      <h3><%= submission.track_length %></h3>
+    </div>
+    <div class="song-play-btn glyphicon glyphicon-play"></div>
+  </div>
+</div>

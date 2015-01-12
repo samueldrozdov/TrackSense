@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+sam = User.create!(username: 'sam', email: 'sam@example.com', password: 'password', password_confirmation: 'password')
+
+sam.submissions.build(external_link: 'https://soundcloud.com/odesza/sia-big-girls-cry-odesza-remix',
+                      artist: 'ODESZA',
+                      score: 0,
+                      track_length: 266).save
