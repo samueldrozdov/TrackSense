@@ -11,7 +11,7 @@
     <h3 class="song-artist"> <%= submission.artist %> <h3>
     <div class="submission-detail">
       <h6> Posted by <%= submission.user_id %> in Happy Rap
-        <% if submission.user_id == current_user.id %>
+        <% if logged_in? && submission.user_id == current_user.id %>
           <%= link_to "delete", submission, method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
       </h6>
