@@ -13,4 +13,5 @@ sam.submissions.build(external_link: 'https://soundcloud.com/odesza/sia-big-girl
                       name: "Big Girls Cry (ODESZA remix)",
                       artist: 'ODESZA',
                       score: 0,
+                      name: 'Bitches be cryin',
                       track_length: 266).save
