@@ -1,6 +1,6 @@
 class Vote < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :votable, polymorphic: true
+  belongs_to :user, dependent: :destroy
+  belongs_to :votable, polymorphic: true, dependent: :destroy
 
   validates :votable_id, presence: true
   validates :user_id, presence:true
