@@ -25,14 +25,15 @@
         <li class="nav-item">
           <% if logged_in? %>
             <button data-toggle="dropdown" aria-expanded="false">
-              <div class="nav-user">You</div>
+              <div class="nav-user"><span class="glyphicon glyphicon-user"/></div>
             </button>
             <ul class="dropdown-menu" role="menu">
               <li><%= link_to "Profile", current_user %></li>
+              <li><a href="#">Email Digest</a></li>
               <li><%= link_to "Log out", logout_path, method: "delete" %></li>
             </ul>
           <% else %>
-            <%= link_to "Profile", '#login-form', class: 'fancybox' %>
+            <%= link_to "", '#login-form', class: 'fancybox glyphicon glyphicon-user' %>
           <% end %>
         </li>
         <li class="nav-item">
