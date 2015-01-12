@@ -1,1 +1,4 @@
 <p><%= submission.external_link %></p>
+<% if submission.user_id == current_user.id %>
+  <%= link_to "delete", submission, method: :delete, data: { confirm: "Are you sure?" }
+<% end %>

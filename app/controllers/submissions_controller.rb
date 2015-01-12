@@ -12,7 +12,8 @@ class SubmissionsController < ApplicationController
   end
 
   def destroy
-    # actually implement this later
+    Submission.find(params[:id]).destroy
+    flash[:success] = "Post deleted"
     redirect_to root_url
   end
 
