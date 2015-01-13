@@ -1,15 +1,14 @@
 <div class="submission-wrapper">
   <div class="like-button">
-    <div class="glyphicon glyphicon-ok">
-    </div>
-    <div class="vote-count">
-      <%= submission.score %>
-    </div>
+    <a class="like-icon glyphicon glyphicon-ok"></a>
+    <span class="vote-count"><%= submission.score %></span>
   </div>
   <div class="submission-info">
-    <h2 class="song-name"> <%= submission.external_link %> </h2>
-    <h3 class="song-artist"> <%= submission.artist %> <h3>
     <div class="submission-detail">
+      <h2 class="song-name"> <%= submission.external_link %> </h2>
+      <h3 class="song-artist"> <%= submission.artist %> <h3>
+    </div>
+    <div class="submission-metadata">
       <h6> Posted by <%= submission.user_id %> in Happy Rap
         <% if logged_in? && submission.user_id == current_user.id %>
           <%= link_to "delete", submission, method: :delete, data: { confirm: "Are you sure?" } %>

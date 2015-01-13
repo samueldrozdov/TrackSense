@@ -114,16 +114,14 @@ p {
 }
 
 .nav-item {
+}
 
+.nav-profile {
+  position: 1px;
+  padding: 15px;
 }
 
 .nav-more {
-  height: 30px;
-  width: 30px;
-  margin: 10px 10px;
-}
-
-.nav-user {
   height: 30px;
   width: 30px;
   margin: 10px 10px;
@@ -249,8 +247,11 @@ p {
 
 .submission-wrapper {
   padding: 10px 0px;
-  border-bottom: 1px solid black;
-  vertical-align: center;
+  border-radius: 3px;
+  text-align: left;
+  vertical-align: baseline;
+  line-height: 22px;
+  box-sizing: border-box;
 }
 
 .submission-wrapper:hover {
@@ -262,17 +263,34 @@ p {
   color: black;
   border-radius: 5px;
   border-bottom: 1px solid black;
-  display: inline-block;
-  padding: 3px 9px;
-  margin: 0px 5px;
+  display: block;
+  float: left;
+  margin: 0px 10px;
+  height: 46px;
+  width: 34px;
+  text-align: center;
 }
 
 .like-button:hover {
   color: green;
 }
 
+.like-icon {
+  color: black;
+}
+
+.like-icon:hover {
+  color: green;
+  text-decoration: none;
+}
+
 .submission-info {
   display: inline-block;
+  padding: 3px 0px;
+}
+
+.submission-detail {
+  margin-bottom: 3px;
 }
 
 .song-name {
@@ -284,24 +302,24 @@ p {
   color: gray;
 }
 
-.submission-detail {
+
+.submission-metadata {
   padding-top: 1px;
+  color: gray;
 }
 
 .right-margin-wrapper {
-  display: inline-block;
   float: right;
+  text-align: right;
   height: 100%;
+  vertical-align: baseline;
 }
 
 .song-time {
   display: inline-block;
-  vertical-align: middle;
 }
 
 .song-play-btn {
-  display: inline-block;
-  vertical-align: middle;
   padding: 0px 10px;
 }
 

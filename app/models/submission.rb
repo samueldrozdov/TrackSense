@@ -10,8 +10,8 @@ class Submission < ActiveRecord::Base
   validates :artist, presence: true
   validates :track_length, presence: true
   validates :external_link, presence: true, uniqueness: { case_sensitive: true }, format: { with: VALID_URL_REGEX }
-  validates :name, presence: true, uniqueness: { scope: :artist, 
-                                                 case_sensitive: true, 
+  validates :name, presence: true, uniqueness: { scope: :artist,
+                                                 case_sensitive: true,
                                                  message: "This song has already been posted." }
   # remember to handle song non-uniqueness later by upvoting the post that already exists.
 end
