@@ -9,8 +9,6 @@ class VoteTest < ActiveSupport::TestCase
     @submission = @user.submissions.build(external_link: 'https://soundcloud.com/odesza/sia-big-girls-cry-odesza-remix',
                                           name: "Big Girls Cry (ODESZA remix)",
                                           artist: 'ODESZA',
-                                          score: 0,
-                                          name: 'Bitches be cryin',
                                           track_length: 266)
     @submission.save
   end
