@@ -21,4 +21,8 @@ $(document).ready(function() {
   $("a.fancybox").fancybox({
     css: { 'padding' : '0px' }
   });
+
+  $(".song-play-btn").on("click", function() {
+    SC.Widget("sc-widget").load($(this).attr("id"), { auto_play: true });
+  });
 });
