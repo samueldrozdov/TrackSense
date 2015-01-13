@@ -1,8 +1,8 @@
 <% provide(:title, "Track Sense") %>
 <div class="main-content">
     <div class="col-md-3 profile-navigation-wrapper">
-      <div class="col-md-4 profile-image">
-
+      <div class="col-md-4">
+        <%= image_for @user, "profile-image" %>
       </div>
       <div class="col-md-8 profile-name">
         <h2> <%= current_user.username %> </h2>
