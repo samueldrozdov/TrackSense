@@ -258,11 +258,8 @@ p {
   background-color: rgba(34, 49, 100, 0.1);;
 }
 
-.like-button {
-  background-color: lightgray;
+.like-button-wrapper {
   color: black;
-  border-radius: 5px;
-  border-bottom: 1px solid black;
   display: block;
   float: left;
   margin: 0px 10px;
@@ -275,8 +272,16 @@ p {
   color: green;
 }
 
-.like-icon {
-  color: black;
+.like-button {
+  padding: 0px;
+  margin: 0px;
+  background-color: transparent;
+  font-size: 20px;
+}
+
+.new_vote {
+  line-height: 16px;
+  margin: 0px;
 }
 
 .like-icon:hover {
