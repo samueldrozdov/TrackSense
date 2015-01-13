@@ -3,5 +3,7 @@
   <%= hidden_field_tag :user_id, current_user.id %>
   <%= hidden_field_tag :votable_id, vote.votable_id %>
   <%= hidden_field_tag :votable_type, vote.votable_type %>
-  <%= f.submit "", class: "glyphicon glyphicon-ok" %>
+  <%= button_tag(type: 'submit', class: "like-button") do %>
+    <i class="glyphicon glyphicon-chevron-up"></i>
+  <% end %>
 <% end %>
