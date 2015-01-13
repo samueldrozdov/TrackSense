@@ -14,3 +14,15 @@ sam.submissions.build(external_link: 'https://soundcloud.com/odesza/sia-big-girl
                       score: 0,
                       name: 'Bitches be cryin',
                       track_length: 266).save
+
+sam.submissions.build(external_link: 'https://soundcloud.com/user7941120/queen-we-will-rock-you',
+                      artist: 'Queen',
+                      score: 10,
+                      name: 'We will rock you',
+                      track_length: 187).save
+
+sam.submissions.build(external_link: 'https://soundcloud.com/umesongs/scorpions-rock-you-like-a',
+                      artist: 'Scorpions',
+                      score: 15,
+                      name: 'Rock you like a Hurricane',
+                      track_length: 101).save
