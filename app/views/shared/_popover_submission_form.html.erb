@@ -12,7 +12,8 @@
     <%= f.text_field :name, class: 'form-control', :placeholder => "Artist"  %>
 
     <%= f.label :track_length, hidden: true %>
-    <%= f.text_field :name, class: 'form-control', :placeholder => "Track Length"  %>
+    <%= f.text_field :name, class: 'form-control', :placeholder => "Track Length (seconds)"  %>
+    <!-- Track length should not be a field -->
 
     <%= f.submit "Submit Song", class: "btn btn-primary" %>
   </div>
