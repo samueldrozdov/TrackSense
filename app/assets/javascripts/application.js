@@ -17,7 +17,8 @@
 //= require fancybox
 //= require bootstrap
 
-$(document).ready(function() {
+var ready = function() {
+
   $("a.fancybox").fancybox({
     css: { 'padding' : '0px' }
   });
@@ -25,4 +26,8 @@ $(document).ready(function() {
   $(".song-play-btn").on("click", function() {
     SC.Widget("sc-widget").load($(this).attr("id"), { auto_play: true });
   });
-});
+
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
