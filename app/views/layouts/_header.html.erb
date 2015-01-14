@@ -36,9 +36,15 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <a class="fancybox" href="#submission-form" style="padding:0px;">
+          <% if logged_in? %>
+            <a class="fancybox" href="#submission-form" style="padding:0px;">
+                <%= image_tag("TSAdd.png", class: 'nav-add') %>
+            </a>
+          <% else %>
+            <a class="fancybox" href="#login-form" style="padding:0px;">
               <%= image_tag("TSAdd.png", class: 'nav-add') %>
-          </a>
+            </a>
+          <% end %>
         </li>
       </ul>
     </nav>

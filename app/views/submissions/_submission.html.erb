@@ -9,7 +9,7 @@
       <h3 class="song-artist"> <%= submission.artist %> <h3>
     </div>
     <div class="submission-metadata">
-      <h6> Posted by <%= submission.user_id %> in Happy Rap
+      <h6> Posted by <%= User.find(submission.user_id).username %> in Genre
         <% if logged_in? && submission.user_id == current_user.id %>
           <%= link_to "delete", submission, method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>

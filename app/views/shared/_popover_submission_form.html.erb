@@ -5,6 +5,15 @@
     <%= f.label :link, hidden: true %>
     <%= f.text_field :external_link, class: 'form-control', :placeholder => "Soundcloud URL"  %>
 
+    <%= f.label :name, hidden: true %>
+    <%= f.text_field :name, class: 'form-control', :placeholder => "Song Name"  %>
+
+    <%= f.label :artist, hidden: true %>
+    <%= f.text_field :name, class: 'form-control', :placeholder => "Artist"  %>
+
+    <%= f.label :track_length, hidden: true %>
+    <%= f.text_field :name, class: 'form-control', :placeholder => "Track Length"  %>
+
     <%= f.submit "Submit Song", class: "btn btn-primary" %>
   </div>
   <% end %>
