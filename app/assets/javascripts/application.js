@@ -17,7 +17,8 @@
 //= require fancybox
 //= require bootstrap
 
-$(document).ready(function() {
+var ready = function() {
+
   $("a.fancybox").fancybox({
     css: { 'padding' : '0px' }
   });
@@ -35,4 +36,8 @@ $(document).ready(function() {
       $(this).removeClass("glyphicon-play").addClass("glyphicon-pause playing");
     }
   });
-});
+
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

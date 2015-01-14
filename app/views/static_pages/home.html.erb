@@ -3,8 +3,8 @@
   <div class="day-wrapper">
     <div class="day">
       <div class="day-label">
-        <h2 class="day-descriptor">Today</h2>
-        <h3 class="day-date">January 7th<h3>
+        <h2 class="day-descriptor"><%= Time.now.strftime("%A") %></h2>
+        <h3 class="day-date"><%= Time.now.strftime("%B #{Time.now.day.ordinalize}") %><h3>
       </div>
     </div>
     <%= render 'shared/feed' %>
