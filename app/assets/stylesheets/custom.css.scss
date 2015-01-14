@@ -255,7 +255,11 @@ p {
 }
 
 .submission-wrapper:hover {
-  background-color: rgba(34, 49, 100, 0.1);;
+  background-color: rgba(200, 200, 200, 0.1);
+
+  .song-time {
+    visibility: visible;
+  }
 }
 
 .like-button-wrapper {
@@ -318,9 +322,11 @@ p {
   text-align: right;
   height: 100%;
   vertical-align: baseline;
+  padding-top: 12px;
 }
 
 .song-time {
+  visibility: hidden;
   display: inline-block;
 }
 
