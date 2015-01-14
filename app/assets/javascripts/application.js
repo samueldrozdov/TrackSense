@@ -21,8 +21,18 @@ $(document).ready(function() {
   $("a.fancybox").fancybox({
     css: { 'padding' : '0px' }
   });
-
+  widget = SC.Widget("sc-widget");
   $(".song-play-btn").on("click", function() {
-    SC.Widget("sc-widget").load($(this).attr("id"), { auto_play: true });
+    if ( $(this).hasClass("glyphicon-play playing")) {
+      widget.play();
+      $(this).removeClass("glyphicon-play").addClass("glyphicon-pause");
+    } else if ( $(this).hasClass("glyphicon-pause") ) {
+      widget.pause();
+      $(this).removeClass("glyphicon-pause").addClass("glyphicon-play");
+    } else {
+      widget.load( $(this).attr('id') , { auto_play: true });
+      $(".playing").removeClass("glyphicon-pause playing").addClass("glyphicon-play");
+      $(this).removeClass("glyphicon-play").addClass("glyphicon-pause playing");
+    }
   });
 });
