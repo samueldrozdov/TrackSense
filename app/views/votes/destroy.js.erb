@@ -1,1 +1,1 @@
-$("submission-<%= @vote.votable_id %>-likes").text("<%= votable.likes %>");
+$("#submission-<%= @vote.votable_id %>-vote").text("<%= Submission.find(@vote.votable_id).votes.count %>");

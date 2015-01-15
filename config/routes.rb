@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  
+
   get 'sessions/new'
 
   root 'static_pages#home'
-  
+  get 'digest' => 'static_pages#digest_signup'
+
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
