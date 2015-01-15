@@ -18,7 +18,7 @@
   </div>
   <div class="right-margin-wrapper">
     <div class="song-time">
-      <h3><%= submission.track_length %></h3>
+      <h3><%= submission.track_length / 60 %>:<%= submission.track_length % 60 %></h3>
     </div>
     <div class="song-play-btn glyphicon glyphicon-play" id="song-<%= submission.external_link %>"></div>
   </div>
