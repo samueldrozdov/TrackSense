@@ -1,3 +1,1 @@
-<% if @vote.votable_type = :submission %>
-  $("submission-<%= @vote.votable_id %>-likes").text("<%= Submission.find(@vote.votable_id).likes %>");
-<% end %>
+$("#submission-<%= @vote.votable_id %>-vote").text("<%= Submission.find(@vote.votable_id).votes.count %>");
