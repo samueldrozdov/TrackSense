@@ -22,21 +22,46 @@ var ready = function() {
   $("a.fancybox").fancybox({
     css: { 'padding' : '0px' }
   });
+
+  //attaching event listener to each submission
   widget = SC.Widget("sc-widget");
   $(".song-play-btn").on("click", function() {
-    if ( $(this).hasClass("glyphicon-play playing")) {
+    if ( $(this).hasClass("playing glyphicon-play")) {
       widget.play();
       $(this).removeClass("glyphicon-play").addClass("glyphicon-pause");
+      $("#custom-player-pp").removeClass("glyphicon-play").addClass("glyphicon-pause")
     } else if ( $(this).hasClass("glyphicon-pause") ) {
       widget.pause();
       $(this).removeClass("glyphicon-pause").addClass("glyphicon-play");
+      $("#custom-player-pp").removeClass("glyphicon-pause").addClass("glyphicon-play")
     } else {
       widget.load( $(this).attr('id') , { auto_play: true });
+      console.log($(this).attr('id'));
       $(".playing").removeClass("glyphicon-pause playing").addClass("glyphicon-play");
       $(this).removeClass("glyphicon-play").addClass("glyphicon-pause playing");
+      if($("#custom-player-pp").hasClass("glyphicon-play")) {
+        $("#custom-player-pp").removeClass("glyphicon-play").addClass("glyphicon-pause")
+      }
     }
   });
 
+  //attaching listener to custom player - play/pause
+  $("#custom-player-pp").on("click", function(){
+    if ( $(this).hasClass("glyphicon-play")) {
+      widget.play();
+      $(this).removeClass("glyphicon-play").addClass("glyphicon-pause");
+      $(".playing").removeClass("glyphicon-play").addClass("glyphicon-pause");
+    } else if ( $(this).hasClass("glyphicon-pause") ) {
+      widget.pause();
+      $(this).removeClass("glyphicon-pause").addClass("glyphicon-play");
+      $(".playing").removeClass("glyphicon-pause").addClass("glyphicon-play");
+    }
+  });
+
+  //setup automatic play next track
+  widget.bind(SC.Widget.Events.FINISH, function() {
+    console.log("finished playing!");
+  });
 };
 
 $(document).ready(ready);
