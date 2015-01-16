@@ -5,6 +5,14 @@ gem 'bootstrap-sass',           '3.2.0.0'
 
 gem 'fancybox2-rails'
 
+
+# Use as a testing tool that simulates user activity
+group :test do
+  gem 'capybara'
+end
+
+gem 'database_cleaner'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
@@ -45,4 +53,6 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'rspec-rails'
 end
