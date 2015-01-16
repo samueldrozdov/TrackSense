@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
 //= require fancybox
 //= require bootstrap
+//= require_tree .
+
 
 var ready = function() {
 

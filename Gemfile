@@ -4,14 +4,10 @@ gem 'bootstrap-will_paginate',  '0.0.10'
 gem 'bootstrap-sass',           '3.2.0.0'
 
 gem 'fancybox2-rails'
+gem 'jquery-turbolinks'
 
-
-# Use as a testing tool that simulates user activity
-group :test do
-  gem 'capybara'
-end
-
-gem 'database_cleaner'
+#run bundle
+gem 'jquery-ui-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -43,6 +39,13 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Use as a testing tool that simulates user activity
+group :test do
+  gem 'capybara'
+end
+
+gem 'database_cleaner'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
