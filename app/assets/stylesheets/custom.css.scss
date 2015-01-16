@@ -232,6 +232,10 @@ p {
 
 }
 
+.profile-header {
+  margin-bottom: 15px;
+}
+
 .profile-image {
   width: 80px;
   height: 80px;
@@ -241,6 +245,38 @@ p {
 
 .profile-name {
     padding-top: 20px;
+}
+
+.profile-genre-wrapper {
+  text-align: center;
+}
+
+.profile-genre {
+  padding: 5px;
+}
+
+.profile-genre:hover {
+  background-color: rgba(170, 170, 170, 0.2);
+}
+
+.profile-nav {
+  padding: 10px;
+  margin-bottom: 15px;
+  height: 80px;
+}
+
+.profile-nav-item {
+  text-align: center;
+  padding: 10px;
+}
+
+.profile-nav-item:hover {
+  background-color: rgba(170, 170, 170, 0.2);
+
+}
+
+.profile-songs-wrapper {
+  margin-bottom: 15px;
 }
 
 /* Submission */

@@ -1,19 +1,39 @@
 <% provide(:title, "Track Sense") %>
 <div class="main-content">
     <div class="col-md-3 profile-navigation-wrapper">
-      <div class="col-md-4">
-        <%= image_for @user, "profile-image" %>
+      <div class="row profile-header">
+        <div class="col-md-4">
+          <%= image_for @user, "profile-image" %>
+        </div>
+        <div class="col-md-8 profile-name">
+          <h2> <%= current_user.username %> </h2>
+          <h3> A Great Guy </h3>
+        </div>
       </div>
-      <div class="col-md-8 profile-name">
-        <h2> <%= current_user.username %> </h2>
+      <div class="row profile-genre-wrapper">
+        <h3>Selected Genres</h3>
+        <h4 class="profile-genre">Good Vibes</h4>
+        <h4 class="profile-genre">Drop It</h4>
+        <h4 class="profile-genre">Coding</h4>
       </div>
 
     </div>
     <div class="col-md-9">
-      <div class="row">
-        <h2>Genre</h2>
+      <div class="row profile-nav">
+        <!-- these should filter the results -->
+        <div class="col-md-2 profile-nav-item"><!-- Votes count -->
+          <h3>N</h3>
+          <h2>Upvoted</h2>
+        </div>
+        <div class="col-md-2 profile-nav-item">
+          <h3><%= @user.submissions.count %></h3>
+          <h2>Made</h2>
+        </div>
       </div>
-      <div class="row songs-wrapper">
+      <div class="row profile-songs-wrapper">
+        <% if @user.submissions.any? %>
+          <%= render @user.submissions %>
+        <% end %>
       </div>
     </div>
 </div>
