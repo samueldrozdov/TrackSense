@@ -54,5 +54,9 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+  # Used for test helper files. Works with database_cleaner and capybara
   gem 'rspec-rails'
+
+  # Used for easier, faster fixture generation
+  gem 'factory_girl_rails'
 end
