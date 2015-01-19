@@ -27,7 +27,7 @@ class VotesController < ApplicationController
   end
 
   def destroy
-
+    Vote.delete(params[:id])
     respond_to do |format|
       format.html
       format.js
