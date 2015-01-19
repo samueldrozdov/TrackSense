@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :username
       t.string :password_digest
-      t.float :reputation
+      t.float :reputation, default: 0
       t.boolean :is_admin, default: false
 
       t.timestamps null: false

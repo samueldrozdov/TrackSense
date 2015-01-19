@@ -23,9 +23,15 @@ var ready = function() {
     css: { 'padding' : '0px' }
   });
 
-  //attaching event listener to each submission
   widget = SC.Widget("sc-widget");
-  $(".song-play-btn").on("click", function() {
+  songArray =  []
+  currentlyPlaying = 0;
+
+  $(".song-play-btn").each( function() {
+    songArray.push( $(this).attr('id') );
+  });
+
+  var mapPlayOnClick = function() {
     if ( $(this).hasClass("playing glyphicon-play")) {
       widget.play();
       $(this).removeClass("glyphicon-play").addClass("glyphicon-pause");
@@ -35,15 +41,20 @@ var ready = function() {
       $(this).removeClass("glyphicon-pause").addClass("glyphicon-play");
       $("#custom-player-pp").removeClass("glyphicon-pause").addClass("glyphicon-play")
     } else {
-      widget.load( $(this).attr('id') , { auto_play: true });
-      console.log($(this).attr('id'));
+      song = $(this).attr('id')
+      currentlyPlaying = $.inArray(song, songArray)
+      widget.load( song , { auto_play: true });
+      console.log( currentlyPlaying );
       $(".playing").removeClass("glyphicon-pause playing").addClass("glyphicon-play");
       $(this).removeClass("glyphicon-play").addClass("glyphicon-pause playing");
       if($("#custom-player-pp").hasClass("glyphicon-play")) {
         $("#custom-player-pp").removeClass("glyphicon-play").addClass("glyphicon-pause")
       }
     }
-  });
+  }
+
+  //attaching event listener to each submission
+  $(".song-play-btn").on("click", mapPlayOnClick);
 
   //attaching listener to custom player - play/pause
   $("#custom-player-pp").on("click", function(){
@@ -58,9 +69,15 @@ var ready = function() {
     }
   });
 
+  
+
   //setup automatic play next track
   widget.bind(SC.Widget.Events.FINISH, function() {
     console.log("finished playing!");
+    $( '.' + songArray[currentlyPlaying] ).removeClass("glyphicon-pause").addClass("glyphicon-play");
+    currentlyPlaying += 1;
+    $( '.' + songArray[currentlyPlaying] ).removeClass("glyphicon-play").addClass("glyphicon-pause");
+    widget.load( songArray[currentlyPlaying] , { auto_play: true });
   });
 
   //load next day's feed when "Load Previous" button is pressed

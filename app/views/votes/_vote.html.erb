@@ -1,11 +1,25 @@
-<%= form_for vote, remote: true do |f| %>
-  <% if logged_in? %>
-    <%= hidden_field_tag :id, vote.id %>
-    <%= hidden_field_tag :user_id, current_user.id %>
-    <%= hidden_field_tag :votable_id, vote.votable_id %>
-    <%= hidden_field_tag :votable_type, vote.votable_type %>
+<% if vote.id %>
+  <%= form_for(vote, remote: true, method: :delete) do |f| %>
+    <% if logged_in? %>
+      <%= hidden_field_tag :id, vote.id %>
+      <%= hidden_field_tag :user_id, current_user.id %>
+      <%= hidden_field_tag :votable_id, vote.votable_id %>
+      <%= hidden_field_tag :votable_type, vote.votable_type %>
+    <% end %>
+    <%= button_tag(type: 'submit', class: "like-button") do %>
+      <i class="vote-icon glyphicon glyphicon-chevron-up voted"></i>
+    <% end %>
   <% end %>
-  <%= button_tag(type: 'submit', class: "like-button") do %>
-    <i class="vote-icon glyphicon glyphicon-chevron-up"></i>
+<% else %>
+  <%= form_for(vote, remote: true) do |f| %>
+    <% if logged_in? %>
+      <%= hidden_field_tag :id, vote.id %>
+      <%= hidden_field_tag :user_id, current_user.id %>
+      <%= hidden_field_tag :votable_id, vote.votable_id %>
+      <%= hidden_field_tag :votable_type, vote.votable_type %>
+    <% end %>
+    <%= button_tag(type: 'submit', class: "like-button") do %>
+      <i class="vote-icon glyphicon glyphicon-chevron-up"></i>
+    <% end %>
   <% end %>
 <% end %>

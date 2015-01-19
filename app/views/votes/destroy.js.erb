@@ -1,1 +1,8 @@
+<% if logged_in? %>
+  <% @vote = current_user.votes.build(votable_id: params[:votable_id], 
+                                      votable_type: :Submission) %>
+<% else %>
+  <% @vote = Vote.new %>
+<% end %>
 $("#submission-<%= @vote.votable_id %>-vote").text("<%= Submission.find(@vote.votable_id).votes.count %>");
+$("#submission-<%= @vote.votable_id %>").find("i").toggleClass("voted");

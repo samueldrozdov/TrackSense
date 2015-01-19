@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150113214011) do
     t.string   "email"
     t.string   "username"
     t.string   "password_digest"
-    t.float    "reputation"
+    t.float    "reputation",      default: 0.0
     t.boolean  "is_admin",        default: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false

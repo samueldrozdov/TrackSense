@@ -1,6 +1,12 @@
-<div class="submission-wrapper">
+<div class="submission-wrapper" id="submission-<%= submission.id %>">
   <div class="like-button-wrapper">
-    <%= render Vote.new(votable_id: submission.id, votable_type: :Submission) %>
+    <% if logged_in? %>
+      <% vote = submission.votes.where(user_id: current_user.id).take || current_user.votes.build(votable_id: submission.id, 
+                                                                                                  votable_type: :Submission) %>
+    <% else %>
+      <% vote = Vote.new %>
+    <% end %>
+    <%= render vote %>
     <span class="vote-count" id="submission-<%= submission.id %>-vote"><%= submission.votes.count %></span>
   </div>
   <div class="submission-info">
@@ -20,6 +26,6 @@
     <div class="song-time">
       <h3><%= submission.track_length / 60 %>:<%= submission.track_length % 60 %></h3>
     </div>
-    <div class="song-play-btn glyphicon glyphicon-play" id="song-<%= submission.external_link %>"></div>
+    <div class="song-play-btn glyphicon glyphicon-play" id="<%= submission.external_link %>"></div>
   </div>
 </div>
