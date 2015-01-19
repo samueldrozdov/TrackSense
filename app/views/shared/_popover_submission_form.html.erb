@@ -1,21 +1,21 @@
 <div class="col-md-12 submission-form-wrapper">
   <h2>Create a submission</h2>
-  <%= form_for(Submission.new) do |f| %>
-  <div class="form-wrapper">
-    <%= f.label :link, hidden: true %>
-    <%= f.text_field :external_link, class: 'form-control', :placeholder => "Soundcloud URL"  %>
+  <% if logged_in? %>
+    <div class="form-wrapper">
+      <%= form_for(current_user.submissions.build) do |f| %>
+        <%= f.text_field :external_link, class: 'form-control', placeholder: "Soundcloud URL"  %>
 
-    <%= f.label :name, hidden: true %>
-    <%= f.text_field :name, class: 'form-control', :placeholder => "Song Name"  %>
+        <%= f.text_field :name, class: 'form-control', placeholder: "Song Name"  %>
 
-    <%= f.label :artist, hidden: true %>
-    <%= f.text_field :name, class: 'form-control', :placeholder => "Artist"  %>
+        <%= f.text_field :artist, class: 'form-control', placeholder: "Artist"  %>
 
-    <%= f.label :track_length, hidden: true %>
-    <%= f.text_field :name, class: 'form-control', :placeholder => "Track Length (seconds)"  %>
-    <!-- Track length should not be a field -->
+        <%= f.text_field :track_length, class: 'form-control', placeholder: "Track Length (seconds)"  %>
+        <!-- Track length should not be a field -->
 
-    <%= f.submit "Submit Song", class: "btn btn-primary" %>
-  </div>
+        <%= f.submit "Submit Song", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  <% else %>
+    <p>Log in or sign up</p>
   <% end %>
 </div>
