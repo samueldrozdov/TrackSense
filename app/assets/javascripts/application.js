@@ -62,6 +62,11 @@ var ready = function() {
   widget.bind(SC.Widget.Events.FINISH, function() {
     console.log("finished playing!");
   });
+
+  //load next day's feed when "Load Previous" button is pressed
+  $(".load-feed-button").click(function() {
+    $(".day-wrapper:last").after("<%= escape_javascript(render(:partial => 'shared/feed', locals: {theDate: 0})) %>");
+  });
 };
 
 $(document).ready(ready);

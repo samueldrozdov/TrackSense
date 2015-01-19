@@ -1,12 +1,11 @@
 <% provide(:title, "Track Sense") %>
 <div class="main-content">
-  <div class="day-wrapper">
-    <div class="day">
-      <div class="day-label">
-        <h2 class="day-descriptor"><%= Time.now.strftime("%A") %></h2>
-        <h3 class="day-date"><%= Time.now.strftime("%B #{Time.now.day.ordinalize}") %><h3>
-      </div>
+  <div class="main-feed-wrapper">
+    <%= render 'shared/feed', locals: {theDate: 0} %>
+    <div class="load-feed-wrapper">
+      <div class="col-md-4"></div>
+      <h2 class="col-md-4 load-feed-button">Load Previous</h2>
+      <div class="col-md-4"></div>
     </div>
-    <%= render 'shared/feed' %>
   </div>
 </div>
