@@ -1,5 +1,5 @@
 <div class="feed-wrapper">
-  <%= render Submission.all %> <!-- submission where the date is today -->
+  <%= render Submission.where(:created_at => DateTime.now.at_beginning_of_day.utc..Time.now.utc) %>
   <div class="load-feed-wrapper">
     <div class="col-md-4"></div>
       <h2 class="col-md-4 load-feed-button">Load Previous</h2> <!-- render a _feed partial with the previous day -->

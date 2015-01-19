@@ -75,7 +75,8 @@ p {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 860px;
+  min-width: 720px;
 }
 
 .main-content {
@@ -96,6 +97,12 @@ p {
   margin-top: 5px;
 }
 
+@media screen and (max-width: 740px) {
+  .brand-title {
+    display: none !important;
+  }
+}
+
 .brand-image {
   height: 40px;
   width: 40px;
@@ -111,18 +118,23 @@ p {
 /* Navigation */
 
 .navbar {
-  display: block;
-  float: right;
+  float:right;
   background-color: #ffffff;
   border-bottom: 1px solid lightgray;
-  vertical-align:middle;
+  vertical-align: middle;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
   color: #223164;
 }
 
+.navbar-nav {
+  float: right;
+}
+
 .nav-item {
+  position: fixed;
+  display: block;
 }
 
 .nav-profile {
@@ -259,11 +271,22 @@ p {
 /* Profile */
 
 .profile-navigation-wrapper {
+  position: fixed;
+  padding: 15px;
+  width: 20%;
+  height: 85%;
+  margin-bottom: 20px;
+  border-right: 1px solid darkgray;
+}
 
+.profile-feed-wrapper {
+  position: relative;
+  margin-left: 30%;
+  width: 70%;
 }
 
 .profile-header {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .profile-image {
@@ -274,7 +297,7 @@ p {
 }
 
 .profile-name {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 .profile-genre-wrapper {
@@ -298,6 +321,8 @@ p {
 .profile-nav-item {
   text-align: center;
   padding: 10px;
+  display: inline-block;
+  width: 105px;
 }
 
 .profile-nav-item:hover {
