@@ -34,10 +34,17 @@ class UsersController < ApplicationController
     # add query for user's posts and likes later
   end
 
+  def feed
+      @feed = Submission.find
+  end
+
   private
 
     def user_params
       params.require(:user).permit(:username, :email, :password,
       :password_confirmation)
     end
+
+    
+
 end
