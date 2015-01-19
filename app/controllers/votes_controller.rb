@@ -27,7 +27,8 @@ class VotesController < ApplicationController
   end
 
   def destroy
-    Vote.delete(params[:id])
+    # prevent users from forging requests to delete other user's votes
+    Vote.delete(params[:id]) if current_user.id == vote.user_id
     respond_to do |format|
       format.html
       format.js
