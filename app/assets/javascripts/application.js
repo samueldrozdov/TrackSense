@@ -69,7 +69,7 @@ var ready = function() {
     }
   });
 
-  
+
 
   //setup automatic play next track
   widget.bind(SC.Widget.Events.FINISH, function() {
@@ -78,11 +78,6 @@ var ready = function() {
     currentlyPlaying += 1;
     $( '.' + songArray[currentlyPlaying] ).removeClass("glyphicon-play").addClass("glyphicon-pause");
     widget.load( songArray[currentlyPlaying] , { auto_play: true });
-  });
-
-  //load next day's feed when "Load Previous" button is pressed
-  $(".load-feed-button").click(function() {
-    $(".day-wrapper:last").after("<%= escape_javascript(render(:partial => 'shared/feed', locals: {theDate: 0})) %>");
   });
 };
 

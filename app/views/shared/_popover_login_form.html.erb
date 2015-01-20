@@ -32,9 +32,8 @@
         <%= f.label :password, hidden: true %>
         <%= f.password_field :password, class: 'form-control', :placeholder => "Password"  %>
 
-        <%= f.label :remember_me, class: "checkbox inline" do %>
-        <%= f.check_box :remember_me %>
-        <span>Remember me on this computer</span>
+        <%= f.label :remember_me, class: "" do %>
+        <%= f.check_box :remember_me %>Remember me
         <% end %>
 
         <%= f.submit "Sign in", class: "btn btn-primary" %>

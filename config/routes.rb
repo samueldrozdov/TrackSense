@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
+  get 'previousDay' => 'static_pages#loadNewDay'
+
   resources :users, except: [:index, :destroy]
   resources :submissions, only: [:create, :destroy]
   resources :votes, except: [:show, :update]

@@ -1,11 +1,11 @@
 <div class="day-wrapper">
   <div class="day">
     <div class="day-label">
-      <h2 class="day-descriptor"><%= locals[:theDate].day.ago.strftime("%A") %></h2>
-      <h3 class="day-date"><%= locals[:theDate].day.ago.strftime("%B #{Time.now.day.ordinalize}") %><h3>
+      <h2 class="day-descriptor"><%= Time.now.ago(locals[:theDate].days).strftime("%A") %></h2>
+      <h3 class="day-date"><%= Time.now.ago(locals[:theDate].days).strftime("%B %d") %><h3>
     </div>
   </div>
   <div class="feed-wrapper">
-    <%= render Submission.where(:created_at => locals[:theDate].day.ago.at_beginning_of_day.utc..locals[:theDate].day.ago.at_end_of_day.utc) %>
+    <%= render Submission.where(:created_at => Time.now.ago(locals[:theDate].days).at_beginning_of_day.utc..Time.now.ago(locals[:theDate].days).at_end_of_day.utc) %>
   </div>
 </div>
