@@ -29,6 +29,7 @@ var ready = function() {
 
   $(".song-play-btn").each( function() {
     songArray.push( $(this).attr('id') );
+
   });
 
   var mapPlayOnClick = function() {
@@ -53,6 +54,14 @@ var ready = function() {
     }
   }
 
+  var playNextSong = function( ahead ) {
+    $( '.' + songArray[currentlyPlaying] ).removeClass("glyphicon-pause").addClass("glyphicon-play");
+    currentlyPlaying += ahead ? 1 : -1;
+    currentlyPlaying %= songArray.length
+    $( '.' + songArray[currentlyPlaying] ).removeClass("glyphicon-play").addClass("glyphicon-pause");
+    widget.load( songArray[currentlyPlaying] , { auto_play: true });
+  }
+
   //attaching event listener to each submission
   $(".song-play-btn").on("click", mapPlayOnClick);
 
@@ -69,14 +78,13 @@ var ready = function() {
     }
   });
 
-  
-
   //setup automatic play next track
   widget.bind(SC.Widget.Events.FINISH, function() {
     console.log("finished playing!");
-    $( '.' + songArray[currentlyPlaying] ).removeClass("glyphicon-pause").addClass("glyphicon-play");
+    $( ".playing" ).removeClass("glyphicon-pause").addClass("glyphicon-play");
     currentlyPlaying += 1;
-    $( '.' + songArray[currentlyPlaying] ).removeClass("glyphicon-play").addClass("glyphicon-pause");
+    currentlyPlaying %= songArray.length
+    $( '#' + songArray[currentlyPlaying] ).removeClass("glyphicon-play").addClass("glyphicon-pause");
     widget.load( songArray[currentlyPlaying] , { auto_play: true });
   });
 };
