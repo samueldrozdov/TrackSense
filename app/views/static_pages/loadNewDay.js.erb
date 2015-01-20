@@ -1,2 +1,5 @@
 //load next day's feed when "Load Previous" button is pressed
-$(".day-wrapper:last").after("<%= escape_javascript(render 'shared/feed', locals: { theDate: 1 }) %>");
+var day = parseInt($("#day-field").val());
+day++;
+$("#day-field").val(day);
+$(".day-wrapper:last").after("<%= escape_javascript(render 'shared/feed', locals: { theDate: @day }) %>");

@@ -4,7 +4,14 @@
     <%= render 'shared/feed', locals: { theDate: 0 } %>
     <div class="load-feed-wrapper">
       <div class="col-md-4"></div>
-      <h2 class="col-md-4 load-feed-button"><%= link_to "Load Previous", previousDay_path, remote: true %></h2>
+      <h2 class="col-md-4 load-feed-button">
+        <%= form_tag(previousDay_path, method: "get", remote: true) do %>
+          <%= hidden_field_tag :day, 1, id: "day-field" %>
+          <%= button_tag(type: 'submit', class: "like-button") do %>
+            <i class="">Load Previous</i>
+          <% end %>
+        <% end %>
+      </h2>
       <div class="col-md-4"></div>
     </div>
   </div>
