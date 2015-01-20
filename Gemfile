@@ -43,6 +43,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Use as a testing tool that simulates user activity
 group :test do
   gem 'capybara'
+
+  gem 'shoulda'
 end
 
 gem 'database_cleaner'
