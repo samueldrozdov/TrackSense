@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20150113214011) do
     t.datetime "updated_at",                  null: false
     t.string   "name"
     t.integer  "user_id"
-    t.integer  "likes"
+    t.integer  "likes",         default: 0
   end
 
   create_table "users", force: :cascade do |t|
