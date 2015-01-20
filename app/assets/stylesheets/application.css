@@ -17,8 +17,8 @@
 
 #sc-widget{
   position:fixed;
-  left:70%;
-  bottom:0px;
+  left:67%;
+  bottom:80px;
 }
 
 /* Music Player */
@@ -30,7 +30,7 @@
   border-radius: 5px 5px 0px 0px;
   position: fixed;
   width: 350px;
-  height: 60px;
+  height: 70px;
   left: 65%;
   bottom: 0px;
 }

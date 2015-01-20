@@ -26,11 +26,13 @@ var ready = function() {
   widget = SC.Widget("sc-widget");
   songArray =  []
   currentlyPlaying = 0;
+  getSongs();
 
-  $(".song-play-btn").each( function() {
-    songArray.push( $(this).attr('id') );
-
-  });
+  var getSongs = function() {
+    $(".song-play-btn").each( function() {
+      songArray.push( $(this).attr('id') );
+    });
+  }
 
   var mapPlayOnClick = function() {
     if ( $(this).hasClass("playing glyphicon-play")) {
