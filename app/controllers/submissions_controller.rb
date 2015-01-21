@@ -11,7 +11,7 @@ class SubmissionsController < ApplicationController
 
     # grab values from object
     artist = track.user.username
-    track_length = track.duration
+    track_length = track.duration/1000 # convert from ms to seconds
     name = track.title
 
     @submission = current_user.submissions.build({ external_link: submission_params[:external_link],
