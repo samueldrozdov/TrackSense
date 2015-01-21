@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20150113214011) do
     t.string   "external_link"
     t.string   "artist"
     t.float    "score",         default: 0.0
-    t.integer  "track_length"
+    t.float    "track_length"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "name"
