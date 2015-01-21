@@ -1,7 +1,23 @@
 class SubmissionsController < ApplicationController
 
   def create
-    @submission = current_user.submissions.build(submission_params)
+
+    # instantiate SoundCloud client
+    client = SoundCloud.new(client_id: "9574e1c46dbd351816e7f8c373e6d22e")
+
+    # resolve URL into Track object
+    track = client.get("/resolve", url: submission_params[:external_link])
+    byebug
+
+    # grab values from object
+    artist = track.user.username
+    track_length = track.duration
+    name = track.title
+
+    @submission = current_user.submissions.build({ external_link: submission_params[:external_link],
+                                                   artist: artist,
+                                                   track_length: track_length,
+                                                   name: name })
     if @submission.save(params[:submission])
       flash[:success] = "Post successful"
     else
@@ -20,7 +36,7 @@ class SubmissionsController < ApplicationController
   private
 
     def submission_params
-      params.require(:submission).permit(:external_link, :name, :artist, :track_length)
+      params.require(:submission).permit(:external_link)
     end
 
 end
