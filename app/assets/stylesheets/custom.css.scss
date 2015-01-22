@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  margin-top: 90px;
+  margin-top: 140px;
   background-color: white;
   font-family: "Helvetica Neue";
 }
@@ -158,6 +158,36 @@ p {
 .nav-add:active {
   -webkit-transform: scale(0.9,0.9);
   -moz-transform:scale(0.9,0.9);
+}
+
+/* Player */
+
+.player {
+  position: fixed;
+  background-color: #212121;
+  top: 70px;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  color: white;
+  vertical-align: middle;
+}
+
+.player-controls, .player-meta, .player-third {
+  padding-top: 7px;
+  font-size: 25px;
+  cursor: pointer
+}
+
+.player-back, .player-play, .player-forward {
+}
+
+.player-back:active, .player-play:active, .player-forward:active {
+  color: #F44336;
+}
+
+.player-back {
+  color: gray;
 }
 
 /* Forms */
