@@ -20,7 +20,7 @@
 var ready = function() {
 
   $("a.fancybox").fancybox({
-    css: { 'padding' : '0px' }
+    'padding'		: 0
   });
 
   widget = SC.Widget("sc-widget");

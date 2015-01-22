@@ -1,6 +1,6 @@
 <div class="col-md-12 login-wrapper">
   <div class="col-md-6 login-column">
-    <h2>Join the community</h2>
+    <h2 class="login-header">Join the community</h2>
     <%= form_for(User.new) do |f| %>
       <div class="form-wrapper">
         <%= f.label :name, hidden: true %>
@@ -15,15 +15,16 @@
         <%= f.label :password_confirmation, hidden: true %>
         <%= f.password_field :password_confirmation, class: 'form-control', :placeholder => "Confirmation" %>
 
-        <%= f.submit "Create new account", class: "btn btn-primary" %>
-
+        <%= button_tag(:type => "f.submit", :class => "btn btn-primary login-btn") do %>
+            Create Account <span class="glyphicon glyphicon-chevron-right"></span>
+        <% end %>
       </div>
 
     <% end %>
   </div>
 
-  <div class="col-md-6 popup-column">
-    <h2>Sign in</h2>
+  <div class="col-md-6 login-column">
+    <h2 class="login-header">Sign in</h2>
     <%= form_for(:session, url: login_path) do |f| %>
       <div class="form-wrapper">
         <%= f.label :email, hidden: true %>
@@ -32,17 +33,15 @@
         <%= f.label :password, hidden: true %>
         <%= f.password_field :password, class: 'form-control', :placeholder => "Password"  %>
 
-        <%= f.label :remember_me, class: "" do %>
-        <%= f.check_box :remember_me %>Remember me
+        <%= f.label :remember_me, class: "remember-control" do %>
+        <%= f.check_box :remember_me %> Remember me
         <% end %>
 
-        <%= f.submit "Sign in", class: "btn btn-primary" %>
+        <%= button_tag(:type => "f.submit", :class => "btn btn-primary login-btn") do %>
+            Login In <span class="glyphicon glyphicon-chevron-right"></span>
+        <% end %>
       </div>
     <% end %>
-
-    <div class="login-btns-wrapper">
-      <button class="twitter-login-btn" type="submit">Sign in with Twitter</button>
-    </div>
 
   </div>
 </div>

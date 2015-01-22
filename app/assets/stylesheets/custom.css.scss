@@ -20,6 +20,7 @@ html {
 body {
   margin-top: 90px;
   background-color: white;
+  font-family: "Helvetica Neue";
 }
 
 section {
@@ -159,63 +160,93 @@ p {
   -moz-transform:scale(0.9,0.9);
 }
 
-.fancybox {
-  padding: 0px;
-}
-
 /* Forms */
 
 .login-wrapper {
-  background-color: #fafafa;
   padding: 10px;
+  vertical-align: bottom;
+  background-color: #343c44;
+}
+
+.login-header {
+  margin-top: 20px;
+  color: white;
+}
+
+.submission-form-header {
+  margin-top: 10px;
+  color: white;
 }
 
 .submission-form-wrapper {
-  background-color: #fafafa;
-  padding: 10px;
+  padding: 15px;
+  background-color: #343c44;
 }
 
 .login-column {
-
+  bottom: 10px;
+  height: 362px;
 }
 
 .form-wrapper {
   margin: 10px;
-  border: 1px solid lightgray;
-  border-radius: 5px;
 }
 
 .form-control {
-  background-color: white;
-  color: black;
+  vertical-align: bottom;
+  background-color: transparent;
+  color: white;
   border-radius: 0px;
-  border: 1px solid lightgray;
-  padding: 30px;
+  border: 0px;
+  border-bottom: 2px solid black;
+  padding: 25px;
   box-shadow: 0px 0px 0px 0px;
+  margin-bottom: 10px;
+
+  -moz-placeholder: white;
+  -webkit-input-placeholder: white;
+  -moz-placeholder: white;
+  -ms-input-placeholder: white;
 }
 
 .form-control:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
+  border-bottom: 2px solid #D32F2F;
 }
 
 .form-control::-webkit-input-placeholder {
   color: gray;
 }
 
-.btn-primary {
-  background-color: #21A3EA;
-  border-radius: 0px;
-  border: gray;
+.remember-control {
+  margin-left: 20px;
+  color: lightgray;
+}
+
+.login-btn {
+  margin-top: 10px;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:focus {
+  background-color: #D32F2F;
   width: 100%;
-  padding: 15px;
+  border-radius: 3px;
+  padding: 10px 15px;
+  border: 0px;
+  border-bottom: 5px solid #F44336;
+}
+
+.btn-primary:active {
+  background-color: #D32F2F;
+  border-bottom: 4px solid #D32F2F;
 }
 
 .login-btns-wrapper {
   border-top: 1px solid lightgray;
   vertical-align: middle;
   text-align: center;
-  margin-top: 35px;
+  margin-top: 45px;
   padding: 0px 15px;
   padding-top: 30px;
 }
