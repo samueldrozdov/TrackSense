@@ -4,7 +4,7 @@ class CreateSubmissions < ActiveRecord::Migration
       t.string :external_link
       t.string :artist
       t.float :score, default: 0
-      t.integer :track_length
+      t.float :track_length
 
       t.timestamps null: false
     end
