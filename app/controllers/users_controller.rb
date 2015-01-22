@@ -5,15 +5,18 @@ class UsersController < ApplicationController
   end
 
   def create
+    @success = false
     @user = User.new(user_params)
     @user.is_admin = false
     if @user.save
+      @success = true
       log_in @user
       flash[:success] = "Welcome to Track Sense!"
-      redirect_to @user
-    else
-      flash[:danger] = "Invalid signup"
-      redirect_to root_url
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
@@ -41,8 +44,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:username, :email, :password,
-      :password_confirmation)
+      params.require(:user).permit(:username, :email, :password, :password_confirmation)
     end
 
     

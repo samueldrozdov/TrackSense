@@ -1,7 +1,7 @@
 <div class="col-md-12 login-wrapper">
   <div class="col-md-6 login-column">
     <h2 class="login-header">Join the community</h2>
-    <%= form_for(User.new) do |f| %>
+    <%= form_for(User.new, remote: true) do |f| %>
       <div class="form-wrapper">
         <%= f.label :name, hidden: true %>
         <%= f.text_field :username, class: 'form-control', :placeholder => "Username" %>
@@ -19,13 +19,12 @@
             Create Account <span class="glyphicon glyphicon-chevron-right"></span>
         <% end %>
       </div>
-
     <% end %>
   </div>
 
   <div class="col-md-6 login-column">
     <h2 class="login-header">Sign in</h2>
-    <%= form_for(:session, url: login_path) do |f| %>
+    <%= form_for(:session, url: login_path, remote: true) do |f| %>
       <div class="form-wrapper">
         <%= f.label :email, hidden: true %>
         <%= f.text_field :email, class: 'form-control', :placeholder => "Email" %>
