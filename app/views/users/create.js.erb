@@ -1,0 +1,10 @@
+<% if @success %>
+  window.location.reload()
+<% else %>
+  // replace with nicer front end code
+  var errors = "";
+  <% @user.errors.full_messages.each do |message|%>
+    errors += "<%= message.html_safe %>\n";
+  <% end %>
+  alert(errors);
+<% end %>

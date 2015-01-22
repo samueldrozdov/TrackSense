@@ -4,8 +4,8 @@
       <div class="brand">
         <%= image_tag("TSLogo.png", class: 'brand-image') %>
         <div class="brand-title">
-          <h1>Track Sense</h1>
-          <h3>Music to your brain, every day</h3>
+          <h1 class="brand-title-text">Track Sense</h1>
+          <h3 class="brand-title-text">Music to your brain, every day</h3>
         </div>
       </div>
     <% end %>
@@ -51,15 +51,21 @@
   </div>
 
   <div class="player col-md-12">
-    <div class="player-controls col-md-3">
-      <span id="custom-player-prev" class="player-back glyphicon glyphicon-step-backward"></span>
-      <span id="custom-player-pp" class="player-play glyphicon glyphicon-play"></span>
-      <span id="custom-player-next" class="player-forward glyphicon glyphicon-step-forward"></span>
+    <div class="col-md-2">
     </div>
-    <div class="player-meta col-md-6">
-      Song song Sing Song song
+
+    <div class="col-md-8">
+      <div class="player-controls">
+        <span id="custom-player-prev" class="player-back glyphicon glyphicon-step-backward"></span>
+        <span id="custom-player-pp" class="player-play glyphicon glyphicon-play"></span>
+        <span id="custom-player-next" class="player-forward glyphicon glyphicon-step-forward"></span>
+      </div>
+      <div class="player-meta">
+        Song song Sing Song song Singer song
+      </div>
     </div>
-    <div class="player-third col-md-3">
+
+    <div class="col-md-2">
     </div>
   </div>
 </header>
