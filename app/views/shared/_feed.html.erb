@@ -9,8 +9,8 @@
     <% if(!Submission.where(:created_at => Time.now.ago(locals[:theDate].days).at_beginning_of_day.utc..Time.now.ago(locals[:theDate].days).at_end_of_day.utc).empty?) %>
       <%= render Submission.where(:created_at => Time.now.ago(locals[:theDate].days).at_beginning_of_day.utc..Time.now.ago(locals[:theDate].days).at_end_of_day.utc) %>
     <% else %>
-      <div class="submission-wrapper">
-        There is no music on this day :(
+      <div class="submission-wrapper" style="text-align:center">
+        <span class="glyphicon glyphicon-alert"></span>No music today
       </div>
     <% end %>
   </div>

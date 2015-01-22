@@ -20,7 +20,7 @@ html {
 body {
   margin-top: 120px;
   background-color: #D32F2F;
-  font-family: "Helvetica Neue";
+  font-family: 'Comfortaa';
   height: 100%;
 }
 
@@ -129,10 +129,11 @@ p {
 
 .navbar {
   float:right;
-  border-bottom: 1px solid lightgray;
   vertical-align: middle;
+  border-bottom: 0px;
   background-color: #D32F2F;
   min-width: 800px;
+  max-height: 70px;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
@@ -188,7 +189,6 @@ p {
 .player-controls, .player-meta{
   padding-top: 7px;
   font-size: 25px;
-  cursor: pointer;
   display: inline-block;
 }
 
@@ -197,6 +197,8 @@ p {
 
 .player-controls {
   float: left;
+  cursor: pointer;
+
 }
 
 .player-meta {
@@ -370,6 +372,32 @@ p {
 
 /* Profile */
 
+.profile-wrapper {
+  width: 100%;
+  height: 100px;
+}
+
+.profile-header-wrapper {
+  padding: 30px;
+  border-bottom: 1.5px solid #808080;
+}
+
+.profile-name {
+  font-size: 30px;
+}
+
+.profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  border: 2px solid white;
+}
+
+.profile-meta {
+  padding-top: 20px;
+  text-align: center;
+}
+
 .profile-navigation-wrapper {
   position: fixed;
   padding: 15px;
@@ -385,53 +413,18 @@ p {
   width: 70%;
 }
 
-.profile-header {
-  margin-bottom: 20px;
+.profile-nav-1, .profile-nav-2 {
+  padding-bottom: 5px;
+
+  h2 {
+    color: #808080
+  }
 }
 
-.profile-image {
-  width: 80px;
-  height: 80px;
-  background-color: #21A3EA;
-  border-radius: 40px;
-}
-
-.profile-name {
-  padding-top: 20px;
-}
-
-.profile-genre-wrapper {
-  text-align: center;
-}
-
-.profile-genre {
-  padding: 5px;
-}
-
-.profile-genre:hover {
-  background-color: rgba(170, 170, 170, 0.2);
-}
-
-.profile-nav {
-  padding: 10px;
-  margin-bottom: 15px;
-  height: 80px;
-}
-
-.profile-nav-item {
-  text-align: center;
-  padding: 10px;
-  display: inline-block;
-  width: 105px;
-}
-
-.profile-nav-item:hover {
-  background-color: rgba(170, 170, 170, 0.2);
-
-}
-
-.profile-songs-wrapper {
-  margin-bottom: 15px;
+.profile-nav-1 {
+  h2 {
+    color: black;
+  }
 }
 
 /* Submission */
