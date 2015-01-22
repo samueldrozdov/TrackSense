@@ -13,11 +13,15 @@ class VotesController < ApplicationController
 
         @vote.save
       end
+    end
 
-      respond_to do |format|
-        format.html
-        format.js
-      end
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+    if params[:votable_type] = :Submission
+      Submission.find(params[:votable_id]).update_likes
     end
   end
 
@@ -35,6 +39,10 @@ class VotesController < ApplicationController
       else
         self.create
       end
+    end
+
+    if params[:votable_type] = :Submission
+      Submission.find(params[:votable_id]).update_likes
     end
   end
 end

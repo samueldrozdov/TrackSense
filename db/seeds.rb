@@ -16,19 +16,16 @@ sam.submissions.build(external_link: 'https://soundcloud.com/odesza/sia-big-girl
 
 sam.submissions.build(external_link: 'https://soundcloud.com/user7941120/queen-we-will-rock-you',
                       artist: 'Queen',
-                      score: 10,
                       name: 'We Will Rock You',
                       track_length: 187).save
 
 sam.submissions.build(external_link: 'https://soundcloud.com/umesongs/scorpions-rock-you-like-a',
                       artist: 'Scorpions',
-                      score: 15,
                       name: 'Rock You Like a Hurricane',
                       track_length: 101).save
 
 sub = sam.submissions.build(external_link: 'https://soundcloud.com/arayeofcolours/hotbox',
                             artist: 'RAYE.',
-                            score: 0,
                             name: 'Hotbox',
                             track_length: 255)
 sub.created_at = 1.day.ago
@@ -36,7 +33,6 @@ sub.save
 
 sub2 = sam.submissions.build(external_link: 'https://soundcloud.com/siloarts/mpa-water-lyf',
                              artist: 'Silo Arts & Records',
-                             score: 0,
                              name: 'Motion Picture Actress - Water Lyf (feat. Keiiko)',
                              track_length: 271)
 sub2.created_at = 2.days.ago

@@ -15,6 +15,16 @@
  *= require fancybox
  */
 
+a.like-button {
+  display: block;
+  color:black;
+  margin: 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 #sc-widget{
   position:fixed;
   left:67%;

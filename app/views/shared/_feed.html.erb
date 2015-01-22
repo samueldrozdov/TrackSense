@@ -6,8 +6,9 @@
     </div>
   </div>
   <div class="feed-wrapper">
-    <% if(!Submission.where(:created_at => Time.now.ago(locals[:theDate].days).at_beginning_of_day.utc..Time.now.ago(locals[:theDate].days).at_end_of_day.utc).empty?) %>
-      <%= render Submission.where(:created_at => Time.now.ago(locals[:theDate].days).at_beginning_of_day.utc..Time.now.ago(locals[:theDate].days).at_end_of_day.utc) %>
+    <% posts_in_day = Submission.where(created_at: Time.now.ago(locals[:theDate].days).at_beginning_of_day.utc..Time.now.ago(locals[:theDate].days).at_end_of_day.utc).order("likes DESC") %>
+    <% if(!posts_in_day.empty?) %>
+      <%= render posts_in_day %>
     <% else %>
       <div class="submission-wrapper" style="text-align:center">
         <span class="glyphicon glyphicon-alert"></span>No music today

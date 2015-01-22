@@ -25,6 +25,7 @@ class Submission < ActiveRecord::Base
   end
 
   def update_likes
-    self.score = self.submissions.count
+    self.likes = self.votes.count
+    self.save
   end
 end

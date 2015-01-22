@@ -4,6 +4,7 @@
 <% else %>
   <% @vote = Vote.new %>
 <% end %>
+
 $("#submission-<%= @vote.votable_id %>-vote").text("<%= Submission.find(@vote.votable_id).votes.count %>");
 $("#submission-<%= @vote.votable_id %>").find("i").toggleClass("voted");
 <% @vote = nil %>
