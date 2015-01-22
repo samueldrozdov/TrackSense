@@ -26,11 +26,11 @@ var ready = function() {
   widget = SC.Widget("sc-widget");
   songArray =  []
   currentlyPlaying = 0;
-  getSongs();
 
   var getSongs = function() {
     $(".song-play-btn").each( function() {
       songArray.push( $(this).attr('id') );
+      $(this).attr('id','song-'+(songArray.length -1))
     });
   }
 
@@ -44,9 +44,8 @@ var ready = function() {
       $(this).removeClass("glyphicon-pause").addClass("glyphicon-play");
       $("#custom-player-pp").removeClass("glyphicon-pause").addClass("glyphicon-play")
     } else {
-      song = $(this).attr('id')
-      currentlyPlaying = $.inArray(song, songArray)
-      widget.load( song , { auto_play: true });
+      currentlyPlaying = $(this).attr('id').split('-')[1]
+      widget.load( songArray[currentlyPlaying] , { auto_play: true });
       console.log( currentlyPlaying );
       $(".playing").removeClass("glyphicon-pause playing").addClass("glyphicon-play");
       $(this).removeClass("glyphicon-play").addClass("glyphicon-pause playing");
@@ -56,11 +55,14 @@ var ready = function() {
     }
   }
 
+  getSongs();
+
   var playNextSong = function( ahead ) {
-    $( '.' + songArray[currentlyPlaying] ).removeClass("glyphicon-pause").addClass("glyphicon-play");
+    $( '.playing' ).removeClass("glyphicon-pause playing").addClass("glyphicon-play");
     currentlyPlaying += ahead ? 1 : -1;
     currentlyPlaying %= songArray.length
-    $( '.' + songArray[currentlyPlaying] ).removeClass("glyphicon-play").addClass("glyphicon-pause");
+    console.log('.song-' + currentlyPlaying)
+    $( '#song-' + currentlyPlaying ).removeClass("glyphicon-play").addClass("glyphicon-pause playing");
     widget.load( songArray[currentlyPlaying] , { auto_play: true });
   }
 
@@ -79,6 +81,18 @@ var ready = function() {
       $(".playing").removeClass("glyphicon-pause").addClass("glyphicon-play");
     }
   });
+
+  //attaching listener to custom player - next
+  $("#custom-player-next").on("click", function(){
+    console.log("next song");
+    playNextSong(true);
+  })
+
+  //attaching listener to custom player - previous
+  $("#custom-player-prev").on("click", function(){
+    console.log("prev song");
+    playNextSong(false);
+  })
 
   //setup automatic play next track
   widget.bind(SC.Widget.Events.FINISH, function() {
