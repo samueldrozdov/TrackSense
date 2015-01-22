@@ -18,9 +18,10 @@ html {
 }
 
 body {
-  margin-top: 140px;
-  background-color: white;
+  margin-top: 120px;
+  background-color: #D32F2F;
   font-family: "Helvetica Neue";
+  height: 100%;
 }
 
 section {
@@ -40,7 +41,7 @@ textarea {
 }
 
 button {
-  background-color: white;
+  background-color: transparent;
   border: 0px;
   padding: 0px;
   margin: 0px;
@@ -77,11 +78,13 @@ p {
 
 .container {
   max-width: 860px;
-  min-width: 720px;
+  min-width: 800px;
+  background-color: white;
+  height: 100%;
 }
 
 .main-content {
-
+  min-height: 600px;
 }
 
 /* header */
@@ -90,6 +93,8 @@ p {
   padding: 10px 20px;
   margin: 0px auto;
   max-height: 70px;
+  background-color: #D32F2F;
+  min-width: 810px;
 }
 
 .brand {
@@ -116,13 +121,18 @@ p {
   width: 300px;
 }
 
+.brand-title-text {
+  color: white;
+}
+
 /* Navigation */
 
 .navbar {
   float:right;
-  background-color: #ffffff;
   border-bottom: 1px solid lightgray;
   vertical-align: middle;
+  background-color: #D32F2F;
+  min-width: 800px;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
@@ -131,22 +141,23 @@ p {
 
 .navbar-nav {
   float: right;
+  display: inline-block;
 }
 
 .nav-item {
-  position: fixed;
-  display: block;
 }
 
 .nav-profile {
   position: 1px;
   padding: 15px;
+  color: white;
 }
 
 .nav-more {
   height: 30px;
   width: 30px;
   margin: 10px 10px;
+  color: white;
 }
 
 .nav-add {
@@ -164,30 +175,40 @@ p {
 
 .player {
   position: fixed;
-  background-color: #212121;
+  background-color: #F44336;
   top: 70px;
   width: 100%;
   height: 50px;
   text-align: center;
   color: white;
   vertical-align: middle;
+  min-width: 800px;
 }
 
-.player-controls, .player-meta, .player-third {
+.player-controls, .player-meta{
   padding-top: 7px;
   font-size: 25px;
-  cursor: pointer
+  cursor: pointer;
+  display: inline-block;
 }
 
 .player-back, .player-play, .player-forward {
 }
 
+.player-controls {
+  float: left;
+}
+
+.player-meta {
+  float: right;
+}
+
 .player-back:active, .player-play:active, .player-forward:active {
-  color: #F44336;
+  font-size: 26px;
 }
 
 .player-back {
-  color: gray;
+  color: #D32F2F;
 }
 
 /* Forms */
@@ -298,6 +319,7 @@ p {
 /* Day */
 
 .day {
+  margin-top: 15px;
 }
 
 .day-label {
@@ -312,6 +334,21 @@ p {
 
 .day-date {
   display: inline-block;
+}
+
+.load-previous {
+  background-color: #D32F2F;
+  border-radius: 3px;
+  padding: 10px 20px;
+  border: 0px;
+  border-bottom: 5px solid #F44336;
+  color: white;
+  font-family: "Avenir"
+}
+
+.load-previous:active {
+  background-color: #D32F2F;
+  border-bottom: 4px solid #D32F2F;
 }
 
 /* Feed */

@@ -8,7 +8,9 @@
         <%= form_tag(previousDay_path, method: "get", remote: true) do %>
           <%= hidden_field_tag :day, 1, id: "day-field" %>
           <%= button_tag(type: 'submit', class: "like-button") do %>
-            <i class="">Load Previous</i>
+            <button class="load-previous">Load Previous
+              <span class="glyphicon glyphicon-collapse-down"><span>
+            </button>
           <% end %>
         <% end %>
       </h2>
