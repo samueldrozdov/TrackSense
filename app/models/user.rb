@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :submissions
   has_many :votes
+  has_many :voted_submissions, through: :votes, source: :votable, source_type: :Submission
 
   before_save { self.email = email.downcase }
 

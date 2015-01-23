@@ -34,11 +34,30 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # add query for user's posts and likes later
+    @show_likes = params[:show_likes]
+    @show_posts = params[:show_posts]
+    likes = @user.voted_submissions
+    posts = @user.submissions
+    if (@show_likes && @show_posts)
+      @submissions = posts - likes + likes
+    elsif @show_likes
+      @submissions = likes
+    elsif @show_posts
+      @submissions = posts
+    elsif (@show_likes == nil || @show_posts == nil)
+      @submissions = posts - likes + likes
+    else
+      @submissions = nil
+    end
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def feed
-      @feed = Submission.find
+    @feed = Submission.find
   end
 
   private
