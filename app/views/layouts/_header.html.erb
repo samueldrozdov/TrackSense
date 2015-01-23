@@ -32,7 +32,7 @@
               <li><%= link_to "Log out", logout_path, method: "delete" %></li>
             </ul>
           <% else %>
-            <%= link_to "", '#login-form', class: 'fancybox glyphicon glyphicon-user' %>
+            <%= link_to "login", '#login-form', class: 'fancybox', style: 'color: white' %>
           <% end %>
         </li>
         <li class="nav-item">

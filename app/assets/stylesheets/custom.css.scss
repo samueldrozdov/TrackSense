@@ -104,7 +104,6 @@ p {
 
 .header {
   padding: 10px 20px;
-  margin: 0px auto;
   max-height: 70px;
   background-color: #D32F2F;
   min-width: 810px;
@@ -123,8 +122,8 @@ p {
 }
 
 .brand-image {
-  height: 40px;
-  width: 40px;
+  height: 45px;
+  width: 45px;
   float: left;
   margin-right: 10px;
 }
@@ -175,8 +174,8 @@ p {
 }
 
 .nav-add {
-  height: 30px;
-  width: 30px;
+  height: 32px;
+  width: 32px;
   margin: 10px 10px;
 }
 
@@ -358,6 +357,7 @@ p {
   border: 0px;
   border-bottom: 5px solid #F44336;
   color: white;
+  font-size: 18px;
 }
 
 .load-previous:active {
