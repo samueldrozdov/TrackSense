@@ -47,6 +47,19 @@ button {
   margin: 0px;
 }
 
+input::-webkit-input-placeholder {
+  color: white;
+}
+input::-moz-placeholder {
+  color: white;
+}
+input:-moz-placeholder {   /* Older versions of Firefox */
+  color: white;
+}
+input:-ms-input-placeholder {
+  color: white;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -345,7 +358,6 @@ p {
   border: 0px;
   border-bottom: 5px solid #F44336;
   color: white;
-  font-family: "Avenir"
 }
 
 .load-previous:active {
@@ -378,12 +390,16 @@ p {
 }
 
 .profile-header-wrapper {
-  padding: 30px;
+  padding: 10px 20px;
   border-bottom: 1.5px solid #808080;
 }
 
 .profile-name {
-  font-size: 30px;
+  padding-top: 15px;
+
+  #profile-username {
+    font-size: 30px;
+  }
 }
 
 .profile-image {
@@ -413,18 +429,13 @@ p {
   width: 70%;
 }
 
-.profile-nav-1, .profile-nav-2 {
+.profile-nav-item, .profile-nav-item {
   padding-bottom: 5px;
-
-  h2 {
-    color: #808080
-  }
+  color: #808080
 }
 
-.profile-nav-1 {
-  h2 {
-    color: black;
-  }
+.profile-nav-item:hover, .profile-nav-item:hover {
+  color: black;
 }
 
 /* Submission */
