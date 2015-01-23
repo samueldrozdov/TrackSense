@@ -44,9 +44,6 @@ gem 'bcrypt', '~> 3.1.7'
 group :test do
   gem 'capybara'
   gem 'shoulda'
-
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
 end
 
 gem 'database_cleaner'
@@ -66,10 +63,13 @@ group :development, :test do
 
   # Used for easier, faster fixture generation
   gem 'factory_girl_rails'
+
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 end
 
 group :production do
-  #use postgres for production
+  # use postgres for production
   gem 'pg'
   gem 'rails_12factor'
 end
