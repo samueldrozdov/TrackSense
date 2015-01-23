@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get 'about' => 'static_pages#about'
   get 'digest' => 'static_pages#digest_signup'
+  get 'coming_soon' => 'static_pages#coming_soon'
 
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'

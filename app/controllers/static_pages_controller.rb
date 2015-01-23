@@ -6,6 +6,9 @@ class StaticPagesController < ApplicationController
   def about
   end
 
+  def coming_soon
+  end
+
   def loadNewDay
     @day = params[:day].to_i
     respond_to do |format|
