@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   root 'static_pages#home'
+
+  get 'about' => 'static_pages#about'
   get 'digest' => 'static_pages#digest_signup'
 
   post   'login'   => 'sessions#create'

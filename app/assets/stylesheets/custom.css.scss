@@ -532,3 +532,38 @@ p {
 .song-play-btn:hover {
   color: green;
 }
+
+/* About page */
+
+.founder {
+  width: 33.33%;
+  padding: 15px;
+  margin-bottom: 60px;
+  float: left;
+}
+
+.founder h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.founder img {
+  display: inline-block;
+  padding: 20px;
+}
+
+.about {
+  text-align: center;
+}
+
+.about h1 {
+  color: #CF2727;
+  padding-top: 45px;
+  padding-bottom: 45px;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.about h2 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
