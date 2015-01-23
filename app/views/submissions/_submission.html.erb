@@ -1,8 +1,7 @@
 <div class="submission-wrapper" id="submission-<%= submission.id %>">
   <div class="like-button-wrapper">
     <% if logged_in? %>
-      <% vote = submission.votes.where(user_id: current_user.id).take || current_user.votes.build(votable_id: submission.id, 
-                                                                                                  votable_type: :Submission) %>
+      <% vote = submission.votes.where(user_id: current_user.id).take || current_user.votes.build(votable_id: submission.id, votable_type: :Submission) %>
     <% else %>
       <% vote = Vote.new %>
     <% end %>
@@ -24,10 +23,16 @@
   </div>
   <div class="right-margin-wrapper">
     <div class="song-time">
-      <% time_string = "" + (submission.track_length/60).to_i.to_s + ":" + 
-        (submission.track_length%60).to_i.to_s.rjust(2, '0') %>
+      <% time_string = "" + (submission.track_length/60).to_i.to_s + ":" + (submission.track_length%60).to_i.to_s.rjust(2, '0') %>
       <h3><%= time_string %></h3>
     </div>
     <div class="song-play-btn glyphicon glyphicon-play" id="<%= submission.external_link %>"></div>
+    <script type="text/javascript">
+      //console.log($(".song-play-btn:last").attr('id'))
+      var song = $(".song-play-btn:last")
+      songArray.push(song.attr('id'))
+      song.attr('id', 'song-'+ (songArray.length - 1))
+      //arr.push()
+    </script>
   </div>
 </div>

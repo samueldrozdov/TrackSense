@@ -16,6 +16,7 @@
 //= require bootstrap
 //= require_tree .
 
+songArray = []
 
 var ready = function() {
 
@@ -24,7 +25,7 @@ var ready = function() {
   });
 
   widget = SC.Widget("sc-widget");
-  songArray =  []
+  //songArray =  []
   currentlyPlaying = 0;
 
   var getSongs = function() {
@@ -55,7 +56,7 @@ var ready = function() {
     }
   }
 
-  getSongs();
+  //getSongs();
 
   var playNextSong = function( ahead ) {
     $( '.playing' ).removeClass("glyphicon-pause playing").addClass("glyphicon-play");
