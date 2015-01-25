@@ -165,6 +165,10 @@ p {
   position: 1px;
   padding: 15px;
   color: white;
+
+  :hover {
+    border: 0px;
+  }
 }
 
 .nav-more {
@@ -352,18 +356,16 @@ p {
 }
 
 .load-previous {
-  background-color: #F44336;
-  border-radius: 3px;
-  padding: 10px 20px;
+  background-color: none;
+  border-radius: 10px;
+  padding: 8px 18px;
   border: 0px;
-  border-bottom: 5px solid #D32F2F;
-  color: white;
-  font-size: 20px;
+  color: #808080;
+  font-size: 18px;
 }
 
-.load-previous:active {
-  background-color: #F44336;
-  border-bottom: 4px solid #F44336;
+.load-previous:hover {
+  color: black;
 }
 
 /* Feed */
@@ -575,5 +577,5 @@ p {
 }
 
 .about #makeschool {
-  clear:left;
+  clear: left;
 }

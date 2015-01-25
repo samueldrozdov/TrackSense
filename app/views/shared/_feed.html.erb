@@ -11,7 +11,19 @@
       <%= render posts_in_day %>
     <% else %>
       <div class="submission-wrapper" style="padding-left: 15px;">
-        No music :(
+        <% if logged_in? %>
+          <% if Time.now.ago(locals[:theDate].days).to_date === Time.now.ago(0).to_date %>
+            No music yet. <a href="#submission-form" class="fancybox">Post the first song of the day.</a>
+          <% else %>
+              No music :(
+          <% end %>
+        <% else %> <!-- should only call submission and automatically detect if the user is not logged in -->
+          <% if Time.now.ago(locals[:theDate].days).to_date == Time.now.to_date %>
+            No music yet. <a href="#login-form" class="fancybox">Post the first song of the day.</a>
+          <% else %>
+            No music :(
+          <% end %>
+        <% end %>
       </div>
     <% end %>
   </div>
