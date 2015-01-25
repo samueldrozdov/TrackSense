@@ -72,4 +72,5 @@ group :production do
   # use postgres for production
   gem 'pg'
   gem 'rails_12factor'
+  gem 'unicorn'
 end
