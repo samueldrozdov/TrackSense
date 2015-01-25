@@ -15,7 +15,7 @@
           <%= form_for(@user, remote: true, method: :get) do |f| %>
             <%= hidden_field_tag :show_likes, true %>
             <%= button_tag(type: 'submit') do %>
-              <h2 class="profile-nav-item">Likes</h2>
+              <h2 class="profile-nav-item" id="likes-btn">Likes</h2>
             <% end %>
           <% end %>
         </div>
@@ -24,7 +24,7 @@
           <%= form_for(@user, remote: true, method: :get) do |f| %>
             <%= hidden_field_tag :show_posts, true %>
             <%= button_tag(type: 'submit') do %>
-              <h2 class="profile-nav-item">Posts</h2>
+              <h2 class="profile-nav-item" id="posts-btn">Posts</h2>
             <% end %>
           <% end %>
         </div>
