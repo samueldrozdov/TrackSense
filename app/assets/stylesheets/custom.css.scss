@@ -19,7 +19,7 @@ html {
 
 body {
   margin-top: 120px;
-  background-color: #ADA0A0;
+  background-color: #eeeaea;
   font-family: 'Comfortaa';
   height: 100%;
 }
@@ -158,12 +158,17 @@ p {
 }
 
 .nav-item {
+  vertical-align: center;
 }
 
 .nav-profile {
   position: 1px;
   padding: 15px;
   color: white;
+
+  :hover {
+    border: 0px;
+  }
 }
 
 .nav-more {
@@ -176,7 +181,8 @@ p {
 .nav-add {
   height: 32px;
   width: 32px;
-  margin: 10px 10px;
+  margin: 7px 10px;
+  vertical-align: center;
 }
 
 .nav-add:active {
@@ -210,7 +216,6 @@ p {
 .player-controls {
   float: left;
   cursor: pointer;
-
 }
 
 .player-meta {
@@ -294,17 +299,17 @@ p {
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:focus {
-  background-color: #D32F2F;
+  background-color: #F44336;
   width: 100%;
   border-radius: 3px;
   padding: 10px 15px;
   border: 0px;
-  border-bottom: 5px solid #F44336;
+  border-bottom: 5px solid #D32F2F;
 }
 
 .btn-primary:active {
-  background-color: #D32F2F;
-  border-bottom: 4px solid #D32F2F;
+  background-color: #F44336;
+  border-bottom: 4px solid #F44336;
 }
 
 .login-btns-wrapper {
@@ -337,7 +342,7 @@ p {
 }
 
 .day-label {
-  text-align: center;
+  text-align: left;
   margin-bottom: 10px;
 }
 
@@ -351,18 +356,16 @@ p {
 }
 
 .load-previous {
-  background-color: #D32F2F;
-  border-radius: 3px;
-  padding: 10px 20px;
+  background-color: none;
+  border-radius: 10px;
+  padding: 8px 18px;
   border: 0px;
-  border-bottom: 5px solid #F44336;
-  color: white;
+  color: #808080;
   font-size: 18px;
 }
 
-.load-previous:active {
-  background-color: #D32F2F;
-  border-bottom: 4px solid #D32F2F;
+.load-previous:hover {
+  color: black;
 }
 
 /* Feed */
@@ -574,5 +577,5 @@ p {
 }
 
 .about #makeschool {
-  clear:left;
+  clear: left;
 }

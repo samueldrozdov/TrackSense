@@ -17,7 +17,7 @@
 /tmp
 
 # Ignore secrets
-config/secrets.yml
+# config/secrets.yml
 
 # Ignore OS X system files
 .DS_Store
