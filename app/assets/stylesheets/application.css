@@ -96,3 +96,9 @@ a:hover {
 .voted {
   color:green;
 }
+
+/* Flash */
+
+.alert {
+  margin-top: 15px;
+}
