@@ -165,6 +165,7 @@ p {
   position: 1px;
   padding: 15px;
   color: white;
+  cursor: pointer;
 
   :hover {
     border: 0px;
@@ -176,6 +177,7 @@ p {
   width: 30px;
   margin: 10px 10px;
   color: white;
+  cursor: pointer;
 }
 
 .nav-add {
@@ -470,25 +472,17 @@ p {
   text-align: center;
 }
 
-.like-button:hover {
-  color: green;
-}
-
 .like-button {
   padding: 0px;
   margin: 0px;
   background-color: transparent;
+  color: #808080;
   font-size: 20px;
 }
 
 .new_vote {
   line-height: 16px;
   margin: 0px;
-}
-
-.like-icon:hover {
-  color: green;
-  text-decoration: none;
 }
 
 .submission-info {
@@ -502,6 +496,11 @@ p {
 
 .song-name {
   display: inline-block;
+  cursor: pointer;
+}
+
+.song-name:hover {
+  border-bottom: 1px solid black;
 }
 
 .song-artist {
@@ -533,7 +532,8 @@ p {
 }
 
 .song-play-btn:hover {
-  color: green;
+  color: #F49136;
+  cursor: pointer;
 }
 
 /* About page */
