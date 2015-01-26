@@ -50,7 +50,7 @@ var ready = function() {
       console.log( currentlyPlaying );
       $(".playing").removeClass("glyphicon-pause playing").addClass("glyphicon-play");
       $(this).removeClass("glyphicon-play").addClass("glyphicon-pause playing");
-      $(".player-meta").text($("#submission-" + (Number(currentlyPlaying)+1)).find(".song-name").text());
+      $(".player-meta").text(($("#song-" + Number(currentlyPlaying)).parent().parent()).find(".song-name").text());
       if($("#custom-player-pp").hasClass("glyphicon-play")) {
         $("#custom-player-pp").removeClass("glyphicon-play").addClass("glyphicon-pause")
       }
@@ -65,7 +65,7 @@ var ready = function() {
     currentlyPlaying %= songArray.length
     console.log('.song-' + currentlyPlaying)
     $( '#song-' + currentlyPlaying ).removeClass("glyphicon-play").addClass("glyphicon-pause playing");
-    $(".player-meta").text($("#submission-" + (Number(currentlyPlaying)+1)).find(".song-name").text());
+    $(".player-meta").text(($("#song-" + Number(currentlyPlaying)).parent().parent()).find(".song-name").text());
     widget.load( songArray[currentlyPlaying] , { auto_play: true });
   }
 
@@ -105,7 +105,7 @@ var ready = function() {
     currentlyPlaying %= songArray.length
     // $( '#' + songArray[currentlyPlaying] )
     $("#song-" + currentlyPlaying).removeClass("glyphicon-play").addClass("glyphicon-pause");
-    $(".player-meta").text($("#submission-" + (Number(currentlyPlaying)+1)).find(".song-name").text());
+    $(".player-meta").text(($("#song-" + Number(currentlyPlaying)).parent().parent()).find(".song-name").text());
     widget.load( songArray[currentlyPlaying] , { auto_play: true });
   });
 };
