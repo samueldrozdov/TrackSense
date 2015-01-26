@@ -101,7 +101,8 @@ var ready = function() {
     $( ".playing" ).removeClass("glyphicon-pause").addClass("glyphicon-play");
     currentlyPlaying += 1;
     currentlyPlaying %= songArray.length
-    $( '#' + songArray[currentlyPlaying] ).removeClass("glyphicon-play").addClass("glyphicon-pause");
+    // $( '#' + songArray[currentlyPlaying] )
+    $("#song-" currentlyPlaying).removeClass("glyphicon-play").addClass("glyphicon-pause");
     widget.load( songArray[currentlyPlaying] , { auto_play: true });
   });
 };
