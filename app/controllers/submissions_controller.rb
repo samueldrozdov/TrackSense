@@ -16,7 +16,7 @@ class SubmissionsController < ApplicationController
     end
 
     # resolved url must be track
-    if track.user.username && track.duration && track.title
+    if track.user && track.duration && track.title
       # grab values from track object (guaranteed to exist at this point)
       artist = track.user.username
       track_length = track.duration/1000 # convert from ms to seconds
