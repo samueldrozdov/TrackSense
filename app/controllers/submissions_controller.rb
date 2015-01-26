@@ -15,8 +15,9 @@ class SubmissionsController < ApplicationController
       return
     end
 
+    byebug
     # grab values from track object (guaranteed to exist at this point)
-    artist = track.user.username
+    artist = track.username
     track_length = track.duration/1000 # convert from ms to seconds
     name = track.title
 
