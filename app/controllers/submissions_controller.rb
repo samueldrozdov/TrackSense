@@ -15,12 +15,17 @@ class SubmissionsController < ApplicationController
       return
     end
 
-    byebug
-    # grab values from track object (guaranteed to exist at this point)
-    artist = track.username
-    track_length = track.duration/1000 # convert from ms to seconds
-    name = track.title
-
+    # resolved url must be track
+    if track.user.username && track.duration && track.title
+      # grab values from track object (guaranteed to exist at this point)
+      artist = track.user.username
+      track_length = track.duration/1000 # convert from ms to seconds
+      name = track.title
+    else
+      flash[:danger] = "Song not found"
+      redirect_to root_url
+      return
+    end
 
     @submission = current_user.submissions.build({ external_link: submission_params[:external_link],
                                                    artist: artist,
