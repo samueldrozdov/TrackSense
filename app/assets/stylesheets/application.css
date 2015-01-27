@@ -91,6 +91,10 @@ a:hover {
   border-left: 1px solid gray;
 }
 
+.currently-playing {
+  background-color: lightgray;
+}
+
 /* Votes */
 
 .voted {

@@ -19,6 +19,11 @@
 songArray = []
 currentlyPlaying = 0;
 
+var playSong = function(index) {
+
+
+}
+
 var mapPlayOnClick = function() {
   if ( $(this).hasClass("playing glyphicon-play")) {
     widget.play();
@@ -29,12 +34,14 @@ var mapPlayOnClick = function() {
     $(this).removeClass("glyphicon-pause").addClass("glyphicon-play");
     $("#custom-player-pp").removeClass("glyphicon-pause").addClass("glyphicon-play")
   } else {
+    $(".currently-playing").removeClass("currently-playing")
     currentlyPlaying = $(this).attr('id').split('-')[1]
     widget.load( songArray[currentlyPlaying] , { auto_play: true });
     console.log( currentlyPlaying );
     $(".playing").removeClass("glyphicon-pause playing").addClass("glyphicon-play");
     $(this).removeClass("glyphicon-play").addClass("glyphicon-pause playing");
     $(".player-meta").text(($("#song-" + Number(currentlyPlaying)).parent().parent()).find(".song-name").text());
+    $(this).parent().parent().addClass("currently-playing")
     if($("#custom-player-pp").hasClass("glyphicon-play")) {
       $("#custom-player-pp").removeClass("glyphicon-play").addClass("glyphicon-pause")
     }
@@ -70,6 +77,7 @@ var ready = function() {
   }
 
   //attaching event listener to each submission
+  //does not handle async added submissions, moved to submission partial
   //$(".song-play-btn").on("click", mapPlayOnClick);
 
   //attaching listener to custom player - play/pause
