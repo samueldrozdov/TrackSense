@@ -2,15 +2,17 @@
 <div class="main-content">
   <div class="profile-wrapper col-md-12">
     <div class="profile-header-wrapper row">
-      <div class="col-md-2">
+      <div class="profile-image-wrapper">
         <%= image_for @user, "profile-image" %>
       </div>
-      <div class="profile-name col-md-6">
+
+      <div class="profile-name">
         <h2 id="profile-username"><%= User.find(params[:id]).username %></h2>
         <h3>Since <%= User.find(params[:id]).created_at.strftime("%m/%e/%Y") %></h3>
       </div>
-      <div class="profile-meta col-md-4">
-        <div class="profile-nav-1 col-md-6">
+
+      <div class="profile-meta">
+        <div class="profile-nav-1">
           <h3><%= @user.votes.count %></h3>
           <%= form_for(@user, remote: true, method: :get) do |f| %>
             <%= hidden_field_tag :show_likes, true %>
@@ -19,7 +21,7 @@
             <% end %>
           <% end %>
         </div>
-        <div class="profile-nav-2 col-md-6">
+        <div class="profile-nav-2">
           <h3><%= @user.submissions.count %></h3>
           <%= form_for(@user, remote: true, method: :get) do |f| %>
             <%= hidden_field_tag :show_posts, true %>

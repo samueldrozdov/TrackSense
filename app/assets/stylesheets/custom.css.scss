@@ -115,12 +115,6 @@ p {
   margin-top: 5px;
 }
 
-@media screen and (max-width: 740px) {
-  .brand-title {
-    display: none !important;
-  }
-}
-
 .brand-image {
   height: 45px;
   width: 45px;
@@ -146,6 +140,11 @@ p {
   background-color: #D32F2F;
   min-width: 800px;
   max-height: 70px;
+  transition: top 0.15s ease-in-out;
+}
+
+.nav-up {
+  top: -70px;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
@@ -154,11 +153,11 @@ p {
 
 .navbar-nav {
   float: right;
-  display: inline-block;
 }
 
 .nav-item {
   vertical-align: center;
+  display: inline-block;
 }
 
 .nav-profile {
@@ -396,32 +395,46 @@ p {
 
 .profile-header-wrapper {
   padding: 10px 20px;
-  border-bottom: 1.5px solid #808080;
+  border-bottom: 1px solid lightgray;
 }
 
-.profile-name {
-  padding-top: 15px;
+.profile-image-wrapper, .profile-name, .profile-meta {
+  display: inline-block;
+}
 
-  #profile-username {
-    font-size: 30px;
-  }
+#profile-username {
+  font-size: 30px;
 }
 
 .profile-image {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   border-radius: 40px;
   border: 2px solid white;
+  display: none;
 }
 
 .profile-meta {
-  padding-top: 20px;
   text-align: center;
+  float: right;
+  padding-top: 10px;
+}
+
+@media screen and (min-width:800px) {
+  .profile-meta {
+    text-align: center;
+    float: right;
+    padding-top: 10px;
+  }
+}
+@media screen and (max-width:800px) {
+  .profile-meta {
+    clear: left;
+  }
 }
 
 .profile-navigation-wrapper {
   position: fixed;
-  padding: 15px;
   width: 20%;
   height: 85%;
   margin-bottom: 20px;
@@ -430,12 +443,15 @@ p {
 
 .profile-feed-wrapper {
   position: relative;
-  margin-left: 30%;
   width: 70%;
 }
 
+.profile-nav-1, .profile-nav-2{
+  display: inline-block;
+  padding: 0px 10px;
+}
+
 .profile-nav-item, .profile-nav-item {
-  padding-bottom: 5px;
   color: #808080
 }
 
