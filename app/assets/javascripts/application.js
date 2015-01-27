@@ -17,6 +17,29 @@
 //= require_tree .
 
 songArray = []
+currentlyPlaying = 0;
+
+var mapPlayOnClick = function() {
+  if ( $(this).hasClass("playing glyphicon-play")) {
+    widget.play();
+    $(this).removeClass("glyphicon-play").addClass("glyphicon-pause");
+    $("#custom-player-pp").removeClass("glyphicon-play").addClass("glyphicon-pause")
+  } else if ( $(this).hasClass("glyphicon-pause") ) {
+    widget.pause();
+    $(this).removeClass("glyphicon-pause").addClass("glyphicon-play");
+    $("#custom-player-pp").removeClass("glyphicon-pause").addClass("glyphicon-play")
+  } else {
+    currentlyPlaying = $(this).attr('id').split('-')[1]
+    widget.load( songArray[currentlyPlaying] , { auto_play: true });
+    console.log( currentlyPlaying );
+    $(".playing").removeClass("glyphicon-pause playing").addClass("glyphicon-play");
+    $(this).removeClass("glyphicon-play").addClass("glyphicon-pause playing");
+    $(".player-meta").text(($("#song-" + Number(currentlyPlaying)).parent().parent()).find(".song-name").text());
+    if($("#custom-player-pp").hasClass("glyphicon-play")) {
+      $("#custom-player-pp").removeClass("glyphicon-play").addClass("glyphicon-pause")
+    }
+  }
+}
 
 var ready = function() {
 
@@ -26,35 +49,12 @@ var ready = function() {
 
   widget = SC.Widget("sc-widget");
   //songArray =  []
-  currentlyPlaying = 0;
 
   var getSongs = function() {
     $(".song-play-btn").each( function() {
       songArray.push( $(this).attr('id') );
       $(this).attr('id','song-'+(songArray.length -1))
     });
-  }
-
-  var mapPlayOnClick = function() {
-    if ( $(this).hasClass("playing glyphicon-play")) {
-      widget.play();
-      $(this).removeClass("glyphicon-play").addClass("glyphicon-pause");
-      $("#custom-player-pp").removeClass("glyphicon-play").addClass("glyphicon-pause")
-    } else if ( $(this).hasClass("glyphicon-pause") ) {
-      widget.pause();
-      $(this).removeClass("glyphicon-pause").addClass("glyphicon-play");
-      $("#custom-player-pp").removeClass("glyphicon-pause").addClass("glyphicon-play")
-    } else {
-      currentlyPlaying = $(this).attr('id').split('-')[1]
-      widget.load( songArray[currentlyPlaying] , { auto_play: true });
-      console.log( currentlyPlaying );
-      $(".playing").removeClass("glyphicon-pause playing").addClass("glyphicon-play");
-      $(this).removeClass("glyphicon-play").addClass("glyphicon-pause playing");
-      $(".player-meta").text(($("#song-" + Number(currentlyPlaying)).parent().parent()).find(".song-name").text());
-      if($("#custom-player-pp").hasClass("glyphicon-play")) {
-        $("#custom-player-pp").removeClass("glyphicon-play").addClass("glyphicon-pause")
-      }
-    }
   }
 
   //getSongs();
@@ -70,7 +70,7 @@ var ready = function() {
   }
 
   //attaching event listener to each submission
-  $(".song-play-btn").on("click", mapPlayOnClick);
+  //$(".song-play-btn").on("click", mapPlayOnClick);
 
   //attaching listener to custom player - play/pause
   $("#custom-player-pp").on("click", function(){
