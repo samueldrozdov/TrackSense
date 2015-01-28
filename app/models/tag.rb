@@ -1,0 +1,9 @@
+class Tag < ActiveRecord::Base
+  validates :name, presence: true, length: { maximum: 50 }, uniqueness: { case_sensitive: false }
+
+  has_many :active_relationships, class_name: "TagRelationship",
+                                  foreign_key: "tag_id",
+                                  dependent: :destroy
+  # taggeds is awkward but idk how to make it better
+  has_many :submissions, through: :active_relationships, source: :tagged
+end
