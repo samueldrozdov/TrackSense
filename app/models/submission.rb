@@ -1,7 +1,10 @@
 class Submission < ActiveRecord::Base
   belongs_to :user, dependent: :destroy
   has_many :votes, as: :votable
-  has_many :genres, through: :tagged
+  has_many :active_relationships, class_name: "TagRelationship",
+                                  foreign_key: "tagged_id",
+                                  dependent: :destroy
+  has_many :tags, through: :active_relationships, source: :tag
 
   # validations
   VALID_URL_REGEX = /\A(http(?:s)?\:\/\/[a-zA-Z0-9\-]+(?:\.[a-zA-Z0-9\-]+)*\.[a-zA-Z]{2,8}\/(.)*)\z/
