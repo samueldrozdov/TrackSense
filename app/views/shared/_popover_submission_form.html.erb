@@ -4,6 +4,14 @@
     <div class="form-wrapper">
       <%= form_for(current_user.submissions.build) do |f| %>
         <%= f.text_field :external_link, class: 'form-control', placeholder: "Soundcloud URL"  %>
+        <div class="col-md-12" style="padding: 0px;">
+          <input class="add-tag-field col-md-9" placeholder="Add Tag" type="text">
+          <input class="add-tag-btn col-md-3" type="button" value="Add">
+          <div class="added-tags">
+            <li class="added-tag">1st Tag</li>
+            <li class="added-tag">2nd Tag</li>
+          </div>
+        </div>
         <%= f.submit "Submit Song", class: "btn btn-primary" %>
       <% end %>
     </div>
