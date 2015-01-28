@@ -150,6 +150,14 @@ var ready = function() {
     $(".player-meta").text(($("#song-" + Number(currentlyPlaying)).parent().parent()).find(".song-name").text());
     widget.load( songArray[currentlyPlaying] , { auto_play: true });
   });
+
+
+  //Fade out alert
+  window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+      $(this).remove();
+    });
+  }, 2000);
 };
 
 $(document).ready(ready);
