@@ -3,3 +3,14 @@ var day = parseInt($("#day-field").val());
 day++;
 $("#day-field").val(day);
 $(".day-wrapper:last").after("<%= escape_javascript(render 'shared/feed', locals: { theDate: @day }) %>");
+//console.log(songArray.length)
+//<script type="text/javascript">
+//console.log($(".song-play-btn:last").attr('id'))
+$(".bind-map").each(function() {
+  $(this).removeClass("bind-map");
+  songArray.push($(this).attr('id'))
+  $(this).attr('id', 'song-'+ (songArray.length - 1))
+  $(this).on("click", mapPlayOnClick)
+})
+//arr.push()
+//</script>
