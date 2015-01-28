@@ -502,7 +502,7 @@ p {
 }
 
 .submission-info {
-  display: inline-block;
+  display: inline;
   padding: 3px 0px;
 }
 
@@ -511,7 +511,7 @@ p {
 }
 
 .song-name {
-  display: inline-block;
+  display: inline;
   cursor: pointer;
 }
 
@@ -520,22 +520,20 @@ p {
 }
 
 .song-artist {
-  display: inline-block;
+  display: inline;
   color: gray;
 }
-
 
 .submission-metadata {
   padding-top: 1px;
   color: gray;
+  margin-left: 50px;
 }
 
 .right-margin-wrapper {
   float: right;
   text-align: right;
-  height: 100%;
-  vertical-align: baseline;
-  padding-top: 12px;
+  padding-top: 10px;
 }
 
 .song-time {

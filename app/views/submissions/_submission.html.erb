@@ -8,6 +8,23 @@
     <%= render vote %>
     <span class="vote-count" id="submission-<%= submission.id %>-vote"><%= submission.votes.count %></span>
   </div>
+
+  <div class="right-margin-wrapper">
+    <div class="song-time">
+      <% time_string = "" + (submission.track_length/60).to_i.to_s + ":" + (submission.track_length%60).to_i.to_s.rjust(2, '0') %>
+      <h3><%= time_string %></h3>
+    </div>
+    <div class="song-play-btn glyphicon glyphicon-play" id="<%= submission.external_link %>"></div>
+    <script type="text/javascript">
+    //console.log($(".song-play-btn:last").attr('id'))
+    var song = $(".song-play-btn:last")
+    songArray.push(song.attr('id'))
+    song.attr('id', 'song-'+ (songArray.length - 1))
+    song.on("click", mapPlayOnClick)
+    //arr.push()
+    </script>
+  </div>
+
   <div class="submission-info">
     <div class="submission-detail">
       <h2 class="song-name"><a href="<%= submission.external_link %>" style="color:black"> <%= submission.name %> </a></h2>
@@ -17,19 +34,5 @@
       <h6> Shared by <%= User.find(submission.user_id).username %> </h6>
     </div>
   </div>
-  <div class="right-margin-wrapper">
-    <div class="song-time">
-      <% time_string = "" + (submission.track_length/60).to_i.to_s + ":" + (submission.track_length%60).to_i.to_s.rjust(2, '0') %>
-      <h3><%= time_string %></h3>
-    </div>
-    <div class="song-play-btn glyphicon glyphicon-play" id="<%= submission.external_link %>"></div>
-    <script type="text/javascript">
-      //console.log($(".song-play-btn:last").attr('id'))
-      var song = $(".song-play-btn:last")
-      songArray.push(song.attr('id'))
-      song.attr('id', 'song-'+ (songArray.length - 1))
-      song.on("click", mapPlayOnClick)
-      //arr.push()
-    </script>
-  </div>
+
 </div>
