@@ -295,6 +295,7 @@ p {
   border-bottom: 2px solid black;
   box-shadow: 0px 0px 0px 0px;
   padding: 15px;
+  padding-left: 25px;
   margin-bottom: 15px;
 }
 
@@ -307,7 +308,7 @@ p {
 }
 
 .add-tag-btn {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
   color: white;
   border: 0px;
   padding: 14px;
@@ -320,6 +321,7 @@ p {
   color: white;
   clear: left;
   margin-bottom: 10px;
+  max-width: 255px;
 }
 
 .added-tag {
@@ -328,6 +330,12 @@ p {
   background-color: rgba(255, 255, 255, 0.3);
   color: black;
   border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.added-tag:hover {
+  background-color: rgba(255, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .remember-control {
