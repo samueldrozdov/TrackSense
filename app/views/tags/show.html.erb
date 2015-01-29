@@ -1,6 +1,13 @@
-<% provide(:title, @tag.name) %>
-<div class="day-wrapper">
+<% if @tag %>
+  <% provide(:title, @tag.name) %>
+<% else %>
+  <% provide(:title, "Tag not found") %>
+<div class="main-content">
   <div class="feed-wrapper">
-    <%= render @submissions %>
+    <% if @submissions %>
+      <%= render @submissions %>
+    <% else %>
+      <p>No submissions</p>
+    <% end %>
   </div>
 </div>
