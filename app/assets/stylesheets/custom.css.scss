@@ -573,9 +573,19 @@ p {
 }
 
 .submission-metadata {
-  padding-top: 1px;
   color: gray;
   margin-left: 50px;
+}
+
+.submission-tag-label {
+  display: inline-block;
+  border-radius: 5px;
+  color: #808080;
+}
+
+.submission-tag-label:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .right-margin-wrapper {
