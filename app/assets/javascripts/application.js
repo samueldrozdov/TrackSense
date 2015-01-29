@@ -16,9 +16,6 @@
 //= require bootstrap
 //= require_tree .
 
-songArray = []
-currentlyPlaying = 0;
-
 // Hide header on scroll down, show on scroll up
 var didScroll;
 var lastScrollTop = 0;
@@ -58,27 +55,72 @@ function hasScrolled() {
   lastScrollTop = st;
 }
 
+//song player functions
+
+songArray = []
+currentlyPlaying = 0;
+//widget = SC.Widget("sc-widget");
+
+var songIdFromIndex = function(index) {
+  var songClass = "#song-"+currentlyPlaying
+  console.log(songClass)
+  return songClass
+}
+
+var resumePlayer = function() {
+  $(".playing").removeClass("glyphicon-play").addClass("glyphicon-pause");
+  $("#custom-player-pp").removeClass("glyphicon-play").addClass("glyphicon-pause")
+  widget.play()
+  console.log("resume player")
+}
+
+var pausePlayer = function() {
+  $(".playing").removeClass("glyphicon-pause").addClass("glyphicon-play");
+  $("#custom-player-pp").removeClass("glyphicon-pause").addClass("glyphicon-play");
+  widget.pause()
+  console.log("pause player")
+}
+
+var stopPlayer = function() {
+  $(".currently-playing").removeClass("currently-playing")
+  $(".playing").removeClass("glyphicon-pause playing").addClass("glyphicon-play");
+  console.log("stop player")
+}
+
+var startPlayerWithIndex = function(index) {
+  widget.load( songArray[currentlyPlaying] , { auto_play: true });
+  songObj = $(songIdFromIndex(index));
+  songObj.removeClass("glyphicon-play").addClass("glyphicon-pause playing");
+  //add extra class to submission div that adds background color
+  songObj.parent().parent().addClass("currently-playing");
+  //write selected song name to banner of custom player
+  $(".player-meta").text(songObj.parent().parent().find(".song-name").text());
+  $("#custom-player-pp").removeClass("glyphicon-play").addClass("glyphicon-pause playing")
+  console.log("start player")
+}
+
 var mapPlayOnClick = function() {
   if ( $(this).hasClass("playing glyphicon-play")) {
-    widget.play();
-    $(this).removeClass("glyphicon-play").addClass("glyphicon-pause");
-    $("#custom-player-pp").removeClass("glyphicon-play").addClass("glyphicon-pause")
+    resumePlayer();
   } else if ( $(this).hasClass("glyphicon-pause") ) {
-    widget.pause();
-    $(this).removeClass("glyphicon-pause").addClass("glyphicon-play");
-    $("#custom-player-pp").removeClass("glyphicon-pause").addClass("glyphicon-play")
+    pausePlayer();
   } else {
-    $(".currently-playing").removeClass("currently-playing")
     currentlyPlaying = $(this).attr('id').split('-')[1]
-    widget.load( songArray[currentlyPlaying] , { auto_play: true });
     console.log( currentlyPlaying );
-    $(".playing").removeClass("glyphicon-pause playing").addClass("glyphicon-play");
-    $(this).removeClass("glyphicon-play").addClass("glyphicon-pause playing");
-    $(".player-meta").text(($("#song-" + Number(currentlyPlaying)).parent().parent()).find(".song-name").text());
-    $(this).parent().parent().addClass("currently-playing")
-    if($("#custom-player-pp").hasClass("glyphicon-play")) {
-      $("#custom-player-pp").removeClass("glyphicon-play").addClass("glyphicon-pause")
-    }
+    stopPlayer();
+    startPlayerWithIndex(currentlyPlaying);
+  }
+}
+
+var advanceToNext = function() {
+  if(currentlyPlaying < (songArray.length - 1)) {
+    console.log(currentlyPlaying)
+    stopPlayer();
+    startPlayerWithIndex(++currentlyPlaying);
+  } else if (!arguments[0]) {
+    stopPlayer();
+  } else {
+    console.log("user tried to skip at end of list")
   }
 }
 
@@ -89,67 +131,35 @@ var ready = function() {
   });
 
   widget = SC.Widget("sc-widget");
-  //songArray =  []
-
-  var getSongs = function() {
-    $(".song-play-btn").each( function() {
-      songArray.push( $(this).attr('id') );
-      $(this).attr('id','song-'+(songArray.length -1))
-    });
-  }
-
-  //getSongs();
-
-  var playNextSong = function( ahead ) {
-    $( '.playing' ).removeClass("glyphicon-pause playing").addClass("glyphicon-play");
-    currentlyPlaying += ahead ? 1 : -1;
-    currentlyPlaying %= songArray.length
-    console.log('.song-' + currentlyPlaying)
-    $( '#song-' + currentlyPlaying ).removeClass("glyphicon-play").addClass("glyphicon-pause playing");
-    $(".player-meta").text(($("#song-" + Number(currentlyPlaying)).parent().parent()).find(".song-name").text());
-    widget.load( songArray[currentlyPlaying] , { auto_play: true });
-  }
-
-  //attaching event listener to each submission
-  //does not handle async added submissions, moved to submission partial
-  //$(".song-play-btn").on("click", mapPlayOnClick);
 
   //attaching listener to custom player - play/pause
   $("#custom-player-pp").on("click", function(){
     if ( $(this).hasClass("glyphicon-play")) {
-      widget.play();
-      $(this).removeClass("glyphicon-play").addClass("glyphicon-pause");
-      $(".playing").removeClass("glyphicon-play").addClass("glyphicon-pause");
+      resumePlayer();
     } else if ( $(this).hasClass("glyphicon-pause") ) {
-      widget.pause();
-      $(this).removeClass("glyphicon-pause").addClass("glyphicon-play");
-      $(".playing").removeClass("glyphicon-pause").addClass("glyphicon-play");
+      pausePlayer();
     }
   });
 
   //attaching listener to custom player - next
   $("#custom-player-next").on("click", function(){
-    console.log("next song");
-    playNextSong(true);
+    console.log("next song")
+    advanceToNext(true);
   })
 
   //attaching listener to custom player - previous
   $("#custom-player-prev").on("click", function(){
     console.log("prev song");
-    playNextSong(false);
+    if(currentlyPlaying > 0) {
+      stopPlayer();
+      startPlayerWithIndex(--currentlyPlaying);
+    } else {
+      console.log("user tried to go to previous song at beginning of list")
+    }
   })
 
   //setup automatic play next track
-  widget.bind(SC.Widget.Events.FINISH, function() {
-    console.log("finished playing!");
-    $( ".playing" ).removeClass("glyphicon-pause").addClass("glyphicon-play");
-    currentlyPlaying += 1;
-    currentlyPlaying %= songArray.length
-    // $( '#' + songArray[currentlyPlaying] )
-    $("#song-" + currentlyPlaying).removeClass("glyphicon-play").addClass("glyphicon-pause");
-    $(".player-meta").text(($("#song-" + Number(currentlyPlaying)).parent().parent()).find(".song-name").text());
-    widget.load( songArray[currentlyPlaying] , { auto_play: true });
-  });
+  widget.bind(SC.Widget.Events.FINISH, advanceToNext(false));
 
 
   //Fade out alert
