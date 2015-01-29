@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'tags/show'
+
   get 'tags/create'
 
   get 'tags_controller/create'
@@ -20,6 +22,8 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :destroy]
   resources :submissions, only: [:create, :destroy]
   resources :votes, except: [:show, :update]
+
+  get 'tag/:name' => 'tags#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
