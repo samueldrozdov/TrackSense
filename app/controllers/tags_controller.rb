@@ -5,4 +5,8 @@ class TagsController < ApplicationController
       @submissions = @tag.submissions
     end
   end
+
+  def index
+    @all_tags = Tag.all
+  end
 end

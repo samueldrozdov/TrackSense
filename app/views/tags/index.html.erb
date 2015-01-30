@@ -1,0 +1,10 @@
+<% provide(:title, "Track Sense") %>
+<div class="main-content">
+  <div class="tag-box-wrapper">
+    <% @all_tags.each do |tag| %>
+      <div class="tag-box">
+        <div class="tag-label"><%= link_to tag.name, tag, class: "tag-inner-label" %></div>
+      </div>
+    <% end %>
+  </div>
+</div>
