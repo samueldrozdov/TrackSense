@@ -28,9 +28,9 @@
       <% if @tagList.first %> in <% end %>
       <% @tagList.each do |t| %>
         <% if t != @tagList.last %>
-          <%= link_to t.name, "tag/#{t.name}", class: "submission-tag-label" %> &
+          <%= link_to t.name, "/tag/#{t.name}", class: "submission-tag-label" %> &
         <% else %>
-          <%= link_to t.name, "tag/#{t.name}", class: "submission-tag-label" %>
+          <%= link_to t.name, "/tag/#{t.name}", class: "submission-tag-label" %>
         <% end %>
       <% end %>
     </div>
