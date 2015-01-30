@@ -5,6 +5,10 @@
 <% end %>
 
 <div class="main-content">
+  <div class="tag-header">
+    <h2 style="color: #D32F2F"><%= @tag.name %></h2>
+  </div>
+
   <div class="feed-wrapper">
     <% if @submissions %>
       <%= render @submissions %>
