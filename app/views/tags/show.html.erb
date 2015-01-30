@@ -1,19 +1,18 @@
-<% if @tag %>
-  <% provide(:title, @tag.name) %>
-<% else %>
+<% if !@tag %>
   <% provide(:title, "Tag not found") %>
+<% else %>
+  <% provide(:title, @tag.name) %>
+  <div class="main-content">
+    <div class="tag-header">
+      <h2 style="color: #D32F2F;"><%= @tag.name %></h2>
+    </div>
+
+    <div class="feed-wrapper">
+      <% if @submissions %>
+        <%= render @submissions %>
+      <% else %>
+        <p>No submissions</p>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-
-<div class="main-content">
-  <div class="tag-header">
-    <h2 style="color: #D32F2F;"><%= @tag.name %></h2>
-  </div>
-
-  <div class="feed-wrapper">
-    <% if @submissions %>
-      <%= render @submissions %>
-    <% else %>
-      <p>No submissions</p>
-    <% end %>
-  </div>
-</div>
