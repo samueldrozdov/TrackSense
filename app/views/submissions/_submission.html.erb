@@ -23,8 +23,9 @@
       <h3 class="song-artist"> <%= submission.artist %> <h3>
     </div>
     <div class="submission-metadata">
-      <h6 style="display: inline-block"> Shared by <%= User.find(submission.user_id).username %> </h6> in
+      <h6 style="display: inline-block"> Shared by <%= User.find(submission.user_id).username %> </h6>
       <% @tagList = submission.tags %>
+      <% if @tagList.first %> in <% end %>
       <% @tagList.each do |t| %>
         <% if t != @tagList.last %>
           <%= link_to t.name, "tag/#{t.name}", class: "submission-tag-label" %> &
