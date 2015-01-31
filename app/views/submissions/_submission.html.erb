@@ -1,4 +1,39 @@
 <div class="submission-wrapper" id="submission-<%= submission.id %>">
+  <div class="submission-left-col-wrapper">
+    <div class="submission-play-btn-wrapper">
+      <div class="submission-play-btn glyphicon glyphicon-play bind-map" id="<%= submission.external_link %>"></div>
+    </div>
+    <div class="submission-plays-label">plays 182</div>
+  </div>
+
+  <div class="submission-info-wrapper">
+    <h3 class="submission-artist"> <%= submission.artist %> <h3>
+    <h2 class="submission-name"><a href="<%= submission.external_link %>" style="color:black"> <%= submission.name %> </a></h2>
+    <div class="submission-tags">
+      <% @tagList = submission.tags %>
+      <% @tagList.each do |t| %>
+        <%= link_to t.name, "/tag/#{t.name}", class: "submission-tag" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="submission-right-col-wrapper">
+    <div class="submission-vote-wrapper">
+      <% if logged_in? %>
+        <% vote = submission.votes.where(user_id: current_user.id).take || current_user.votes.build(votable_id: submission.id, votable_type: :Submission) %>
+      <% else %>
+        <% vote = Vote.new %>
+      <% end %>
+      <%= render vote %>
+      <span class="vote-count" id="submission-<%= submission.id %>-vote"><%= submission.votes.count %></span>
+    </div>
+  </div>
+
+</div>
+
+<!--
+
+<div class="submission-wrapper" id="submission-<%= submission.id %>">
   <div class="like-button-wrapper">
     <% if logged_in? %>
       <% vote = submission.votes.where(user_id: current_user.id).take || current_user.votes.build(votable_id: submission.id, votable_type: :Submission) %>
@@ -34,3 +69,5 @@
   </div>
 
 </div>
+
+-->

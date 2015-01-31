@@ -444,6 +444,7 @@ p {
 .profile-header-wrapper {
   padding: 10px 20px;
   border-bottom: 1px solid lightgray;
+  margin-bottom: 20px;
 }
 
 .profile-image-wrapper, .profile-name, .profile-meta {
@@ -553,105 +554,103 @@ p {
   border-bottom: 1px solid #CCCCCC;
 }
 
-/* Submission */
+/* Better Submission */
 
 .submission-wrapper {
-  padding: 10px 0px;
-  border-radius: 3px;
-  text-align: left;
-  vertical-align: baseline;
-  line-height: 22px;
-  box-sizing: border-box;
-}
-
-.submission-wrapper:hover {
-  background-color: rgba(170, 170, 170, 0.2);
-
-  .song-time {
-    visibility: visible;
-  }
-}
-
-.like-button-wrapper {
-  color: black;
   display: block;
+  padding: 5px 0px;
+  border-radius: 3px;
+  overflow: auto;
+  border-bottom: 1px solid #f0f0f0;
+  margin: 0px 30px;
+  margin-bottom: 15px;
+}
+
+.submission-left-col-wrapper {
   float: left;
-  margin: 0px 10px;
-  height: 46px;
-  width: 34px;
+  width: 60px;
+}
+
+.submission-play-btn-wrapper {
+  height: 60px;
+  width: 60px;
+  display: -webkit-flex;
+  display: flex;
+  border: 3px solid black;
+}
+
+.submission-play-btn {
+  font-size: 18px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.submission-plays-label {
+  color: darkgray;
+  font-size: 12px;
   text-align: center;
 }
 
-.like-button {
-  padding: 0px;
-  margin: 0px;
-  background-color: transparent;
-  color: #808080;
-  font-size: 20px;
-}
-
-.new_vote {
-  line-height: 16px;
-  margin: 0px;
-}
-
-.submission-info {
-  display: inline;
-  padding: 3px 0px;
-}
-
-.submission-detail {
-  margin-bottom: 3px;
-}
-
-.song-name {
-  display: inline;
-  cursor: pointer;
-}
-
-.song-name:hover {
-  border-bottom: 1px solid black;
-}
-
-.song-artist {
-  display: inline;
-  color: gray;
-}
-
-.submission-metadata {
-  color: gray;
-  margin-left: 50px;
-}
-
-.submission-tag-label {
+.submission-info-wrapper {
   display: inline-block;
-  border-radius: 5px;
-  color: #808080;
+  max-width: 650px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-.submission-tag-label:hover {
+.submission-artist {
+  color: gray;
+  font-size: 16px;
+}
+
+.submission-name {
+  cursor: pointer;
+  font-size: 21px;
+  margin: 5px 0px;
+}
+
+.submission-name:hover {
   text-decoration: underline;
-  cursor: pointer;
 }
 
-.right-margin-wrapper {
+.submission-tags {
+  display: block;
+}
+
+.submission-tag {
+  border: 1px solid gray;
+  border-radius: 3px;
+  background-color: lightgray;
+  color: black;
+  padding: 2px 5px;
+  font-size: 12px;
+}
+
+.submission-tag:hover {
+  color: black;
+  box-shadow: 0px 1px 3px #808080;
+}
+
+.submission-right-col-wrapper {
   float: right;
-  text-align: right;
-  padding-top: 10px;
+  display: -webkit-flex;
+  display: flex;
+  text-align: center;
+  height: 60px;
+  width: 60px;
 }
 
-.song-time {
-  visibility: hidden;
-  display: inline-block;
+.submission-vote-wrapper {
+  margin: auto;
 }
 
-.song-play-btn {
-  padding: 0px 10px;
+.vote-icon {
+  font-size: 22px;
+  color: #f0f0f0;
 }
 
-.song-play-btn:hover {
-  color: #F49136;
-  cursor: pointer;
+.vote-icon:hover {
+  color: orange;
 }
 
 /* About page */
