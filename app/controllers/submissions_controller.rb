@@ -23,6 +23,7 @@ class SubmissionsController < ApplicationController
       artist = track.user.username
       track_length = track.duration/1000 # convert from ms to seconds
       name = track.title
+      artwork_url = track.artwork_url
     else
       flash[:danger] = "Song not found"
       redirect_to root_url
@@ -32,7 +33,8 @@ class SubmissionsController < ApplicationController
     @submission = current_user.submissions.build({ external_link: submission_params[:external_link],
                                                    artist: artist,
                                                    track_length: track_length,
-                                                   name: name })
+                                                   name: name,
+                                                   artwork_url: artwork_url })
     if @submission.save(params[:submission])
       flash[:success] = "Post successful"
 
