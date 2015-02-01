@@ -107,3 +107,19 @@ a:hover {
   margin-top: 15px;
   text-align: center;
 }
+
+/* Header Animation */
+
+.nav-up {
+  top: -50px;
+}
+
+/* Fancybox */
+
+.myClose {
+  background: #343C43;
+  border-radius: 30px;
+  background-image: none;
+  color: white;
+  padding: 11px;
+}

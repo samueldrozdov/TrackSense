@@ -19,7 +19,7 @@
 // Hide header on scroll down, show on scroll up
 var didScroll;
 var lastScrollTop = 0;
-var delta = 70;
+var delta = 40;
 var navbarHeight = $('header').outerHeight();
 
 $(window).scroll(function(event){
@@ -40,7 +40,7 @@ function hasScrolled() {
   if(Math.abs(lastScrollTop - st) <= delta)
     return;
 
-  // If they scrolled down and are past the navbar, add class .nav-up.
+  // If y-scroll is greater than the navbar height, add class .nav-up.
   // This is necessary so you never see what is "behind" the navbar.
   if (st > lastScrollTop && st > navbarHeight){
     // Scroll Down
@@ -129,6 +129,14 @@ var ready = function() {
   $("a.fancybox").fancybox({
     'padding'	: 0
   });
+
+  $("a.fancybox").fancybox({
+    tpl: {
+      closeBtn: '<a title="Close" class="fancybox-item fancybox-close myClose glyphicon glyphicon-remove" href="javascript:;" style="background-image:none;"></a>'
+    },
+    'padding'	: 0
+  });
+
 
   widget = SC.Widget("sc-widget");
 

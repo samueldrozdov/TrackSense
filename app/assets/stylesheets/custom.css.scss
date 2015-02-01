@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  margin-top: 120px;
+  margin-top: 90px;
   background-color: #eeeaea;
   font-family: 'Comfortaa';
   height: 100%;
@@ -105,8 +105,8 @@ p {
 /* header */
 
 .header {
-  padding: 10px 20px;
-  max-height: 70px;
+  padding: 0px 20px;
+  max-height: 50px;
   background-color: $secondary-color;
   min-width: 810px;
 }
@@ -143,10 +143,6 @@ p {
   min-width: 800px;
   max-height: 70px;
   transition: top 0.15s ease-in-out;
-}
-
-.nav-up {
-  top: -70px;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
@@ -198,9 +194,9 @@ p {
 .player {
   position: fixed;
   background-color: $primary-color;
-  top: 70px;
+  top: 50px;
   width: 100%;
-  height: 50px;
+  height: 40px;
   text-align: center;
   color: white;
   vertical-align: middle;
@@ -208,8 +204,8 @@ p {
 }
 
 .player-controls, .player-meta{
-  padding-top: 7px;
-  font-size: 25px;
+  padding-top: 4px;
+  font-size: 22px;
   display: inline-block;
 }
 
@@ -280,7 +276,7 @@ p {
 .form-control:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
-  border-bottom: 2px solid $primary-color;
+  border-bottom: 2px solid $secondary-color;
 }
 
 .form-control::-webkit-input-placeholder,
@@ -349,18 +345,21 @@ p {
   margin-top: 10px;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:focus {
+.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   background-color: $primary-color;
   width: 100%;
-  border-radius: 3px;
-  padding: 10px 15px;
+  padding: 12px 15px;
   border: 0px;
-  border-bottom: 5px solid $secondary-color;
+  border-radius: 1px;
+  transition: all 0.3s ease 0s;
+}
+
+.btn-primary:hover {
+  box-shadow: inset 0 0 0 7px $secondary-color;
 }
 
 .btn-primary:active {
-  background-color: $primary-color;
-  border-bottom: 5px solid $primary-color;
+  background-color: $secondary-color;
 }
 
 .login-btns-wrapper {
@@ -522,7 +521,7 @@ p {
   width: 135px;
   height: 135px;
   margin: 1em;
-  background-color: #D32F2F;
+  background-color: $secondary-color;
   cursor: pointer;
 }
 
@@ -532,6 +531,7 @@ p {
   border-bottom: 1px solid white;
   margin: 25px 10px;
   padding: 30px 0px;
+  transition: all 0.3s ease 0s;
 }
 .tag-inner-label {
   color: white;
