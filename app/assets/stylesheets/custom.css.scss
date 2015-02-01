@@ -3,7 +3,9 @@
 
 /* mixins, variables, etc. */
 
-$gray-medium-light: #FFEB3B;
+$primary-color: #FF272F;
+$secondary-color: #D02030;
+
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -105,7 +107,7 @@ p {
 .header {
   padding: 10px 20px;
   max-height: 70px;
-  background-color: #D32F2F;
+  background-color: $secondary-color;
   min-width: 810px;
 }
 
@@ -137,7 +139,7 @@ p {
   float:right;
   vertical-align: middle;
   border-bottom: 0px;
-  background-color: #D32F2F;
+  background-color: $secondary-color;
   min-width: 800px;
   max-height: 70px;
   transition: top 0.15s ease-in-out;
@@ -195,7 +197,7 @@ p {
 
 .player {
   position: fixed;
-  background-color: #F44336;
+  background-color: $primary-color;
   top: 70px;
   width: 100%;
   height: 50px;
@@ -228,7 +230,7 @@ p {
 }
 
 .player-back {
-  color: #D32F2F;
+  color: $secondary-color;
 }
 
 /* Forms */
@@ -278,7 +280,7 @@ p {
 .form-control:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
-  border-bottom: 2px solid #D32F2F;
+  border-bottom: 2px solid $primary-color;
 }
 
 .form-control::-webkit-input-placeholder,
@@ -348,17 +350,17 @@ p {
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:focus {
-  background-color: #F44336;
+  background-color: $primary-color;
   width: 100%;
   border-radius: 3px;
   padding: 10px 15px;
   border: 0px;
-  border-bottom: 5px solid #D32F2F;
+  border-bottom: 5px solid $secondary-color;
 }
 
 .btn-primary:active {
-  background-color: #F44336;
-  border-bottom: 4px solid #F44336;
+  background-color: $primary-color;
+  border-bottom: 5px solid $primary-color;
 }
 
 .login-btns-wrapper {
@@ -552,6 +554,7 @@ p {
   text-align: center;
   padding: 50px;
   border-bottom: 1px solid #CCCCCC;
+  margin-bottom: 20px;
 }
 
 /* Better Submission */
@@ -594,7 +597,7 @@ p {
 .submission-info-wrapper {
   display: inline-block;
   max-width: 650px;
-  padding-left: 5px;
+  padding-left: 10px;
   padding-right: 5px;
 }
 
@@ -618,17 +621,16 @@ p {
 }
 
 .submission-tag {
-  border: 1px solid gray;
   border-radius: 3px;
-  background-color: lightgray;
-  color: black;
+  background-color: #b0b0b0;
+  color: white;
   padding: 2px 5px;
   font-size: 12px;
 }
 
 .submission-tag:hover {
-  color: black;
-  box-shadow: 0px 1px 3px #808080;
+  color: white;
+  background-color: #808080;
 }
 
 .submission-right-col-wrapper {
@@ -646,11 +648,15 @@ p {
 
 .vote-icon {
   font-size: 22px;
-  color: #f0f0f0;
+  color: #e0e0e0;
 }
 
 .vote-icon:hover {
-  color: orange;
+  color: $primary-color;
+}
+
+.vote-count {
+  color: #808080;
 }
 
 /* About page */
