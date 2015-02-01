@@ -146,6 +146,9 @@ var ready = function() {
     'padding'	: 0
   });
 
+  //Bootstrap hover popup for submission poster
+  $('#popover').popover();
+
   bindToSubmissions();
   widget = SC.Widget("sc-widget");
 
