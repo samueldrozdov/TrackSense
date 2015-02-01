@@ -1,7 +1,7 @@
 class SubmissionsController < ApplicationController
 
   def create
-    # get tags 
+    # get tags
     tag_names = (params[:tags][:comma_separated_tags]).split(", ")
 
     # instantiate SoundCloud client
@@ -65,6 +65,13 @@ class SubmissionsController < ApplicationController
     Submission.find(params[:id]).destroy
     flash[:success] = "Post deleted"
     redirect_to root_url
+  end
+
+  def incrementPC
+    song = Submission.find(params[:id])
+    song.play_count = song.play_count + 1
+    song.save
+    render_text song.play_count
   end
 
   private

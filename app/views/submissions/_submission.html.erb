@@ -3,7 +3,7 @@
     <div class="submission-play-btn-wrapper" style="background:url(<%= submission.artwork_url %>); background-size:100% 100%;">
       <div class="submission-play-btn glyphicon glyphicon-play bind-map" id="<%= submission.external_link %>"></div>
     </div>
-    <div class="submission-plays-label">plays 182</div>
+    <div class="submission-plays-label"><%= submission.play_count %> plays</div>
   </div>
 
   <div class="submission-info-wrapper">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150201202500) do
+ActiveRecord::Schema.define(version: 20150201213451) do
 
   create_table "genres", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -22,14 +22,14 @@ ActiveRecord::Schema.define(version: 20150201202500) do
   create_table "submissions", force: :cascade do |t|
     t.string   "external_link"
     t.string   "artist"
-    t.float    "score",         default: 0.0
     t.float    "track_length"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "name"
     t.integer  "user_id"
     t.integer  "likes",         default: 0
     t.string   "artwork_url"
+    t.integer  "play_count"
   end
 
   create_table "tag_relationships", force: :cascade do |t|

@@ -94,7 +94,11 @@ var startPlayerWithIndex = function(index) {
   //add extra class to submission div that adds background color
   songObj.parent().parent().addClass("currently-playing");
   //write selected song name to banner of custom player
-  $(".player-meta").text(songObj.parent().parent().parent().find(".song-name").text());
+  var songName = songObj.parent().parent().find(".song-name").text();
+  if (songName.length > 30) {
+
+  }
+  $(".player-meta").text();
   $("#custom-player-pp").removeClass("glyphicon-play").addClass("glyphicon-pause playing")
   console.log("start player")
 }
@@ -176,8 +180,17 @@ var ready = function() {
   })
 
   //setup automatic play next track
-  widget.bind(SC.Widget.Events.FINISH, advanceToNext(false));
+  //widget.bind(SC.Widget.Events.FINISH, advanceToNext(false));
 
+  //notify song completion
+  widget.bind(SC.Widget.Events.FINISH, function() {
+    //$.post("./increment/1");
+    var submission = $(songIdFromIndex(currentlyPlaying)).parent().parent().parent().attr('id').split('-')[1]
+    console.log(submission);
+    $.post("./increment/"+submission);
+    advanceToNext(false);
+    console.log("notified play finished");
+  })
 
   //Fade out alert
   window.setTimeout(function() {

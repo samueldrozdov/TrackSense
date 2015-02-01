@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get 'tags/show'
 
+  post 'increment/:id' => 'submissions#incrementPC'
+
   get 'tags/create'
 
   get 'tags_controller/create'
