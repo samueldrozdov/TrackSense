@@ -219,6 +219,14 @@ p {
 
 .player-meta {
   float: right;
+  width: 500px;
+  overflow-x: scroll; //Make the scrollbar prettier
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.player-meta-inner {
+  display: inline;
 }
 
 .player-back:active, .player-play:active, .player-forward:active {

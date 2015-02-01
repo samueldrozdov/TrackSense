@@ -100,21 +100,36 @@ a:hover {
   animation: color-change 1s infinite;
 }
 
-@-webkit-keyframes color-change, @-moz-keyframes color-change,
-@-ms-keyframes color-change, @-o-keyframes color-change,
-@keyframes color-change {
-  0% { background-color: red; }
-  50% { background-color: green; }
-  100% { background-color: blue; }
-}
-
 @-webkit-keyframes color-change {
   0% { border-color: red; }
   30% { border-color: green; }
   70% { border-color: blue; }
   100% { border-color: red; }
 }
-
+@-moz-keyframes color-change{
+  0% { border-color: red; }
+  30% { border-color: green; }
+  70% { border-color: blue; }
+  100% { border-color: red; }
+}
+@-ms-keyframes color-change{
+  0% { border-color: red; }
+  30% { border-color: green; }
+  70% { border-color: blue; }
+  100% { border-color: red; }
+}
+@-o-keyframes color-change{
+  0% { border-color: red; }
+  30% { border-color: green; }
+  70% { border-color: blue; }
+  100% { border-color: red; }
+}
+@keyframes color-change{
+  0% { border-color: red; }
+  30% { border-color: green; }
+  70% { border-color: blue; }
+  100% { border-color: red; }
+}
 /* Votes */
 
 .voted {
