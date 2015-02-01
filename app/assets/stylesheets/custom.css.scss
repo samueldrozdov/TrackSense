@@ -647,22 +647,21 @@ p {
 }
 
 .submission-poster {
-  background-color: blue;
-  width: 24px;
-  height: 24px;
+  max-width: 24px;
+  max-height: 24px;
   border-radius: 12px;
   opacity: 0.1;
   cursor: pointer;
 }
 
 .submission-poster:hover {
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .submission-vote-wrapper {
   margin: auto;
-  padding-left: 5px;
-  margin-left: 5px;
+  padding-left: 4px;
+  margin-left: 4px;
   border-left: 1px solid #f0f0f0
 }
 

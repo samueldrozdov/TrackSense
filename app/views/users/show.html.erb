@@ -3,7 +3,7 @@
   <div class="profile-wrapper col-md-12">
     <div class="profile-header-wrapper row">
       <div class="profile-image-wrapper">
-        <%= image_for @user, "profile-image" %>
+        <%= image_for_user User.find(params[:id]), "profile-image" %>
       </div>
 
       <div class="profile-name">

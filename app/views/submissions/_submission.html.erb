@@ -1,6 +1,6 @@
 <div class="submission-wrapper" id="submission-<%= submission.id %>">
   <div class="submission-left-col-wrapper">
-    <div class="submission-play-btn-wrapper" style="background:url(<%= submission.artwork_url %>); background-size:100% 100%;">
+    <div class="submission-play-btn-wrapper">
       <div class="submission-play-btn glyphicon glyphicon-play bind-map" id="<%= submission.external_link %>"></div>
     </div>
     <div class="submission-plays-label">plays 182</div>
@@ -19,10 +19,7 @@
 
   <div class="submission-right-col-wrapper">
     <div class="submission-users-wrapper">
-      <div class="submission-poster">
-        <% @submissionUser = User.find(submission.user_id %>
-        <%= image_for(@submissionUser) %>
-      </div>
+      <%= link_to image_for_user(User.find(submission.user_id), "submission-poster"), "/users/#{submission.user_id}" %>
     </div>
     <div class="submission-vote-wrapper">
       <% if logged_in? %>
