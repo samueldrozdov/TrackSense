@@ -6,9 +6,9 @@
     </div>
   </div>
   <div class="feed-wrapper">
-    <% posts_in_day = Submission.where(created_at: Time.now.ago(locals[:theDate].days).at_beginning_of_day.utc..Time.now.ago(locals[:theDate].days).at_end_of_day.utc).order("likes DESC") %>
-    <% if(!posts_in_day.empty?) %>
-      <%= render posts_in_day %>
+    <% posts_for_day = Submission.where(created_at: Time.now.ago(locals[:theDate].days).at_beginning_of_day.utc..Time.now.ago(locals[:theDate].days).at_end_of_day.utc).order("likes DESC") %>
+    <% if(!posts_for_day.empty?) %>
+      <%= render posts_for_day %>
     <% else %>
       <div class="submission-wrapper" style="padding-left: 15px;">
         <% if logged_in? %>
