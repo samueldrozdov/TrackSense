@@ -62,7 +62,7 @@ currentlyPlaying = 0;
 //widget = SC.Widget("sc-widget");
 
 var songIdFromIndex = function(index) {
-  var songClass = "#song-"+currentlyPlaying
+  var songClass = "#song-"+index
   console.log(songClass)
   return songClass
 }
@@ -94,7 +94,7 @@ var startPlayerWithIndex = function(index) {
   //add extra class to submission div that adds background color
   songObj.parent().parent().addClass("currently-playing");
   //write selected song name to banner of custom player
-  $(".player-meta").text(songObj.parent().parent().find(".song-name").text());
+  $(".player-meta").text(songObj.parent().parent().parent().find(".song-name").text());
   $("#custom-player-pp").removeClass("glyphicon-play").addClass("glyphicon-pause playing")
   console.log("start player")
 }
@@ -110,6 +110,15 @@ var mapPlayOnClick = function() {
     stopPlayer();
     startPlayerWithIndex(currentlyPlaying);
   }
+}
+
+var bindToSubmissions = function() {
+  $(".bind-map").each(function() {
+    $(this).removeClass("bind-map");
+    songArray.push($(this).attr('id'))
+    $(this).attr('id', 'song-'+ (songArray.length - 1))
+    $(this).on("click", mapPlayOnClick)
+  })
 }
 
 var advanceToNext = function() {
@@ -137,7 +146,7 @@ var ready = function() {
     'padding'	: 0
   });
 
-
+  bindToSubmissions();
   widget = SC.Widget("sc-widget");
 
   //attaching listener to custom player - play/pause

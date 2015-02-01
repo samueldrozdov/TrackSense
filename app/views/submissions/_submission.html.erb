@@ -8,7 +8,7 @@
 
   <div class="submission-info-wrapper">
     <h3 class="submission-artist"> <%= submission.artist %> <h3>
-    <h2 class="submission-name"><a href="<%= submission.external_link %>" style="color:black"> <%= submission.name %> </a></h2>
+    <h2 class="submission-name"><a class="song-name" href="<%= submission.external_link %>" style="color:black"> <%= submission.name %> </a></h2>
     <div class="submission-tags">
       <% @tagList = submission.tags %>
       <% @tagList.each do |t| %>
