@@ -18,6 +18,10 @@
   </div>
 
   <div class="submission-right-col-wrapper">
+    <div class="submission-users-wrapper">
+      <div class="submission-poster">
+      </div>
+    </div>
     <div class="submission-vote-wrapper">
       <% if logged_in? %>
         <% vote = submission.votes.where(user_id: current_user.id).take || current_user.votes.build(votable_id: submission.id, votable_type: :Submission) %>
@@ -25,7 +29,7 @@
         <% vote = Vote.new %>
       <% end %>
       <%= render vote %>
-      <span class="vote-count" id="submission-<%= submission.id %>-vote"><%= submission.votes.count %></span>
+      <span  class="vote-count" id="submission-<%= submission.id %>-vote"><%= submission.votes.count %></span>
     </div>
   </div>
 

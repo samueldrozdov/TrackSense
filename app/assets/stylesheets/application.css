@@ -99,6 +99,7 @@ a:hover {
 
 .voted {
   color: #F44336;
+  opacity: 0.8;
 }
 
 /* Flash */

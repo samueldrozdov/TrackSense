@@ -596,7 +596,7 @@ p {
 
 .submission-info-wrapper {
   display: inline-block;
-  max-width: 650px;
+  max-width: 570px;
   padding-left: 10px;
   padding-right: 5px;
 }
@@ -639,15 +639,35 @@ p {
   display: flex;
   text-align: center;
   height: 60px;
-  width: 60px;
+  width: 80px;
+}
+
+.submission-users-wrapper {
+  margin: auto;
+}
+
+.submission-poster {
+  background-color: blue;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  opacity: 0.1;
+  cursor: pointer;
+}
+
+.submission-poster:hover {
+  opacity: 0.5;
 }
 
 .submission-vote-wrapper {
   margin: auto;
+  padding-left: 5px;
+  margin-left: 5px;
+  border-left: 1px solid #f0f0f0
 }
 
 .vote-icon {
-  font-size: 22px;
+  font-size: 26px;
   color: #e0e0e0;
 }
 
