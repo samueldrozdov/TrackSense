@@ -20,6 +20,8 @@
   <div class="submission-right-col-wrapper">
     <div class="submission-users-wrapper">
       <div class="submission-poster">
+        <% @submissionUser = User.find(submission.user_id %>
+        <%= image_for(@submissionUser) %>
       </div>
     </div>
     <div class="submission-vote-wrapper">
