@@ -92,7 +92,7 @@ var startPlayerWithIndex = function(index) {
   songObj = $(songIdFromIndex(index));
   songObj.removeClass("glyphicon-play").addClass("glyphicon-pause playing");
   //add extra class to submission div that adds background color
-  songObj.parent().parent().addClass("currently-playing");
+  songObj.parent().addClass("currently-playing");
   //write selected song name to banner of custom player
   $(".player-meta").text(songObj.parent().parent().parent().find(".song-name").text());
   $("#custom-player-pp").removeClass("glyphicon-play").addClass("glyphicon-pause playing")

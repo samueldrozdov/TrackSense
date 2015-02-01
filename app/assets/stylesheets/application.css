@@ -92,7 +92,27 @@ a:hover {
 }
 
 .currently-playing {
-  background-color: lightgray;
+  border: 3px solid black;
+  -webkit-animation: color-change 5s infinite;
+  -moz-animation: color-change 1s infinite;
+  -o-animation: color-change 1s infinite;
+  -ms-animation: color-change 1s infinite;
+  animation: color-change 1s infinite;
+}
+
+@-webkit-keyframes color-change, @-moz-keyframes color-change,
+@-ms-keyframes color-change, @-o-keyframes color-change,
+@keyframes color-change {
+  0% { background-color: red; }
+  50% { background-color: green; }
+  100% { background-color: blue; }
+}
+
+@-webkit-keyframes color-change {
+  0% { border-color: red; }
+  30% { border-color: green; }
+  70% { border-color: blue; }
+  100% { border-color: red; }
 }
 
 /* Votes */
