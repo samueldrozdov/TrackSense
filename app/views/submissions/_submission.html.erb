@@ -1,6 +1,6 @@
 <div class="submission-wrapper" id="submission-<%= submission.id %>">
   <div class="submission-left-col-wrapper">
-    <div class="submission-play-btn-wrapper">
+    <div class="submission-play-btn-wrapper" style="background:url(<%= submission.artwork_url %>); background-size:100% 100%;">
       <div class="submission-play-btn glyphicon glyphicon-play bind-map" id="<%= submission.external_link %>"></div>
     </div>
     <div class="submission-plays-label">plays 182</div>
