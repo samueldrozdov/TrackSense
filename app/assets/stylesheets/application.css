@@ -92,14 +92,49 @@ a:hover {
 }
 
 .currently-playing {
-  background-color: lightgray;
+  border: 3px solid black;
+  -webkit-animation: color-change 5s infinite;
+  -moz-animation: color-change 1s infinite;
+  -o-animation: color-change 1s infinite;
+  -ms-animation: color-change 1s infinite;
+  animation: color-change 1s infinite;
 }
 
+@-webkit-keyframes color-change {
+  0% { border-color: red; }
+  30% { border-color: green; }
+  70% { border-color: blue; }
+  100% { border-color: red; }
+}
+@-moz-keyframes color-change{
+  0% { border-color: red; }
+  30% { border-color: green; }
+  70% { border-color: blue; }
+  100% { border-color: red; }
+}
+@-ms-keyframes color-change{
+  0% { border-color: red; }
+  30% { border-color: green; }
+  70% { border-color: blue; }
+  100% { border-color: red; }
+}
+@-o-keyframes color-change{
+  0% { border-color: red; }
+  30% { border-color: green; }
+  70% { border-color: blue; }
+  100% { border-color: red; }
+}
+@keyframes color-change{
+  0% { border-color: red; }
+  30% { border-color: green; }
+  70% { border-color: blue; }
+  100% { border-color: red; }
+}
 /* Votes */
 
 .voted {
   color: #F44336;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 /* Flash */
@@ -123,4 +158,10 @@ a:hover {
   background-image: none;
   color: white;
   padding: 11px;
+}
+
+/* Bootstrap Modal Popover */
+
+.popover-content {
+  display: none;
 }

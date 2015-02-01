@@ -18,9 +18,8 @@
   </div>
 
   <div class="submission-right-col-wrapper">
-    <div class="submission-users-wrapper">
-      <div class="submission-poster">
-      </div>
+    <div class="submission-users-wrapper" id="popover" data-trigger="hover" rel="popover" data-placement="bottom" data-original-title="shared by <%= (User.find(submission.user_id)).username %>">
+      <%= link_to image_for_user(User.find(submission.user_id), "submission-poster"), "/users/#{submission.user_id}" %>
     </div>
     <div class="submission-vote-wrapper">
       <% if logged_in? %>

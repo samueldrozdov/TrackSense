@@ -92,7 +92,7 @@ var startPlayerWithIndex = function(index) {
   songObj = $(songIdFromIndex(index));
   songObj.removeClass("glyphicon-play").addClass("glyphicon-pause playing");
   //add extra class to submission div that adds background color
-  songObj.parent().parent().addClass("currently-playing");
+  songObj.parent().addClass("currently-playing");
   //write selected song name to banner of custom player
   var songName = songObj.parent().parent().find(".song-name").text();
   if (songName.length > 30) {
@@ -149,6 +149,9 @@ var ready = function() {
     },
     'padding'	: 0
   });
+
+  //Bootstrap hover popup for submission poster
+  $('#popover').popover();
 
   bindToSubmissions();
   widget = SC.Widget("sc-widget");
