@@ -2,7 +2,7 @@ class SubmissionsController < ApplicationController
 
   def create
     # get tags
-    tag_names = (params[:tags][:comma_separated_tags]).split(", ")
+    tag_names = (params[:tags][:comma_separated_tags]).split(",").map(&:strip)
 
     # instantiate SoundCloud client
     client = SoundCloud.new(client_id: "9574e1c46dbd351816e7f8c373e6d22e")
