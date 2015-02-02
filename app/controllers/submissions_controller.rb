@@ -69,7 +69,7 @@ class SubmissionsController < ApplicationController
 
   def incrementPC
     song = Submission.find(params[:id])
-    if(!song.play_count)
+    if !song.play_count
       song.play_count = 1
     end
     song.play_count = song.play_count + 1
