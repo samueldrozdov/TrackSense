@@ -3,7 +3,14 @@
     <div class="submission-play-btn-wrapper" style="background:url(<%= submission.artwork_url %>); background-size:100% 100%;">
       <div class="submission-play-btn glyphicon glyphicon-play bind-map" id="<%= submission.external_link %>"></div>
     </div>
-    <div class="submission-plays-label"><%= submission.play_count %> plays</div>
+    <div class="submission-plays-label">
+      <% playCount = submission.play_count.to_i %>
+      <% if playCount > 0 %>
+        plays <%= playCount %>
+      <% else %>
+        plays 0
+      <% end %>
+    </div>
   </div>
 
   <div class="submission-info-wrapper">
@@ -18,7 +25,7 @@
   </div>
 
   <div class="submission-right-col-wrapper">
-    <div class="submission-users-wrapper" id="popover" data-trigger="hover" rel="popover" data-placement="bottom" data-original-title="shared by <%= (User.find(submission.user_id)).username %>">
+    <div class="submission-users-wrapper" id="popover" data-trigger="hover" data-toggle="tooltip" rel="popover" data-placement="left" data-original-title="shared by <%= (User.find(submission.user_id)).username %>">
       <%= link_to image_for_user(User.find(submission.user_id), "submission-poster"), "/users/#{submission.user_id}" %>
     </div>
     <div class="submission-vote-wrapper">

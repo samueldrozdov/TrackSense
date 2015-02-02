@@ -165,3 +165,9 @@ a:hover {
 .popover-content {
   display: none;
 }
+
+.tooltip-inner {
+  border: 1px solid #808080;
+  background-color: white;
+  color: black;
+}
