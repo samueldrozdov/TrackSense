@@ -149,6 +149,7 @@ var ready = function() {
 
   //Bootstrap hover popup for submission poster
   $("[data-toggle='tooltip']").tooltip();
+  
 
   bindToSubmissions();
   widget = SC.Widget("sc-widget");

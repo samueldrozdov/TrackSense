@@ -94,10 +94,10 @@ a:hover {
 .currently-playing {
   border: 3px solid black;
   -webkit-animation: color-change 5s infinite;
-  -moz-animation: color-change 1s infinite;
-  -o-animation: color-change 1s infinite;
-  -ms-animation: color-change 1s infinite;
-  animation: color-change 1s infinite;
+  -moz-animation: color-change 5s infinite;
+  -o-animation: color-change 5s infinite;
+  -ms-animation: color-change 5s infinite;
+  animation: color-change 5s infinite;
 }
 
 @-webkit-keyframes color-change {
