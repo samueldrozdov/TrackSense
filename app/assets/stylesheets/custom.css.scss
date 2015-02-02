@@ -219,6 +219,7 @@ p {
 
 .player-meta {
   float: right;
+  text-align: right;
   width: 500px;
   overflow-x: scroll; //Make the scrollbar prettier
   overflow-y: hidden;
@@ -227,6 +228,7 @@ p {
 
 .player-meta-inner {
   display: inline;
+  text-align: right;
 }
 
 .player-back:active, .player-play:active, .player-forward:active {

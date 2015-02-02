@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150201213451) do
     t.integer  "user_id"
     t.integer  "likes",         default: 0
     t.string   "artwork_url"
-    t.integer  "play_count"
+    t.integer  "play_count",    default: 1
   end
 
   create_table "tag_relationships", force: :cascade do |t|
