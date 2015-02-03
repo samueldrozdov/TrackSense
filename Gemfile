@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'bootstrap-will_paginate',  '0.0.10'
 gem 'bootstrap-sass',           '3.2.0.0'
 
 gem 'fancybox2-rails'
+gem 'font-awesome-sass'
 gem 'jquery-turbolinks'
 
 # Use SoundCloud API Client

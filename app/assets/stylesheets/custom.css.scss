@@ -114,7 +114,7 @@ p {
 .brand {
   display: inline-block;
   float: left;
-  margin-top: 5px;
+  margin-top: 3px;
 }
 
 .brand-image {
@@ -177,16 +177,18 @@ p {
   cursor: pointer;
 }
 
+
 .nav-add {
   height: 32px;
   width: 32px;
   margin: 7px 10px;
   vertical-align: center;
+  transition: all 0.5s ease 0s;
 }
 
-.nav-add:active {
-  -webkit-transform: scale(0.9,0.9);
-  -moz-transform:scale(0.9,0.9);
+.nav-add:hover {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
 }
 
 /* Player */
@@ -658,20 +660,27 @@ p {
 
 .submission-poster {
   max-width: 24px;
+  width: 0px;
+  text-align: right;
   max-height: 24px;
   border-radius: 12px;
   opacity: 0.5;
   cursor: pointer;
+  transition: all 0.3s ease 0s;
 }
 
 .submission-poster:hover {
   opacity: 0.8;
 }
 
+.submission-wrapper:hover .submission-poster {
+  width: 24px;
+}
+
 .submission-vote-wrapper {
   margin: auto;
   padding-left: 4px;
-  margin-left: 4px;
+  margin-left: 3px;
   border-left: 1px solid #f0f0f0
 }
 
