@@ -10,6 +10,8 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @group = Group.find(params[:id])
+    @owner = User.find(@group.owner_id)
   end
 
   # GET /groups/new
@@ -25,6 +27,10 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
+
+    if logged_in?
+      @group.owner_id = current_user.id
+    end
 
     respond_to do |format|
       if @group.save

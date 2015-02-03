@@ -3,6 +3,7 @@
 <p>
   <strong>Name:</strong>
   <%= @group.name %>
+  <p>Created by: <%= @owner.username %></p>
 </p>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
