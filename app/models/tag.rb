@@ -1,5 +1,5 @@
 class Tag < ActiveRecord::Base
-  VALID_TAG_REGEX = /\A(\w)+\Z/i
+  VALID_TAG_REGEX = /\A([\w ])+\Z/i
 
   validates :name, presence: true, length: { maximum: 50 }, 
                    uniqueness: { case_sensitive: false },

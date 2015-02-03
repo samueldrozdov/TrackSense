@@ -17,6 +17,8 @@ class SubmissionsController < ApplicationController
       return
     end
 
+    tag_names += (track.tag_list.split("\" ").map { |str| str.delete("\"") })
+    
     # resolved url must be track
     if track.user && track.duration && track.title
       # grab values from track object (guaranteed to exist at this point)
