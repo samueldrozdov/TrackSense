@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :submissions, only: [:create, :destroy]
   resources :votes, except: [:show, :update]
   resources :tags
+  resources :groups
 
   get 'tags/index' => 'tags#index'
   get 'tag/:name' => 'tags#show'
