@@ -7,10 +7,10 @@ class GroupsController < ApplicationController
     @groups = Group.all
   end
 
-  # GET /groups/1
-  # GET /groups/1.json
+  # GET /groups/:name
+  # GET /groups/:name.json
   def show
-    @group = Group.find_by(name: params[:name])
+    #@group = Group.find_by(name: params[:name])
     @owner = User.find(@group.owner_id)
     @submissions = @group.submissions
   end

@@ -1,6 +1,6 @@
 module TracksHelper
 
-  #returns true if track exists, else false
+  #returns true if track exists
   def track_exists?(url)
     Track.where(external_link: url).any?()
   end

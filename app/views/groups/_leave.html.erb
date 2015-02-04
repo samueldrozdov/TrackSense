@@ -1,0 +1,5 @@
+<%= form_for(current_user.memberships.find_by(group_id: @group.id),
+             html: { method: :delete },
+             remote: true) do |f| %>
+  <%= f.submit "Leave", class: "btn" %>
+<% end %>

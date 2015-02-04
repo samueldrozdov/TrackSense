@@ -4,10 +4,9 @@ class User < ActiveRecord::Base
   has_many :submissions
   has_many :votes
   has_many :voted_submissions, through: :votes, source: :votable, source_type: :Submission
-  has_many :active_relationships, class_name: "GroupRelationship",
-                                 foreign_key: "group_id",
-                                   dependent: :destroy
-  has_many :groups, through: :active_relationships, source: :group
+  has_many :memberships, class_name: "GroupRelationship",
+                          dependent: :destroy
+  has_many :groups, through: :memberships, source: :member
 
   before_save { self.email = email.downcase }
 
@@ -25,17 +24,12 @@ class User < ActiveRecord::Base
 
   #joins a group
   def join(group)
-    active_relationships.create(group_id: group.id)
+    memberships.create!(group_id: group.id)
   end
 
   #leaves a group
   def leave(group)
-    active_relationships.find_by(group_id: group.id).destroy
-  end
-
-  #returns true if user is a member
-  def member?(group)
-    member.include?(group)
+    memberships.find_by(group_id: group.id).destroy
   end
 
   # --Security methods--
