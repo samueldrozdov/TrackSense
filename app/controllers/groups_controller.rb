@@ -12,6 +12,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @owner = User.find(@group.owner_id)
+    @submissions = Submission.includes(:track).where(:group_id, params[:id])
   end
 
   # GET /groups/new

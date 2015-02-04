@@ -8,6 +8,6 @@ class Track < ActiveRecord::Base
   validates :artist, presence: true
   validates :track_length, presence: true
   validates :external_link, presence: true, uniqueness: { case_sensitive: true }, format: { with: VALID_URL_REGEX }
-  validates :name, presence: true, uniqueness: { case_sensitive: false }
+  validates :track_name, presence: true, uniqueness: { case_sensitive: false }
 
 end
