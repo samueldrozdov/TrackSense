@@ -61,7 +61,7 @@ include TracksHelper
     #create submission from track id
 
     @submission = current_user.submissions.build({ track_id: track_id,
-                                                   group_id: 1 })
+                                                   group_id: submission_params[:name] })
 
     if @submission.save()
       flash[:success] = "Post successful"
@@ -108,7 +108,7 @@ include TracksHelper
   private
 
     def submission_params
-      params.require(:submission).permit([:external_link, :tags])
+      params.require(:submission).permit([:external_link, :tags, :name])
     end
 
 end

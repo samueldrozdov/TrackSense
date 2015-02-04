@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203225123) do
+ActiveRecord::Schema.define(version: 20150204010441) do
 
   create_table "genres", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 20150203225123) do
     t.string   "name"
     t.integer  "user_id"
     t.integer  "likes",      default: 0
-    t.integer  "play_count"
     t.integer  "group_id"
     t.integer  "track_id"
+    t.integer  "play_count", default: 0
   end
 
   create_table "tag_relationships", force: :cascade do |t|
