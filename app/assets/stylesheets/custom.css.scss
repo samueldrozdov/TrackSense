@@ -93,7 +93,7 @@ p {
 
 .container {
   max-width: 860px;
-  min-width: 800px;
+  min-width: 860px;
   background-color: white;
   height: 100%;
 }
@@ -563,9 +563,53 @@ p {
 
 .tag-header {
   text-align: center;
-  padding: 50px;
   border-bottom: 1px solid #CCCCCC;
+  margin-top: 10px;
   margin-bottom: 20px;
+  height: 120px;
+}
+
+.tag-header-column {
+  display: inline-block;
+  width: 33%;
+  height: 100%;
+  vertical-align: bottom;
+}
+
+.tag-title {
+  padding: 5px;
+  margin: 5px;
+  margin-top: 38px;
+  color: #D32F2F;
+  font-weight: bold;
+}
+
+.tag-meta-wrapper {
+  height: 32px;
+}
+
+.tag-meta-item {
+  width: 49%;
+  height: 100%;
+  padding-top: 8px;
+  display: inline-block;
+  color: #808080;
+  border-radius: 5px;
+}
+
+.tag-header-user {
+  float: left;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  margin: 2px 3.5px;
+  background-color: lightblue;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.tag-header-user:hover {
+  opacity: 0.9;
 }
 
 /* Better Submission */

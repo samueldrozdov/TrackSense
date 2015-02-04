@@ -4,7 +4,31 @@
   <% provide(:title, @tag.name) %>
   <div class="main-content">
     <div class="tag-header">
-      <h2 style="color: #D32F2F;"><%= @tag.name %></h2>
+      <div class="tag-header-column">
+        <% @tag.users.limit(20).each do |user| %>
+          <div title="shared by <%= (user).username %>">
+            <%= link_to image_for_user(user, "tag-header-user"), "/users/#{user.id}" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="tag-header-column">
+        <h2 class="tag-title"><%= @tag.name %></h2>
+        <div class="tag-meta-wrapper">
+          <div class="tag-meta-item">
+            <span class="glyphicon glyphicon-heart"></span>  <%= @tag.submissions.sum(:likes) %>
+          </div>
+          <div class="tag-meta-item">
+            <span class="glyphicon glyphicon-play"></span>  <%= @tag.submissions.sum(:play_count) %>
+          </div>
+        </div>
+      </div>
+      <div class="tag-header-column">
+        <% @tag.users.limit(20).offset(20).each do |user| %>
+          <div title="shared by <%= (user).username %>">
+            <%= link_to image_for_user(user, "tag-header-user"), "/users/#{user.id}" %>
+          </div>
+        <% end %>
+      </div>
     </div>
 
     <div class="feed-wrapper">
