@@ -25,10 +25,11 @@ Rails.application.routes.draw do
   resources :submissions, only: [:create, :destroy]
   resources :votes, except: [:show, :update]
   resources :tags
-  resources :groups
+  resources :groups, except: [:show]
 
   get 'tags/index' => 'tags#index'
   get 'tag/:name' => 'tags#show'
+  get 'groups/:name' => 'groups#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

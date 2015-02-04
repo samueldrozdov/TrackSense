@@ -59,9 +59,9 @@ include TracksHelper
     end
 
     #create submission from track id
-
+    group = Group.find_by(name: submission_params[:name])
     @submission = current_user.submissions.build({ track_id: track_id,
-                                                   group_id: submission_params[:name] })
+                                                   group_id: group.id })
 
     if @submission.save()
       flash[:success] = "Post successful"

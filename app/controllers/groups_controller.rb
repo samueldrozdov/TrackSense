@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
-    @group = Group.find(params[:id])
+    @group = Group.find_by(name: params[:name])
     @owner = User.find(@group.owner_id)
     @submissions = @group.submissions
   end
@@ -71,7 +71,7 @@ class GroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
-      @group = Group.find(params[:id])
+      @group = Group.find_by(name: params[:name])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
