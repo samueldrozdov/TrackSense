@@ -31,15 +31,14 @@ ActiveRecord::Schema.define(version: 20150203195525) do
   create_table "submissions", force: :cascade do |t|
     t.string   "external_link"
     t.string   "artist"
-    t.float    "score",         default: 0.0
     t.float    "track_length"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "name"
     t.integer  "user_id"
     t.integer  "likes",         default: 0
     t.string   "artwork_url"
-    t.integer  "play_count"
+    t.integer  "play_count",    default: 1
   end
 
   create_table "tag_relationships", force: :cascade do |t|
