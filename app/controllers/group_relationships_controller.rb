@@ -13,8 +13,9 @@ class GroupRelationshipsController < ApplicationController
   end
 
   def destroy
-    membership = GroupRelationship.find(params[:group_id]).followed
-    current_user.leave(membership)
+    group = GroupRelationship.find(params[:id]).group
+    current_user.leave(group)
+    @group = Group.find(group.id)
     respond_to do |format|
       format.html { redirect_to @user }
       format.js

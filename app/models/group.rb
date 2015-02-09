@@ -12,5 +12,4 @@ class Group < ActiveRecord::Base
   def member?(user)
     users.include?(user)
   end
-
 end

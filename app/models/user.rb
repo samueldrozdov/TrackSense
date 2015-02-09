@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :voted_submissions, through: :votes, source: :votable, source_type: :Submission
   has_many :memberships, class_name: "GroupRelationship",
                           dependent: :destroy
-  has_many :groups, through: :memberships, source: :member
+  has_many :groups, through: :memberships, source: :user
 
   before_save { self.email = email.downcase }
 
@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
   #leaves a group
   def leave(group)
     memberships.find_by(group_id: group.id).destroy
+  end
+
+  def all_groups
+    memberships.collect { |a| a.group }
   end
 
   # --Security methods--
