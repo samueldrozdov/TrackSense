@@ -1,7 +1,7 @@
 <div class="submission-wrapper" id="submission-<%= submission.id %>">
   <div class="submission-left-col-wrapper">
-    <div class="submission-play-btn-wrapper" style="background:url(<%= submission.artwork_url %>); background-size:100% 100%;">
-      <div class="submission-play-btn glyphicon glyphicon-play bind-map" id="<%= submission.external_link %>"></div>
+    <div class="submission-play-btn-wrapper" style="background:url(<%= submission.track.artwork_url %>); background-size:100% 100%;">
+      <div class="submission-play-btn glyphicon glyphicon-play bind-map" id="<%= submission.track.external_link %>"></div>
     </div>
     <div class="submission-plays-label">
       <% playCount = submission.play_count.to_i %>
@@ -14,9 +14,9 @@
   </div>
 
   <div class="submission-info-wrapper">
-    <h3 class="submission-artist"> <%= submission.artist %> <h3>
+    <h3 class="submission-artist"> <%= submission.track.artist %> <h3>
     <h2 class="submission-name">
-      <a class="song-name" href="<%= submission.external_link %>" style="color:black"> <%= submission.name %> </a>
+      <a class="song-name" href="<%= submission.track.external_link %>" style="color:black"> <%= submission.name %> </a>
     </h2>
     <div class="submission-tags">
       <% @tagList = submission.tags %>
@@ -42,44 +42,3 @@
   </div>
 
 </div>
-
-<!--
-
-<div class="submission-wrapper" id="submission-<%= submission.id %>">
-  <div class="like-button-wrapper">
-    <% if logged_in? %>
-      <% vote = submission.votes.where(user_id: current_user.id).take || current_user.votes.build(votable_id: submission.id, votable_type: :Submission) %>
-    <% else %>
-      <% vote = Vote.new %>
-    <% end %>
-    <%= render vote %>
-    <span class="vote-count" id="submission-<%= submission.id %>-vote"><%= submission.votes.count %></span>
-  </div>
-
-  <div class="right-margin-wrapper">
-    <div class="song-time">
-      <% time_string = "" + (submission.track_length/60).to_i.to_s + ":" + (submission.track_length%60).to_i.to_s.rjust(2, '0') %>
-      <h3><%= time_string %></h3>
-    </div>
-    <div class="song-play-btn glyphicon glyphicon-play bind-map" id="<%= submission.external_link %>"></div>
-  </div>
-
-  <div class="submission-info">
-    <div class="submission-detail">
-      <h2 class="song-name"><a href="<%= submission.external_link %>" style="color:black"> <%= submission.name %> </a></h2>
-      <h3 class="song-artist"> <%= submission.artist %> <h3>
-    </div>
-    <div class="submission-metadata">
-      <h6 style="display: inline-block"> Shared by <%= User.find(submission.user_id).username %> </h6>
-      <% @tagList = submission.tags %>
-      <% if @tagList.first %> in <% end %>
-      <% @tagList.each do |t| %>
-          <%= link_to t.name, "/tag/#{t.name}", class: "submission-tag-label" %>
-          <% if t != @tagList.last %> & <% end %>
-      <% end %>
-    </div>
-  </div>
-
-</div>
-
--->

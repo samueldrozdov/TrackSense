@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_many :submissions
   has_many :votes
   has_many :voted_submissions, through: :votes, source: :votable, source_type: :Submission
+  has_many :memberships, class_name: "GroupRelationship",
+                          dependent: :destroy
+  has_many :groups, through: :memberships, source: :user
 
   before_save { self.email = email.downcase }
 
@@ -17,6 +20,24 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }
 
+  # --Relationship methods--
+
+  #joins a group
+  def join(group)
+    memberships.create!(group_id: group.id)
+  end
+
+  #leaves a group
+  def leave(group)
+    memberships.find_by(group_id: group.id).destroy
+  end
+
+  def all_groups
+    memberships.collect { |a| a.group }
+  end
+
+  # --Security methods--
+
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
@@ -27,6 +48,8 @@ class User < ActiveRecord::Base
   def User.new_token
     SecureRandom.urlsafe_base64
   end
+
+  # --Session methods--
 
   # Remembers a user in the database for use in persistent sessions.
   def remember

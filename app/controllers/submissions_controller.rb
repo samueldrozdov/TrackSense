@@ -1,43 +1,69 @@
 class SubmissionsController < ApplicationController
+include TracksHelper
 
   def create
     # get tags
     tag_names = (params[:tags][:comma_separated_tags]).split(",").map(&:strip)
 
-    # instantiate SoundCloud client
-    client = SoundCloud.new(client_id: "9574e1c46dbd351816e7f8c373e6d22e")
+    url = params[:tracks][:external_link]
+    if (track_exists? url)
+      #pull track id
 
-    # try to resolve URL into Track object
-    begin
-      track = client.get("/resolve", url: submission_params[:external_link])
-    rescue
-      # if failure, redirect and return
-      flash[:danger] = "Song not found"
-      redirect_to root_url
-      return
-    end
+      track_id = get_track_id url
 
-    tag_names += (track.tag_list.split("\" ").map { |str| str.delete("\"") })
-    
-    # resolved url must be track
-    if track.user && track.duration && track.title
-      # grab values from track object (guaranteed to exist at this point)
-      artist = track.user.username
-      track_length = track.duration/1000 # convert from ms to seconds
-      name = track.title
-      artwork_url = track.artwork_url
     else
-      flash[:danger] = "Song not found"
-      redirect_to root_url
-      return
+      #create new track
+
+      # instantiate SoundCloud client
+      client = SoundCloud.new(client_id: "9574e1c46dbd351816e7f8c373e6d22e")
+
+      # try to resolve URL into Track object
+      begin
+        track = client.get("/resolve", url: url)
+      rescue
+        # if failure, redirect and return
+        puts "hard error"
+        flash[:danger] = "Song not found"
+        redirect_to root_url
+        return
+      end
+
+      # resolved url must be track
+      if track.user && track.duration && track.title
+        # grab values from track object (guaranteed to exist at this point)
+        artist = track.user.username
+        track_length = track.duration/1000 # convert from ms to seconds
+        name = track.title
+        artwork_url = track.artwork_url
+      else
+        flash[:danger] = "Song not found"
+        puts "something wrong with track data"
+        redirect_to root_url
+        return
+      end
+
+      @track = Track.create!({ external_link: url,
+                                      artist: artist,
+                                track_length: track_length,
+                                  track_name: name,
+                                 artwork_url: artwork_url })
+
+      if @track.save
+        #can now create submission from track
+        track_id = @track.id
+      else
+        flash[:danger] = "Something bad happened, try again!"
+        redirect_to root_url
+        return
+      end
     end
 
-    @submission = current_user.submissions.build({ external_link: submission_params[:external_link],
-                                                   artist: artist,
-                                                   track_length: track_length,
-                                                   name: name,
-                                                   artwork_url: artwork_url })
-    if @submission.save(params[:submission])
+    #create submission from track id
+    group = Group.find_by(name: submission_params[:name])
+    @submission = current_user.submissions.build({ track_id: track_id,
+                                                   group_id: group.id })
+
+    if @submission.save()
       flash[:success] = "Post successful"
 
       # tag submission
@@ -82,7 +108,7 @@ class SubmissionsController < ApplicationController
   private
 
     def submission_params
-      params.require(:submission).permit([:external_link, :tags])
+      params.require(:submission).permit([:external_link, :tags, :name])
     end
 
 end

@@ -3,7 +3,17 @@
 <p>
   <strong>Name:</strong>
   <%= @group.name %>
+  <p>Created by: <%= @owner.username %></p>
 </p>
+
+<%= render 'member_form' if logged_in? %>
+
+<div class="main-content">
+  <div class="main-feed-wrapper">
+    <%= render @submissions %>
+  </div>
+</div>
+
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>

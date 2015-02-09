@@ -46,6 +46,13 @@
             </a>
           <% end %>
         </li>
+        <% if logged_in? %>
+          <li>
+            <a class="fancybox" href="#group-form" style="padding:0px;">
+              <%= image_tag("TSAdd.png", class: 'nav-add') %>
+            </a>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203195525) do
+ActiveRecord::Schema.define(version: 20150204032744) do
 
   create_table "genres", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,26 +19,39 @@ ActiveRecord::Schema.define(version: 20150203195525) do
     t.string   "name"
   end
 
+  create_table "group_relationships", force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "group_relationships", ["group_id", "user_id"], name: "index_group_relationships_on_group_id_and_user_id", unique: true
+  add_index "group_relationships", ["group_id"], name: "index_group_relationships_on_group_id"
+  add_index "group_relationships", ["user_id"], name: "index_group_relationships_on_user_id"
+
   create_table "groups", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "user_id"
-    t.integer  "submission_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "owner_id"
   end
 
   create_table "submissions", force: :cascade do |t|
-    t.string   "external_link"
-    t.string   "artist"
-    t.float    "track_length"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "name"
     t.integer  "user_id"
+<<<<<<< HEAD
     t.integer  "likes",         default: 0
     t.string   "artwork_url"
     t.integer  "play_count",    default: 1
+=======
+    t.integer  "likes",      default: 0
+    t.integer  "group_id"
+    t.integer  "track_id"
+    t.integer  "play_count", default: 0
+>>>>>>> new_development
   end
 
   create_table "tag_relationships", force: :cascade do |t|
@@ -56,6 +69,16 @@ ActiveRecord::Schema.define(version: 20150203195525) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tracks", force: :cascade do |t|
+    t.string   "external_link"
+    t.string   "artist"
+    t.float    "track_length"
+    t.string   "track_name"
+    t.string   "artwork_url"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
