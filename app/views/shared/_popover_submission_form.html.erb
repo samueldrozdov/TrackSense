@@ -1,14 +1,22 @@
 <div class="col-md-12 submission-form-wrapper">
   <h2 class="submission-form-header">Post a song</h2>
+</br>
+  <div class="submission-group-dropdown" style="margin: 0px 10px; padding: 10px 5px; border-bottom: 2px solid black;">
+    <span style="color: white;">Group   :</span>
+    <% if current_user.all_groups.empty? %>
+      <%= link_to 'Not in any groups', groups_path %>
+    <% elsif %>
+      <%= fields_for :groups do |nested_f| %>
+        <%= nested_f.collection_select(:name, current_user.all_groups, :id, :name) %>
+      <% end %>
+    <% end %>
+  </div>
   <% if logged_in? %>
     <div class="form-wrapper">
       <% sub = current_user.submissions.build %>
       <%= form_for(sub) do |f| %>
         <%= fields_for :tracks do |nested_f| %>
           <%= nested_f.text_field :external_link, class: 'form-control', placeholder: "Soundcloud URL"  %>
-        <% end %>
-        <%= fields_for :groups do |nested_f| %>
-          <%= nested_f.collection_select(:name, current_user.all_groups, :id, :name) %>
         <% end %>
         <div class="col-md-12" style="padding: 0px;">
           <%= fields_for :tags do |nested_f| %>
