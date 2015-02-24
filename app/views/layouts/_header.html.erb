@@ -38,18 +38,18 @@
         <li class="nav-item">
           <% if logged_in? %>
             <a class="fancybox" href="#submission-form" style="padding:0px;">
-                <%= image_tag("TSAdd.png", class: 'nav-add') %>
+                <%= image_tag("TSAddSong.png", class: 'nav-add') %>
             </a>
           <% else %>
             <a class="fancybox" href="#login-form" style="padding:0px;">
-              <%= image_tag("TSAdd.png", class: 'nav-add') %>
+              <%= image_tag("TSAddSong.png", class: 'nav-add') %>
             </a>
           <% end %>
         </li>
         <% if logged_in? %>
           <li>
             <a class="fancybox" href="#group-form" style="padding:0px;">
-              <%= image_tag("TSAdd.png", class: 'nav-add') %>
+              <%= image_tag("TSAddGroup.png", class: 'nav-add') %>
             </a>
           </li>
         <% end %>
