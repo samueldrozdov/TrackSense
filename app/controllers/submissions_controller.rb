@@ -59,7 +59,7 @@ include TracksHelper
     end
 
     #create submission from track id
-    group = Group.find_by(name: submission_params[:name])
+    group = Group.find(params[:groups][:name])
     @submission = current_user.submissions.build({ track_id: track_id,
                                                    group_id: group.id })
 
