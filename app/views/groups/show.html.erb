@@ -1,6 +1,7 @@
 <div class="main-content">
   <div class="tag-header">
     <div class="tag-header-column">
+      <%= link_to 'Back', groups_path %>
     </div>
     <div class="tag-header-column">
       <h2 class="tag-title"><%= @group.name %></h2>
@@ -14,17 +15,3 @@
     <%= render @submissions %>
   </div>
 </div>
-
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-  <p>Created by: <%= @owner.username %></p>
-</p>
-
-<%= render 'member_form' if logged_in? %>
-
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
