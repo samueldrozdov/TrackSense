@@ -42,16 +42,10 @@ ActiveRecord::Schema.define(version: 20150204032744) do
     t.datetime "updated_at",             null: false
     t.string   "name"
     t.integer  "user_id"
-<<<<<<< HEAD
-    t.integer  "likes",         default: 0
-    t.string   "artwork_url"
-    t.integer  "play_count",    default: 1
-=======
     t.integer  "likes",      default: 0
     t.integer  "group_id"
     t.integer  "track_id"
     t.integer  "play_count", default: 0
->>>>>>> new_development
   end
 
   create_table "tag_relationships", force: :cascade do |t|
