@@ -1,27 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Groups</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="main-content">
+  <div class="tag-header">
+    <div class="tag-header-column">
+      <h2 class="tag-title">Groups</h2><%= link_to 'New Group', new_group_path %>
+    </div>
+  </div>
+  <div class="tag-box-wrapper">
     <% @groups.each do |group| %>
-      <tr>
+      <div class="tag-box">
+        <div class="tag-label"><%= link_to group.name, group_name_path(group.name), class: "tag-inner-label" %></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!--
         <td><%= group.name %></td>
         <td><%= link_to 'Show', group_name_path(group.name) %></td>
         <td><%= link_to 'Edit', edit_group_path(group) %></td>
         <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Group', new_group_path %>
+-->
