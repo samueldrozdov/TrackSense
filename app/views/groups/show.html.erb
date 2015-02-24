@@ -1,3 +1,21 @@
+<div class="main-content">
+  <div class="tag-header">
+    <div class="tag-header-column">
+    </div>
+    <div class="tag-header-column">
+      <h2 class="tag-title"><%= @group.name %></h2>
+    </div>
+    <div class="tag-header-column">
+      Created by: <%= @owner.username %>
+      <%= render 'member_form' if logged_in? %>
+    </div>
+  </div>
+  <div class="main-feed-wrapper">
+    <%= render @submissions %>
+  </div>
+</div>
+
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -7,13 +25,6 @@
 </p>
 
 <%= render 'member_form' if logged_in? %>
-
-<div class="main-content">
-  <div class="main-feed-wrapper">
-    <%= render @submissions %>
-  </div>
-</div>
-
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
 <%= link_to 'Back', groups_path %>
