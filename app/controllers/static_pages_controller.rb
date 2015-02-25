@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
+    @submissions = Track.limit(10).order(priority: :desc)
   end
 
   def about

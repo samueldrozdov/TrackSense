@@ -1,0 +1,32 @@
+<div class="submission-wrapper" id="submission-<%= track.id %>">
+  <div class="submission-left-col-wrapper">
+    <div class="submission-play-btn-wrapper" style="background:url(<%= track.artwork_url %>); background-size:100% 100%;">
+      <div class="submission-play-btn glyphicon glyphicon-play bind-map" id="<%= track.external_link %>"></div>
+    </div>
+    <div class="submission-plays-label">
+      <% playCount = track.total_plays.to_i %>
+      <% if playCount > 0 %>
+        plays <%= playCount %>
+      <% else %>
+        plays 0
+      <% end %>
+    </div>
+  </div>
+
+  <div class="submission-info-wrapper">
+    <h3 class="submission-artist"> <%= track.artist %> <h3>
+    <h2 class="submission-name">
+      <a class="song-name" href="<%= track.external_link %>" style="color:black"> <%= track.track_name %> </a>
+    </h2>
+  </div>
+
+  <div class="submission-right-col-wrapper">
+    <div class="submission-users-wrapper" id="popover" data-trigger="hover" data-toggle="tooltip" rel="popover" data-placement="left" title="shared by someone">
+      <%= link_to image_for_user(User.find(1), "submission-poster"), "/users/1" %>
+    </div>
+    <div class="submission-vote-wrapper">
+      <span  class="vote-count" id="submission-<%= track.id %>-vote"><%= track.priority %></span>
+    </div>
+  </div>
+
+</div>

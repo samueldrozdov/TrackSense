@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204032744) do
+ActiveRecord::Schema.define(version: 20150225232550) do
 
   create_table "genres", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -71,8 +71,10 @@ ActiveRecord::Schema.define(version: 20150204032744) do
     t.float    "track_length"
     t.string   "track_name"
     t.string   "artwork_url"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "priority",      default: 0
+    t.integer  "total_plays",   default: 0
   end
 
   create_table "users", force: :cascade do |t|
