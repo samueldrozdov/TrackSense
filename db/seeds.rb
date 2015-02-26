@@ -9,31 +9,89 @@
 
 sam = User.create!(username: 'sam', email: 'sam@example.com', password: 'password', password_confirmation: 'password')
 
-sam.submissions.build(external_link: 'https://soundcloud.com/odesza/sia-big-girls-cry-odesza-remix',
-                      name: "Big Girls Cry (ODESZA remix)",
-                      artist: 'ODESZA',
-                      track_length: 266).save
+group1 = Group.create!(name: 'Test Group', owner_id: sam.id)
+sam.join(group1)
+group1.save
 
-sam.submissions.build(external_link: 'https://soundcloud.com/user7941120/queen-we-will-rock-you',
-                      artist: 'Queen',
-                      name: 'We Will Rock You',
-                      track_length: 187).save
+group2 = Group.create!(name: 'Super Awesome Mega Group', owner_id: sam.id)
+sam.join(group2)
+group2.save
 
-sam.submissions.build(external_link: 'https://soundcloud.com/umesongs/scorpions-rock-you-like-a',
-                      artist: 'Scorpions',
-                      name: 'Rock You Like a Hurricane',
-                      track_length: 101).save
+group3 = Group.create!(name: 'Lame Stupid Group', owner_id: sam.id)
+sam.join(group3)
+group3.save
 
-sub = sam.submissions.build(external_link: 'https://soundcloud.com/arayeofcolours/hotbox',
-                            artist: 'RAYE.',
-                            name: 'Hotbox',
-                            track_length: 255)
-sub.created_at = 1.day.ago
-sub.save
+track1 = Track.create!(
+        external_link: "https://soundcloud.com/usher-raymond-music/usher-i-dont-mind-feat-juicy-j",
+        artist: "Usher Raymond Music",
+        track_length: 200,
+        track_name: "Usher - I Don't Mind feat. Juicy J",
+        artwork_url: "https://i1.sndcdn.com/artworks-000098222482-ilxm2s-large.jpg"
+)
+Submission.create!(
+        name: track1.track_name,
+        user_id: sam.id,
+        group_id: group1.id,
+        track_id: track1.id
+).save
+track1.save
 
-sub2 = sam.submissions.build(external_link: 'https://soundcloud.com/siloarts/mpa-water-lyf',
-                             artist: 'Silo Arts & Records',
-                             name: 'Motion Picture Actress - Water Lyf (feat. Keiiko)',
-                             track_length: 271)
-sub2.created_at = 2.days.ago
-sub2.save
+track2 = Track.create(
+        external_link: "https://soundcloud.com/mmmusic/mark-ronson-uptown-funk",
+        artist: "MMMusic",
+        track_length: 201,
+        track_name: "Mark Ronson- Uptown Funk",
+        artwork_url: "https://i1.sndcdn.com/artworks-000099014702-k1huxu-large.jpg"
+)
+Submission.create(
+        name: track2.track_name,
+        user_id: sam.id,
+        group_id: group2.id,
+        track_id: track2.id
+).save
+track2.save
+
+track3 = Track.create(
+        external_link: "https://soundcloud.com/octobersveryown/makonnen-ft-drake-tuesday",
+        artist: "octobersveryown",
+        track_length: 223,
+        track_name: "ILOVEMAKONNEN ~ Tuesday Feat. Drake",
+        artwork_url: "https://i1.sndcdn.com/artworks-000089711243-lyy02l-large.jpg"
+)
+Submission.create(
+        name: track3.track_name,
+        user_id: sam.id,
+        group_id: group1.id,
+        track_id: track3.id
+).save
+track3.save
+
+track4 = Track.create(
+        external_link: "https://soundcloud.com/samsmithworld/samsmithasaprocky",
+        artist: "SAM SMITH",
+        track_length: 224,
+        track_name: "Sam Smith - I'm Not The Only One feat. A$AP Rocky",
+        artwork_url: "https://i1.sndcdn.com/artworks-000090531453-yy72cf-large.jpg"
+)
+Submission.create(
+        name: track4.track_name,
+        user_id: sam.id,
+        group_id: group1.id,
+        track_id: track4.id
+).save
+track4.save
+
+track5 = Track.create(
+        external_link: "https://soundcloud.com/missfinesse/the-weeknd-earned-it-1",
+        artist: "miss finesse",
+        track_length: 226,
+        track_name: "The Weeknd - Earned It",
+        artwork_url: "https://i1.sndcdn.com/artworks-000102990146-hy874z-large.jpg"
+)
+Submission.create(
+        name: track5.track_name,
+        user_id: sam.id,
+        group_id: group3.id,
+        track_id: track5.id
+).save
+track5.save
