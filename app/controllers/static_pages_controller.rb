@@ -2,6 +2,7 @@ class StaticPagesController < ApplicationController
 
   def home
     @submissions = Track.limit(10).order(priority: :desc)
+    @groups = Group.limit(5).where(is_public: 1).order(popularity: :desc)
   end
 
   def about
