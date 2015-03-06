@@ -1,15 +1,17 @@
 <% provide(:title, "Track Sense") %>
 <div class="main-content">
   <div class="main-feed-wrapper">
-    <div class="load-feed-wrapper">
-      <div class="col-md-4"></div>
-      <h2 class="col-md-4 load-feed-button">
-        <p>Top Tracks</p>
+    <div class="">
+        <p style="margin: 0px; padding: 0px; margin-top: 10px;">Popular Groups</p>
+        <div class="tag-box-wrapper" style="margin-top: 0px; padding-top: 0px;">
+          <% @groups.each do |group| %>
+            <div class="tag-box">
+              <div class="tag-label"><%= link_to group.name, group_name_path(group.name), class: "tag-inner-label" %></div>
+            </div>
+          <% end %>
+        </div>
+        <p style="clear:left; margin: 10px; margin-left: 0px;">Top Tracks</p>
         <%= render @submissions %>
-        <p>Popular Groups</p>
-        <%= render @groups %>
-      </h2>
-      <div class="col-md-4"></div>
     </div>
   </div>
 </div>
