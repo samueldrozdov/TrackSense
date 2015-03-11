@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226000958) do
+ActiveRecord::Schema.define(version: 20150311180636) do
 
   create_table "genres", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20150226000958) do
     t.datetime "updated_at",                null: false
     t.integer  "priority",      default: 0
     t.integer  "total_plays",   default: 0
+    t.integer  "discovered_by", default: 0
   end
 
   create_table "users", force: :cascade do |t|

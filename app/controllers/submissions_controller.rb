@@ -46,7 +46,8 @@ include TracksHelper
                                       artist: artist,
                                 track_length: track_length,
                                   track_name: name,
-                                 artwork_url: artwork_url })
+                                 artwork_url: artwork_url,
+                               discovered_by: current_user.id })
 
       if @track.save
         #can now create submission from track

@@ -21,11 +21,18 @@
   </div>
 
   <div class="submission-right-col-wrapper">
-    <div class="submission-users-wrapper" id="popover" data-trigger="hover" data-toggle="tooltip" rel="popover" data-placement="left" title="shared by someone">
-      <%= link_to image_for_user(User.find(1), "submission-poster"), "/users/1" %>
+    <% columbus = track.discovered_by > 0 ? User.find(track.discovered_by).username : "someone" %>
+    <div class="submission-users-wrapper" id="popover" data-trigger="hover" data-toggle="tooltip" rel="popover" data-placement="left" title="discovered by <%= columbus %>">
+      <%= link_to image_for_user(User.find(track.discovered_by), "submission-poster"), user_path(track.discovered_by) %>
     </div>
     <div class="submission-vote-wrapper">
-      <span  class="vote-count" id="submission-<%= track.id %>-vote"><%= track.priority %></span>
+      <% if logged_in? %>
+        <% vote = track.votes.where(user_id: current_user.id).take || current_user.votes.build(votable_id: track.id, votable_type: :Track) %>
+      <% else %>
+        <% vote = Vote.new %>
+      <% end %>
+      <%= render vote %>
+      <span class="vote-count" id="submission-<%= track.id %>-vote"><%= track.priority %></span>
     </div>
   </div>
 
