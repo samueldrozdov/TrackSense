@@ -25,11 +25,15 @@ class User < ActiveRecord::Base
   #joins a group
   def join(group)
     memberships.create!(group_id: group.id)
+    group.popularity = group.popularity + 1
   end
 
   #leaves a group
   def leave(group)
     memberships.find_by(group_id: group.id).destroy
+    if group.popularity > 0
+      group.popularity = group.popularity - 1
+    end  
   end
 
   def all_groups
