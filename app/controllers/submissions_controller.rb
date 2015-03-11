@@ -96,14 +96,13 @@ include TracksHelper
     redirect_to root_url
   end
 
-  def incrementPC
+  def increment_play_count
     song = Submission.find(params[:id])
     if !song.play_count
       song.play_count = 1
     end
     song.play_count = song.play_count + 1
     song.save
-    render_text song.play_count
   end
 
   private

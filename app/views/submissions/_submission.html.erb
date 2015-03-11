@@ -3,7 +3,7 @@
     <div class="submission-play-btn-wrapper" style="background:url(<%= submission.track.artwork_url %>); background-size:100% 100%;">
       <div class="submission-play-btn glyphicon glyphicon-play bind-map" id="<%= submission.track.external_link %>"></div>
     </div>
-    <div class="submission-plays-label">
+    <div class="submission-plays-label" id="plays-label-<%=submission.id%>">
       <% playCount = submission.play_count.to_i %>
       <% if playCount > 0 %>
         plays <%= playCount %>

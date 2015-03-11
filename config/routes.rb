@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'tags/show'
 
-  post 'increment/:id' => 'submissions#incrementPC'
+  post 'increment/:id' => 'submissions#increment_play_count'
 
   get 'tags/create'
 
