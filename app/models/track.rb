@@ -12,4 +12,18 @@ class Track < ActiveRecord::Base
   validates :external_link, presence: true, uniqueness: { case_sensitive: false }, format: { with: VALID_URL_REGEX }
   validates :track_name, presence: true, uniqueness: { case_sensitive: false }
 
+  #background task that decays tracks popularity
+  def self.update_priority
+
+    Track.find_each do |track|
+
+      penalty = track.priority / 10
+      votes = Vote.where(votable_id: track.id, votable_type: :Track).count
+      track.priority = votes - penalty < 0 ? 0 : (votes - penalty)
+      track.save
+
+    end
+
+  end
+
 end
