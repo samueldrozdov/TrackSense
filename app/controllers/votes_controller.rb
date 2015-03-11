@@ -43,6 +43,8 @@ class VotesController < ApplicationController
 
     if params[:votable_type] = :Submission
       Submission.find(params[:votable_id]).update_likes
+    elsif params[:votable_type] = :Track
+
     end
   end
 end

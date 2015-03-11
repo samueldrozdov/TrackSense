@@ -16,7 +16,8 @@
   <div class="submission-info-wrapper">
     <h3 class="submission-artist"> <%= submission.track.artist %> <h3>
     <h2 class="submission-name">
-      <a class="song-name" href="<%= submission.track.external_link %>" style="color:black"> <%= submission.name %> </a>
+      <% displayName = submission.name ? submission.name : submission.track.track_name %>
+      <a class="song-name" href="<%= submission.track.external_link %>" style="color:black"> <%= displayName %> </a>
     </h2>
     <div class="submission-tags">
       <% @tagList = submission.tags %>
@@ -32,7 +33,7 @@
     </div>
     <div class="submission-vote-wrapper">
       <% if logged_in? %>
-        <% vote = submission.votes.where(user_id: current_user.id).take || current_user.votes.build(votable_id: submission.id, votable_type: :Submission) %>
+        <% vote = submission.track.votes.where(user_id: current_user.id).take || current_user.votes.build(votable_id: submission.track.id, votable_type: :Track) %>
       <% else %>
         <% vote = Vote.new %>
       <% end %>
