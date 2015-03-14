@@ -5,9 +5,13 @@
         <p style="margin: 0px; padding: 0px; margin-top: 10px;">Popular Groups</p>
         <div class="tag-box-wrapper" style="margin-top: 0px; padding-top: 0px;">
           <% @groups.each do |group| %>
+            <%= link_to group_name_path(group.name) do %>
             <div class="tag-box">
-              <div class="tag-label"><%= link_to group.name, group_name_path(group.name), class: "tag-inner-label" %></div>
+              <div class="tag-label">
+                <div class="tag-inner-label"><%= group.name %></div>
+              </div>
             </div>
+            <% end %>
           <% end %>
         </div>
         <p style="clear:left; margin: 10px; margin-left: 0px;">Top Tracks</p>

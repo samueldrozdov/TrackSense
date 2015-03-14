@@ -9,9 +9,13 @@
   </div>
   <div class="tag-box-wrapper">
     <% @groups.each do |group| %>
+      <%= link_to group_name_path(group.name) do %>
       <div class="tag-box">
-        <div class="tag-label"><%= link_to group.name, group_name_path(group.name), class: "tag-inner-label" %></div>
+        <div class="tag-label">
+          <div class="tag-inner-label"><%= group.name %></div>
+        </div>
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>
