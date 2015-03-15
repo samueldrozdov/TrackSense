@@ -1,0 +1,5 @@
+<% if current_user.likes_track?(track) %>
+  <%= render 'votes/downvote', track: track, vote: Vote.find_by(votable_id: track.id, user_id: current_user.id)  %>
+<% else %>
+  <%= render 'votes/upvote', track: track %>
+<% end %>
