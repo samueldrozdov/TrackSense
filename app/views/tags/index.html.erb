@@ -7,9 +7,13 @@
   </div>
   <div class="tag-box-wrapper">
     <% @all_tags.each do |tag| %>
+      <%= link_to "tag/#{tag.name}" do %>
       <div class="tag-box">
-        <div class="tag-label"><%= link_to tag.name, "tag/#{tag.name}", class: "tag-inner-label" %></div>
+        <div class="tag-label">
+          <div class="tag-inner-label"><%= tag.name %></div>
+        </div>
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>
