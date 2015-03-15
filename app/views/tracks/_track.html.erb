@@ -25,14 +25,14 @@
     <div class="submission-users-wrapper" id="popover" data-trigger="hover" data-toggle="tooltip" rel="popover" data-placement="left" title="discovered by <%= columbus %>">
       <%= link_to image_for_user(User.find(track.discovered_by), "submission-poster"), user_path(track.discovered_by) %>
     </div>
-    <div class="submission-vote-wrapper">
+    <div class="submission-vote-wrapper" id="vote-form-<%= track.id %>">
       <% if logged_in? %>
-        <% vote = track.votes.where(user_id: current_user.id).take || current_user.votes.build(votable_id: track.id, votable_type: :Track) %>
+        <%= render 'votes/vote', track: track %>
       <% else %>
-        <% vote = Vote.new %>
+        <a class="fancybox like-button" href="#login-form" style="padding:0px;">
+          <i class="vote-icon glyphicon glyphicon-heart"></i>
+        </a>
       <% end %>
-      <%= render vote %>
-      <span class="vote-count" id="submission-<%= track.id %>-vote"><%= track.priority %></span>
     </div>
   </div>
 

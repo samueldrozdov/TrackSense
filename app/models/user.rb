@@ -2,10 +2,11 @@ class User < ActiveRecord::Base
   attr_accessor :remember_token
 
   has_many :submissions
-  has_many :votes
-  has_many :voted_submissions, through: :votes, source: :votable, source_type: :Submission
-  has_many :memberships, class_name: "GroupRelationship",
-                          dependent: :destroy
+
+  has_many :votes, class_name: "Vote", dependent: :destroy
+  has_many :memberships, class_name: "GroupRelationship", dependent: :destroy
+
+  has_many :voted_submissions, through: :votes, source: :votable, source_type: :Track
   has_many :groups, through: :memberships, source: :user
 
   before_save { self.email = email.downcase }
@@ -33,11 +34,23 @@ class User < ActiveRecord::Base
     memberships.find_by(group_id: group.id).destroy
     if group.popularity > 0
       group.popularity = group.popularity - 1
-    end  
+    end
   end
 
   def all_groups
     memberships.collect { |a| a.group }
+  end
+
+  def like_track(track)
+    votes.create!(votable_id: track.id, votable_type: :Track)
+  end
+
+  def unlike_track(track)
+    votes.find_by(votable_id: track.id).destroy
+  end
+
+  def likes_track?(track)
+    voted_submissions.include?(track)
   end
 
   # --Security methods--

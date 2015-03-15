@@ -1,27 +1,2 @@
-<% if logged_in? %>
-  <% if vote.id %>
-    <%= form_for(vote, remote: true, method: :delete) do |f| %>
-      <%= hidden_field_tag :id, vote.id %>
-      <%= hidden_field_tag :user_id, current_user.id %>
-      <%= hidden_field_tag :votable_id, vote.votable_id %>
-      <%= hidden_field_tag :votable_type, vote.votable_type %>
-      <%= button_tag(type: 'submit', class: "like-button") do %>
-        <i class="vote-icon glyphicon glyphicon-heart voted"></i>
-      <% end %>
-    <% end %>
-  <% else %>
-    <%= form_for(vote, remote: true) do |f| %>
-      <%= hidden_field_tag :id, vote.id %>
-      <%= hidden_field_tag :user_id, current_user.id %>
-      <%= hidden_field_tag :votable_id, vote.votable_id %>
-      <%= hidden_field_tag :votable_type, vote.votable_type %>
-      <%= button_tag(type: 'submit', class: "like-button") do %>
-        <i class="vote-icon glyphicon glyphicon-heart"></i>
-      <% end %>
-    <% end %>
-  <% end %>
-<% else %>
-  <a class="fancybox like-button" href="#login-form" style="padding:0px;">
-    <i class="vote-icon glyphicon glyphicon-heart"></i>
-  </a>
-<% end %>
+<%= render 'votes/vote_form', track: track %>
+<span class="vote-count" id="submission-<%= track.id %>-vote"><%= track.votes.count %></span>
